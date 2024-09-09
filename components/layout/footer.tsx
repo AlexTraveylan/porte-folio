@@ -1,0 +1,69 @@
+"use client"
+
+import { githubUrl, linkedinUrl, myEmail, twitterUrl } from "@/lib/constants"
+import { useScopedI18n } from "@/locales/client"
+import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+
+const Footer = () => {
+  const [quote, setQuote] = useState("")
+  const scopedI18n = useScopedI18n("footer")
+
+  useEffect(() => {
+    const quotes = [
+      "Le code est poésie.",
+      "La vie est un débogage constant.",
+      "Chaque bug est une opportunité d'apprentissage.",
+      "Le meilleur code est celui qui n'a pas besoin de commentaires.",
+    ]
+    setQuote(quotes[Math.floor(Math.random() * quotes.length)])
+  }, [])
+
+  return (
+    <footer className="bg-background py-8 px-6 mt-12">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-lg font-semibold mb-4">
+            {scopedI18n("contact")}
+          </h3>
+          <Link
+            href={`mailto:${myEmail}`}
+            className="flex items-center gap-2 text-muted-foreground hover:text-secondary transition-colors"
+          >
+            <Mail size={18} />
+            {myEmail}
+          </Link>
+          <div className="flex items-center gap-2 mt-2 text-muted-foreground">
+            <MapPin size={18} />
+            {"Bordeaux, France"}
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <h3 className="text-lg font-semibold mb-4">{scopedI18n("quote")}</h3>
+          <p className="text-center italic text-muted-foreground">{`"${quote}"`}</p>
+        </div>
+
+        <div className="flex flex-col items-center md:items-end">
+          <h3 className="text-lg font-semibold mb-4">{scopedI18n("follow")}</h3>
+          <div className="flex gap-4">
+            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <Github className="text-muted-foreground hover:text-secondary transition-colors" />
+            </Link>
+            <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+              <Linkedin className="text-muted-foreground hover:text-secondary transition-colors" />
+            </Link>
+            <Link href={twitterUrl} target="_blank" rel="noopener noreferrer">
+              <Twitter className="text-muted-foreground hover:text-secondary transition-colors" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 text-center text-sm">{scopedI18n("right")}</div>
+    </footer>
+  )
+}
+
+export default Footer
