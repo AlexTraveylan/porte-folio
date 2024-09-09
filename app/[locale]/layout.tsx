@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/footer"
 import Header from "@/components/layout/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { I18nProviderClient } from "@/locales/client"
@@ -20,17 +21,18 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <I18nProviderClient locale={locale}>
+        <I18nProviderClient locale={locale}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <Header />
             {children}
-          </I18nProviderClient>
-        </ThemeProvider>
+            <Footer />
+          </ThemeProvider>
+        </I18nProviderClient>
       </body>
     </html>
   )
