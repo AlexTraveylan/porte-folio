@@ -9,5 +9,5 @@ export default function SubLayout({
   params: { locale: string }
   children: ReactElement
 }) {
-  return <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
+  return
 }

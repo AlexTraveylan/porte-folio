@@ -1,4 +1,6 @@
+import Header from "@/components/layout/header"
 import { ThemeProvider } from "@/components/theme-provider"
+import { I18nProviderClient } from "@/locales/client"
 import type { Metadata } from "next"
 import "./globals.css"
 
@@ -24,7 +26,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <I18nProviderClient locale={locale}>
+            <Header />
+            {children}
+          </I18nProviderClient>
         </ThemeProvider>
       </body>
     </html>
