@@ -32,4 +32,18 @@ export default {
   "projects.paroleAuxParents":
     "A web application that allows preparing school council advice with parent questions.",
   "projects.passwordGuard": "A secure web application to manage passwords.",
+  "home.services": "Services offered",
+  "home.development": "Development",
+  "home.webDevelopment": "Web Development",
+  "home.websiteCreation": "Website Creation",
+  "home.ecommerce": "E-commerce Website",
+  "home.customWebApp": "Custom Web Application",
+  "home.maintenance": "Maintenance",
+  "home.websiteImprovement": "Website Improvement",
+  "home.seoOptimization": "SEO Optimization",
+  "home.addFeatures": "Add Features",
+  "home.bugFixes": "Bug Fixes",
+  "home.software": "Software",
+  "home.pythonSoftware": "Python Software Development",
+  "home.botDiscord": "Discord Bot Development",
 } as const

@@ -34,4 +34,18 @@ export default {
     "Une application web qui permet de préparer les conseils d'école avec les questions des parents.",
   "projects.passwordGuard":
     "Une application web gestionnaire de mots de passe sécurisée.",
+  "home.services": "Services proposés",
+  "home.development": "Développement",
+  "home.webDevelopment": "Développement web",
+  "home.websiteCreation": "Création de site internet",
+  "home.ecommerce": "Site de e-commerce",
+  "home.customWebApp": "Application web sur mesure",
+  "home.maintenance": "Maintenance",
+  "home.websiteImprovement": "Amélioration de site web existant",
+  "home.seoOptimization": "Optimisation SEO",
+  "home.addFeatures": "Ajout de fonctionnalités",
+  "home.bugFixes": "Correction de bugs",
+  "home.software": "Logiciel",
+  "home.pythonSoftware": "Développement de logiciels en Python",
+  "home.botDiscord": "Développement de bots Discord",
 } as const
