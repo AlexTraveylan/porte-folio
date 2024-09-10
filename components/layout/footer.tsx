@@ -37,8 +37,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-background py-8 px-6 mt-12">
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="flex flex-col items-center md:items-start">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center lg:items-start">
           <h3 className="text-lg font-semibold mb-4">
             {scopedI18n("contact")}
           </h3>
@@ -62,7 +62,7 @@ const Footer = () => {
           )}"`}</p>
         </div>
 
-        <div className="flex flex-col items-center md:items-end">
+        <div className="flex flex-col items-center lg:items-end">
           <h3 className="text-lg font-semibold mb-4">{scopedI18n("follow")}</h3>
           <div className="flex gap-4">
             <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer">

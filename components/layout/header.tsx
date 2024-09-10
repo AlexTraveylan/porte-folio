@@ -31,7 +31,7 @@ const Header = () => {
         aria-label={t(navItems["home"].i18Aria)}
         className="text-2xl font-bold text-foreground"
       >
-        AlexTravelan
+        AlexTraveylan
       </Link>
 
       <nav

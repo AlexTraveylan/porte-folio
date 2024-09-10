@@ -39,19 +39,21 @@ export function ProjectCard({
   const scopedT = useScopedI18n("projects")
 
   return (
-    <Card>
-      <CardHeader className="flex flex-col items-center gap-1">
+    <Card className="flex flex-col h-full">
+      <CardHeader className="flex-shrink-0 flex flex-col items-center gap-1">
         <Image
           src={imageUrl}
           alt={name}
           width={400}
           height={200}
-          className="rounded-lg"
+          className="rounded-lg object-cover w-full h-48"
         />
         <CardTitle>{name}</CardTitle>
-        <CardDescription>{scopedT(descriptionI18nKey)}</CardDescription>
+        <CardDescription className="text-center">
+          {scopedT(descriptionI18nKey)}
+        </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-grow overflow-auto">
         <div className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
             <Badge key={index} variant="secondary">
@@ -60,7 +62,7 @@ export function ProjectCard({
           ))}
         </div>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter className="flex-shrink-0 flex justify-between mt-auto">
         <div className="flex gap-2">
           {repoLinks.map((link, index) => (
             <Button key={index} variant="outline" size="icon" asChild>

@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { useEffect, useRef, useState } from "react"
 import { ProjectCard, ProjectCardProps } from "./project-card"
 
 const projects: ProjectCardProps[] = [
@@ -88,12 +89,40 @@ const projects: ProjectCardProps[] = [
 ]
 
 export function ProjectCarousel() {
+  const [maxHeight, setMaxHeight] = useState(0)
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const updateMaxHeight = () => {
+      const heights = cardsRef.current.map(
+        (card) => card?.getBoundingClientRect().height ?? 0
+      )
+      const newMaxHeight = Math.max(...heights)
+      setMaxHeight(newMaxHeight)
+    }
+
+    updateMaxHeight()
+    window.addEventListener("resize", updateMaxHeight)
+
+    return () => {
+      window.removeEventListener("resize", updateMaxHeight)
+    }
+  }, [])
+
   return (
-    <Carousel className="w-full max-w-xl">
+    <Carousel className="w-full">
       <CarouselContent>
         {projects.map((project, index) => (
-          <CarouselItem key={index}>
-            <ProjectCard {...project} />
+          <CarouselItem key={index} className="sm:basis-1/2">
+            <div
+              ref={(el) => {
+                cardsRef.current[index] = el
+              }}
+              style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
+              className="p-1"
+            >
+              <ProjectCard {...project} />
+            </div>
           </CarouselItem>
         ))}
       </CarouselContent>
