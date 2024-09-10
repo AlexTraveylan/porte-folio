@@ -28,7 +28,7 @@ const quotes: QuoteKey[] = [
 ]
 
 const Footer = () => {
-  const [quote, setQuote] = useState<string>("")
+  const [quote, setQuote] = useState<QuoteKey>("quotes.1")
   const scopedI18n = useScopedI18n("footer")
 
   useEffect(() => {
