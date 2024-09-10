@@ -19,4 +19,7 @@ export default {
   "faq.aria": "Link to the FAQ page",
   "contact.label": "Contact",
   "contact.aria": "Link to the contact page",
+  "home.title": "Full Stack Python Developer",
+  "home.description":
+    "I'm Timothée Demares (alias Alex Travelan), a passionate python web developer in France. My specialty is developing apis in python (FastAPI, Django, Flask) with a front in typescript (React, Next.js)",
 } as const

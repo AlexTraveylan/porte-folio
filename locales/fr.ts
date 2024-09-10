@@ -20,4 +20,7 @@ export default {
   "faq.aria": "Lien vers la page FAQ",
   "contact.label": "Contact",
   "contact.aria": "Lien vers la page de contact",
+  "home.title": "Développeur Full Stack Python",
+  "home.description":
+    "Je suis Timothée Demares (alias Alex Traveylan), développeur web passioné python en France. Ma spécialité est le développement d'api en python (FastAPI, Django, Flask) avec un front en typescript (React, Next.js) ",
 } as const

@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale}>
-      <body className={cn("", inter.className)}>
+      <body className={cn("container mx-auto", inter.className)}>
         <I18nProviderClient locale={locale}>
           <ThemeProvider
             attribute="class"
