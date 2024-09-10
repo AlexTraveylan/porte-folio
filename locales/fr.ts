@@ -12,4 +12,12 @@ export default {
   "footer.quotes.6": "Le code est la réponse à la question.",
   "footer.quotes.7": "La programmation est l'art de résoudre des problèmes.",
   "footer.quotes.8": "Je ne perds jamais. Soit je gagne, soit j'apprends.",
+  "home.label": "Accueil",
+  "home.aria": "Lien vers la page d'accueil",
+  "projects.label": "Projets",
+  "projects.aria": "Lien vers la page des projets",
+  "faq.label": "FAQ",
+  "faq.aria": "Lien vers la page FAQ",
+  "contact.label": "Contact",
+  "contact.aria": "Lien vers la page de contact",
 } as const

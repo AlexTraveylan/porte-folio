@@ -1,6 +1,7 @@
 "use client"
 
-import { useChangeLocale, useCurrentLocale } from "@/locales/client"
+import { navItems } from "@/lib/navigation"
+import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client"
 import { Menu, Moon, Sun, X } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
@@ -12,6 +13,7 @@ const Header = () => {
   const changeLocale = useChangeLocale()
   const currentLocale = useCurrentLocale()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const t = useI18n()
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
@@ -61,23 +63,20 @@ const Header = () => {
       </div>
 
       <nav
-        className={`absolute top-full left-0 right-0 bg-background md:bg-transparent md:static ${
+        className={`absolute top-10 right-0 bg-background md:bg-transparent md:static ${
           isMenuOpen ? "block" : "hidden"
         } md:block mt-4 md:mt-0`}
       >
         <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 p-4 md:p-0">
-          {["Accueil", "Projets", "À propos", "Contact"].map((item) => (
-            <li key={item}>
+          {Object.values(navItems).map((item) => (
+            <li key={item.i18nKey}>
               <Link
-                href={
-                  item === "Accueil"
-                    ? "/"
-                    : `/${item.toLowerCase().replace(" ", "-")}`
-                }
+                href={item.href}
+                aria-label={t(item.i18Aria)}
                 className="text-muted-foreground hover:text-foreground block md:inline"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item}
+                {t(item.i18nKey)}
               </Link>
             </li>
           ))}
