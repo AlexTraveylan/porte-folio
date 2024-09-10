@@ -44,7 +44,7 @@ const Footer = () => {
           </h3>
           <Link
             href={`mailto:${myEmail}`}
-            className="flex items-center gap-2 text-muted-foreground hover:text-secondary transition-colors"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
             <Mail size={18} />
             {myEmail}
@@ -65,14 +65,14 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-end">
           <h3 className="text-lg font-semibold mb-4">{scopedI18n("follow")}</h3>
           <div className="flex gap-4">
-            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="text-muted-foreground hover:text-secondary transition-colors" />
-            </Link>
             <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-              <Linkedin className="text-muted-foreground hover:text-secondary transition-colors" />
+              <Linkedin className="text-blue-800 hover:text-blue-600 hover:scale-110 transition-all" />
+            </Link>
+            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <Github className="hover:text-muted-foreground secondary hover:scale-110 transition-all" />
             </Link>
             <Link href={twitterUrl} target="_blank" rel="noopener noreferrer">
-              <Twitter className="text-muted-foreground hover:text-secondary transition-colors" />
+              <Twitter className=" text-blue-500 hover:text-blue-400 hover:scale-110 transition-all" />
             </Link>
           </div>
         </div>

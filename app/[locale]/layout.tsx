@@ -1,9 +1,13 @@
 import Footer from "@/components/layout/footer"
 import Header from "@/components/layout/header"
 import { ThemeProvider } from "@/components/theme-provider"
+import { cn } from "@/lib/utils"
 import { I18nProviderClient } from "@/locales/client"
 import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "./globals.css"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "AlexTravelan's Portfolio",
@@ -20,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale}>
-      <body>
+      <body className={cn("", inter.className)}>
         <I18nProviderClient locale={locale}>
           <ThemeProvider
             attribute="class"

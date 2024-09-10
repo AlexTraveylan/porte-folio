@@ -26,7 +26,11 @@ const Header = () => {
 
   return (
     <header className="relative flex justify-between items-center py-4 px-6 bg-background">
-      <Link href="/" className="text-2xl font-bold text-foreground">
+      <Link
+        href={navItems["home"].href}
+        aria-label={t(navItems["home"].i18Aria)}
+        className="text-2xl font-bold text-foreground"
+      >
         AlexTravelan
       </Link>
 
@@ -41,7 +45,7 @@ const Header = () => {
               <Link
                 href={item.href}
                 aria-label={t(item.i18Aria)}
-                className="text-muted-foreground hover:text-foreground block md:inline"
+                className="hover:text-muted-foreground block md:inline"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t(item.i18nKey)}
