@@ -6,17 +6,32 @@ import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
+type QuoteKey =
+  | "quotes.1"
+  | "quotes.2"
+  | "quotes.3"
+  | "quotes.4"
+  | "quotes.5"
+  | "quotes.6"
+  | "quotes.7"
+  | "quotes.8"
+
+const quotes: QuoteKey[] = [
+  "quotes.1",
+  "quotes.2",
+  "quotes.3",
+  "quotes.4",
+  "quotes.5",
+  "quotes.6",
+  "quotes.7",
+  "quotes.8",
+]
+
 const Footer = () => {
-  const [quote, setQuote] = useState("")
+  const [quote, setQuote] = useState<string>("")
   const scopedI18n = useScopedI18n("footer")
 
   useEffect(() => {
-    const quotes = [
-      "Le code est poésie.",
-      "La vie est un débogage constant.",
-      "Chaque bug est une opportunité d'apprentissage.",
-      "Le meilleur code est celui qui n'a pas besoin de commentaires.",
-    ]
     setQuote(quotes[Math.floor(Math.random() * quotes.length)])
   }, [])
 
@@ -42,7 +57,9 @@ const Footer = () => {
 
         <div className="flex flex-col items-center">
           <h3 className="text-lg font-semibold mb-4">{scopedI18n("quote")}</h3>
-          <p className="text-center italic text-muted-foreground">{`"${quote}"`}</p>
+          <p className="text-center italic text-muted-foreground">{`"${scopedI18n(
+            quote
+          )}"`}</p>
         </div>
 
         <div className="flex flex-col items-center md:items-end">
