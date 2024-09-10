@@ -46,4 +46,21 @@ export default {
   "home.software": "Software",
   "home.pythonSoftware": "Python Software Development",
   "home.botDiscord": "Discord Bot Development",
+  "tarifs.title": "Prices",
+  "tarifs.card1.title": "Showcase site",
+  "tarifs.card1.description": "Present a service, a person or a company.",
+  "tarifs.card1.price": "From 400€ HT",
+  "tarifs.card1.services":
+    "1 to 5 pages, Responsive, Contact form, SEO optimized",
+  "tarifs.card2.title": "Custom",
+  "tarifs.card2.description":
+    "Complex site or software, with a database and a back-end logic: e-commerce, discord bot, software, automation, web application.",
+  "tarifs.card2.price": "300€ HT / day",
+  "tarifs.card2.services":
+    "On request, Fully customizable, Maintenance, Production release",
+  "tarifs.card3.title": "Consultant",
+  "tarifs.card3.description":
+    "I can join a project in a company as a consultant for a long or short mission.",
+  "tarifs.card3.price": "On request",
+  "tarifs.card3.services": "Web projects, Software projects, Esn, Startup",
 } as const

@@ -48,4 +48,22 @@ export default {
   "home.software": "Logiciel",
   "home.pythonSoftware": "Développement de logiciels en Python",
   "home.botDiscord": "Développement de bots Discord",
+  "tarifs.title": "Tarifs",
+  "tarifs.card1.title": "Site vitrine",
+  "tarifs.card1.description":
+    "Présente un service, une personne ou une entreprise.",
+  "tarifs.card1.price": "À partir de 400€ HT",
+  "tarifs.card1.services":
+    "1 à 5 pages, Responsive, Formulaire de contact, SEO optimisé",
+  "tarifs.card2.title": "Sur mesure",
+  "tarifs.card2.description":
+    "Site, ou logiciel complexe necessitant une base de donnée et une logique back-end : e-commerce, bot discord, logiciel, automatisation, application web.",
+  "tarifs.card2.price": "300€ HT / jour",
+  "tarifs.card2.services":
+    "Sur devis, Personnalisé, Maintenance, Mise en production",
+  "tarifs.card3.title": "Consultant",
+  "tarifs.card3.description":
+    "Je peux rejoindre un projet dans une entreprise en tant que consultant sur une mission longue ou courte.",
+  "tarifs.card3.price": "Sur devis",
+  "tarifs.card3.services": "Projets web, Projets logiciels, Esn, Startup",
 } as const

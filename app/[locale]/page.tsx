@@ -3,6 +3,7 @@
 import Profile from "@/components/home/profile"
 import { ProjectCarousel } from "@/components/home/project-carousel"
 import Services from "@/components/home/services"
+import { Tarifs } from "@/components/home/tarifs"
 import { useScopedI18n } from "@/locales/client"
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         </h2>
         <ProjectCarousel />
         <Services />
+        <Tarifs />
       </div>
     </div>
   )
