@@ -22,4 +22,5 @@ export default {
   "home.title": "Full Stack Python Developer",
   "home.description":
     "I'm Timothée Demares (alias Alex Travelan), a passionate python web developer in France. My specialty is developing apis in python (FastAPI, Django, Flask) with a front in typescript (React, Next.js)",
+  "home.projects": "My project selection",
 } as const
