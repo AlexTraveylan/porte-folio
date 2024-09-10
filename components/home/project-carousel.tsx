@@ -10,8 +10,7 @@ import { ProjectCard, ProjectCardProps } from "./project-card"
 const projects: ProjectCardProps[] = [
   {
     name: "TaskEqualizer",
-    description:
-      "Une application pour gérer la répartition des tâches dans un foyer.",
+    descriptionI18nKey: "taskEqualizer",
     repoLinks: [
       "https://github.com/AlexTraveylan/taskEqualizer",
       "https://github.com/AlexTraveylan/taskequalizer_front_v2",
@@ -33,8 +32,7 @@ const projects: ProjectCardProps[] = [
   },
   {
     name: "ParentListMaker",
-    description:
-      "Une application pour gérer la création et l'organisation des listes de représentants de parents d'élèves élus.",
+    descriptionI18nKey: "parentListMaker",
     repoLinks: [
       "https://github.com/AlexTraveylan/ParentsListMaker",
       "https://github.com/AlexTraveylan/parent_list_maker_front",
@@ -55,8 +53,7 @@ const projects: ProjectCardProps[] = [
   },
   {
     name: "Math Exerzizer",
-    description:
-      "Application pour générer des exercices de mathématiques aléatoires avec OpenAI.",
+    descriptionI18nKey: "mathExerzizer",
     repoLinks: [
       "https://github.com/AlexTraveylan/math_exerzizer",
       "https://github.com/AlexTraveylan/front-exercizer",
@@ -76,15 +73,14 @@ const projects: ProjectCardProps[] = [
   },
   {
     name: "Parole aux Parents",
-    description:
-      "Une application web qui permet de préparer les conseils d'école avec les questions des parents.",
+    descriptionI18nKey: "paroleAuxParents",
     repoLinks: ["https://github.com/AlexTraveylan/parole-aux-parents"],
     imageUrl: "/paroleAuxParents.png",
     tags: ["Typescript", "React", "Next.js", "Prisma"],
   },
   {
     name: "Password Guard",
-    description: "Une application web gestionnaire de mots de passe.",
+    descriptionI18nKey: "passwordGuard",
     repoLinks: ["https://github.com/AlexTraveylan/password-guard-2"],
     imageUrl: "/passwordGuard.png",
     tags: ["Typescript", "React", "Next.js", "Prisma"],

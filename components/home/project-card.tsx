@@ -8,12 +8,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { useScopedI18n } from "@/locales/client"
 import { Github, Globe } from "lucide-react"
 import Image from "next/image"
 
+type ProjectDescriptionI18nKeyPossibilities =
+  | "taskEqualizer"
+  | "parentListMaker"
+  | "mathExerzizer"
+  | "paroleAuxParents"
+  | "passwordGuard"
+
 export type ProjectCardProps = {
   name: string
-  description: string
+  descriptionI18nKey: ProjectDescriptionI18nKeyPossibilities
   repoLinks: string[]
   prodLink?: string
   imageUrl: string
@@ -22,12 +30,14 @@ export type ProjectCardProps = {
 
 export function ProjectCard({
   name,
-  description,
+  descriptionI18nKey,
   repoLinks,
   prodLink,
   imageUrl,
   tags,
 }: ProjectCardProps) {
+  const scopedT = useScopedI18n("projects")
+
   return (
     <Card>
       <CardHeader className="flex flex-col items-center gap-1">
@@ -39,7 +49,7 @@ export function ProjectCard({
           className="rounded-lg"
         />
         <CardTitle>{name}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription>{scopedT(descriptionI18nKey)}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex flex-wrap gap-2">

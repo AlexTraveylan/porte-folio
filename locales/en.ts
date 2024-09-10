@@ -23,4 +23,13 @@ export default {
   "home.description":
     "I'm Timothée Demares (alias Alex Travelan), a passionate python web developer in France. My specialty is developing apis in python (FastAPI, Django, Flask) with a front in typescript (React, Next.js)",
   "home.projects": "My project selection",
+  "projects.taskEqualizer":
+    "An application to manage the distribution of tasks in a household.",
+  "projects.parentListMaker":
+    "An application to manage the creation and organization of parent-teacher association lists.",
+  "projects.mathExerzizer":
+    "Application to generate random math exercises with OpenAI.",
+  "projects.paroleAuxParents":
+    "A web application that allows preparing school council advice with parent questions.",
+  "projects.passwordGuard": "A secure web application to manage passwords.",
 } as const
