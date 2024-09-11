@@ -21,7 +21,7 @@ export default {
   "contact.aria": "Link to the contact page",
   "home.title": "Full Stack Python Developer",
   "home.description":
-    "I'm Timothée Demares (alias Alex Travelan), a Python Full Stack developer in France. My specialty is the development of API in Python (FastAPI, Django, Flask) with a front-end in typescript (React, Next.js). I can develop for you websites or custom software, simple, maintainable and performant.",
+    "I'm Timothée Demares (alias Alex Travelan), a Python Full Stack developer in France.$ My specialty is the development of API in Python (FastAPI, Django, Flask) with a front-end in typescript (React, Next.js).$ I can develop for you websites or custom software, simple, maintainable and performant.",
   "home.projects": "My project selection",
   "projects.taskEqualizer":
     "An application to manage the distribution of tasks in a household.",
