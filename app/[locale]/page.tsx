@@ -34,7 +34,7 @@ export default function Home() {
         </div>
         <BackFrontBalance />
         <MainSkills />
-        <h2 className="text-xl font-semibold mt-8 mb-4">
+        <h2 id="projects" className="text-xl font-semibold mt-8 mb-4">
           {scopedT("projects")}
         </h2>
         <ProjectCarousel />

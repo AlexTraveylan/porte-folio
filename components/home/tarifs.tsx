@@ -69,13 +69,15 @@ export function Tarifs() {
   ]
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-bold mb-4">{scopedT("title")}</h2>
+    <>
+      <h2 id="tarifs" className="text-xl font-bold mb-4">
+        {scopedT("title")}
+      </h2>
       <div className="flex gap-6 flex-wrap justify-center">
         {tarifCards.map((card, index) => (
           <TarifCard key={index} {...card} />
         ))}
       </div>
-    </div>
+    </>
   )
 }

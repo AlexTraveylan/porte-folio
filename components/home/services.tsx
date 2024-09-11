@@ -41,7 +41,9 @@ const Services = () => {
   const scopedT = useScopedI18n("home")
   return (
     <>
-      <h2 className="text-xl font-semibold mt-8 mb-4">{scopedT("services")}</h2>
+      <h2 id="services" className="text-xl font-semibold mt-8 mb-4">
+        {scopedT("services")}
+      </h2>
       <Tabs defaultValue="development" className="w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="development">
