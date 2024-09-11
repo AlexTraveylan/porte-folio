@@ -60,7 +60,9 @@ const FAQPart: React.FC = () => {
       <Accordion type="single" collapsible className="w-full">
         {faqData.map((item, index) => (
           <AccordionItem key={`faq-${index}`} value={`item-${index}`}>
-            <AccordionTrigger>{scopedT(item.questionI18n)}</AccordionTrigger>
+            <AccordionTrigger className="text-md font-medium">
+              {scopedT(item.questionI18n)}
+            </AccordionTrigger>
             <AccordionContent>{scopedT(item.answerI18n)}</AccordionContent>
           </AccordionItem>
         ))}
