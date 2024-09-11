@@ -13,7 +13,10 @@ const BackFrontBalance: React.FC = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <Progress value={70} className="h-4 bg-yellow-500" />
+          <Progress
+            value={70}
+            className="h-4 bg-yellow-600/80 dark:bg-yellow-500/80"
+          />
           <div className="flex justify-between text-sm">
             <div className="flex items-center">
               <div className="w-3 h-3 bg-primary rounded-full mr-2"></div>
@@ -21,7 +24,7 @@ const BackFrontBalance: React.FC = () => {
             </div>
             <div className="flex items-center">
               <span>Front-end (30%)</span>
-              <div className="w-3 h-3 bg-yellow-500 rounded-full ml-2"></div>
+              <div className="w-3 h-3 bg-yellow-600/80 dark:bg-yellow-500/80 rounded-full ml-2"></div>
             </div>
           </div>
         </div>

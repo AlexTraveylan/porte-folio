@@ -69,4 +69,5 @@ export default {
   "tarifs.card3.services":
     "Projet web, Projet logiciels, Formation python, Esn, Startup",
   "back-front-balance.title": "Répartition des back-end et front-end",
+  "main-skills.title": "Compétences principales",
 } as const

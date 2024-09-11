@@ -67,4 +67,5 @@ export default {
   "tarifs.card3.services":
     "Web project, Software project, Python training, ESN, Startup",
   "back-front-balance.title": "Back-end and front-end distribution",
+  "main-skills.title": "Main skills",
 } as const
