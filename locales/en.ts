@@ -76,6 +76,7 @@ export default {
   "tarifs.card3.price": "Upon quote",
   "tarifs.card3.services":
     "Web project, Software project, Python training, ESN, Startup",
+  "back-front-balance.session.title": "Specialization",
   "back-front-balance.title": "Back-end and front-end distribution",
   "back-front-balance.progressBarLabel": "Back-end and front-end distribution",
   "main-skills.title": "Main skills",
@@ -118,4 +119,6 @@ export default {
   "home.params.title": "Alex Travelan - Developer - Website & Software",
   "home.params.description":
     "A french freelance full stack web (website) and sofware developer, Bordeaux, France. Python API with Django, FastAPI, Typescript with React. Wordpress.",
+  openMenu: "Open menu",
+  closeMenu: "Close menu",
 } as const

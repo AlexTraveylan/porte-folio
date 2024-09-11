@@ -88,7 +88,7 @@ const projects: ProjectCardProps[] = [
   },
 ]
 
-export function ProjectCarousel() {
+function ProjectCarousel() {
   const [maxHeight, setMaxHeight] = useState(0)
   const cardsRef = useRef<(HTMLDivElement | null)[]>([])
   const [isMobile, setIsMobile] = useState(false)
@@ -144,3 +144,5 @@ export function ProjectCarousel() {
     </Carousel>
   )
 }
+
+export default ProjectCarousel

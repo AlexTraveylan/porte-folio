@@ -15,7 +15,7 @@ interface TarifCardProps {
   services: string[]
 }
 
-export const TarifCard: React.FC<TarifCardProps> = ({
+const TarifCard: React.FC<TarifCardProps> = ({
   title,
   description,
   price,
@@ -44,7 +44,7 @@ export const TarifCard: React.FC<TarifCardProps> = ({
   </Card>
 )
 
-export function Tarifs() {
+function Tarifs() {
   const scopedT = useScopedI18n("tarifs")
 
   const tarifCards: TarifCardProps[] = [
@@ -81,3 +81,5 @@ export function Tarifs() {
     </>
   )
 }
+
+export default Tarifs

@@ -78,6 +78,7 @@ export default {
   "tarifs.card3.price": "Sur devis",
   "tarifs.card3.services":
     "Projet web, Projet logiciels, Formation python, Esn, Startup",
+  "back-front-balance.session.title": "Spécialisation",
   "back-front-balance.title": "Répartition des back-end et front-end",
   "back-front-balance.progressBarLabel":
     "Répartition des back-end et front-end",
@@ -131,4 +132,6 @@ export default {
     "Alex Traveylan - Développeur - Site internet & Logiciel",
   "home.params.description":
     "Un développeur freelance full stack web (site internet) et logiciel en France. Python API avec Django, FastAPI, Typescript avec React. Wordpress.",
+  openMenu: "Ouvrir le menu",
+  closeMenu: "Fermer le menu",
 } as const

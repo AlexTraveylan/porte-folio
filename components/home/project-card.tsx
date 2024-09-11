@@ -48,6 +48,7 @@ export function ProjectCard({
           width={400}
           height={200}
           className="rounded-lg object-cover w-full h-48"
+          loading="lazy"
         />
         <CardTitle>{name}</CardTitle>
         <CardDescription className="text-center">

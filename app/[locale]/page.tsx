@@ -1,18 +1,33 @@
 "use client"
 
-import BackFrontBalance from "@/components/home/back-front-balance"
 import { ContactForm } from "@/components/home/contact-form"
 import FAQPart from "@/components/home/faq-part"
-import MainSkills from "@/components/home/main-skills"
 import Profile from "@/components/home/profile"
-import { ProjectCarousel } from "@/components/home/project-carousel"
-import Services from "@/components/home/services"
-import { Tarifs } from "@/components/home/tarifs"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
 import { githubUrl, linkedinUrl } from "@/lib/constants"
 import { useScopedI18n } from "@/locales/client"
+import dynamic from "next/dynamic"
 import { useParams } from "next/navigation"
 import Script from "next/script"
+
+const DynamicBackFrontBalance = dynamic(
+  () => import("@/components/home/back-front-balance"),
+  { ssr: false }
+)
+const DynamicMainSkills = dynamic(
+  () => import("@/components/home/main-skills"),
+  { ssr: false }
+)
+const DynamicProjectCarousel = dynamic(
+  () => import("@/components/home/project-carousel"),
+  { ssr: false }
+)
+const DynamicServices = dynamic(() => import("@/components/home/services"), {
+  ssr: false,
+})
+const DynamicTarifs = dynamic(() => import("@/components/home/tarifs"), {
+  ssr: false,
+})
 
 export default function Home() {
   const scopedT = useScopedI18n("home")
@@ -84,14 +99,14 @@ export default function Home() {
                 })}
             </div>
           </div>
-          <BackFrontBalance />
-          <MainSkills />
+          <DynamicBackFrontBalance />
+          <DynamicMainSkills />
           <h2 id="projects" className="text-xl font-semibold mt-8 mb-4">
             {scopedT("projects")}
           </h2>
-          <ProjectCarousel />
-          <Services />
-          <Tarifs />
+          <DynamicProjectCarousel />
+          <DynamicServices />
+          <DynamicTarifs />
           <FAQPart />
           <ContactForm />
         </div>
