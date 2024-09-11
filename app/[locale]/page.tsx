@@ -9,6 +9,7 @@ import { ProjectCarousel } from "@/components/home/project-carousel"
 import Services from "@/components/home/services"
 import { Tarifs } from "@/components/home/tarifs"
 import { useScopedI18n } from "@/locales/client"
+import ScrollToTopButton from "../components/ScrollToTopButton"
 
 export default function Home() {
   const scopedT = useScopedI18n("home")
@@ -45,6 +46,7 @@ export default function Home() {
         <FAQPart />
         <ContactForm />
       </div>
+      <ScrollToTopButton />
     </div>
   )
 }
