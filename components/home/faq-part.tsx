@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useScopedI18n } from "@/locales/client"
+import Script from "next/script"
 import React from "react"
 
 type questionPossibilities =
@@ -52,8 +53,26 @@ const faqData: FAQData[] = [
 const FAQPart: React.FC = () => {
   const scopedT = useScopedI18n("faq")
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData.map((item) => ({
+      "@type": "Question",
+      name: scopedT(item.questionI18n),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: scopedT(item.answerI18n),
+      },
+    })),
+  }
+
   return (
     <>
+      <Script
+        id="faq-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <h2 id="faq" className="text-xl font-semibold mt-8 mb-4">
         {scopedT("title")}
       </h2>

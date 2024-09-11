@@ -95,7 +95,7 @@ export default {
   "faq.question4": "Et si je ne suis pas satisfait ?",
   "faq.answer4":
     "Si vous n'êtes pas satisfait et que vous ne souhaitez plus travailler avec moi, je vous rembourse la moitié de l'avance demandée.",
-  "faq.question5": "Qu'est-ce qu'un contrat de maintenance ?",
+  "faq.question5": "Qu'est-ce que la maintenance ?",
   "faq.answer5":
     "Je m'occupe moi-même de mettre le code en production, que le produit soit fonctionnel et en ligne sur mon infrastructure ou la vôtre (en échange des accès) et de corriger régulièrement les bugs et faire de petites modifications si besoin.",
   "contact-form.title": "Contactez-moi",

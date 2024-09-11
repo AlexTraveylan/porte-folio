@@ -92,7 +92,7 @@ export default {
   "faq.question4": "And if I am not satisfied?",
   "faq.answer4":
     "If you are not satisfied and you no longer want to work with me, I refund half of the advance requested.",
-  "faq.question5": "What is a maintenance contract?",
+  "faq.question5": "What is maintenance ?",
   "faq.answer5":
     "I take care of putting the code into production, whether the product is functional and online on my infrastructure or yours (in exchange for access), and of regularly correcting bugs and making small modifications if necessary.",
   "contact-form.title": "Contact me",
