@@ -68,4 +68,5 @@ export default {
   "tarifs.card3.price": "Sur devis",
   "tarifs.card3.services":
     "Projet web, Projet logiciels, Formation python, Esn, Startup",
+  "back-front-balance.title": "Répartition des back-end et front-end",
 } as const

@@ -1,5 +1,6 @@
 "use client"
 
+import BackFrontBalance from "@/components/home/back-front-balance"
 import Profile from "@/components/home/profile"
 import { ProjectCarousel } from "@/components/home/project-carousel"
 import Services from "@/components/home/services"
@@ -30,6 +31,7 @@ export default function Home() {
               })}
           </div>
         </div>
+        <BackFrontBalance />
         <h2 className="text-xl font-semibold mt-8 mb-4">
           {scopedT("projects")}
         </h2>
