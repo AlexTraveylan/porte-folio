@@ -10,9 +10,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "AlexTravelan - Developer",
+  title: "AlexTravelan - Developer - Website & Software",
   description:
-    "AlexTravelan's Portfolio, a french full stack developer. Python API with Django, FastAPI, Typescript with React, Next.js. And more. // Porte folio d'AlexTravelan, un développeur full stack français. API en Python avec Django, FastAPI, Typescript avec React, Next.js. Et plus encore.",
+    "A french freelance full stack web (website) and sofware developer, Bordeaux, France. Python API with Django, FastAPI, Typescript with React. Wordpress.",
 }
 
 export default function RootLayout({
