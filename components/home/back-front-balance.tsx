@@ -16,6 +16,10 @@ const BackFrontBalance: React.FC = () => {
           <Progress
             value={70}
             className="h-4 bg-yellow-600/80 dark:bg-yellow-500/80"
+            aria-label={scopedT("progressBarLabel")}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={70}
           />
           <div className="flex justify-between text-sm">
             <div className="flex items-center">

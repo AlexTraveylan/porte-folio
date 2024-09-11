@@ -45,7 +45,7 @@ const Services = () => {
         {scopedT("services")}
       </h2>
       <Tabs defaultValue="development" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-3 text-black dark:text-primary-foreground ">
           <TabsTrigger value="development">
             {scopedT("development")}
           </TabsTrigger>

@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { useScopedI18n } from "@/locales/client"
+import { useI18n, useScopedI18n } from "@/locales/client"
 import { Github, Globe } from "lucide-react"
 import Image from "next/image"
 
@@ -37,6 +37,7 @@ export function ProjectCard({
   tags,
 }: ProjectCardProps) {
   const scopedT = useScopedI18n("projects")
+  const t = useI18n()
 
   return (
     <Card className="flex flex-col h-full">
@@ -66,16 +67,32 @@ export function ProjectCard({
         <div className="flex gap-2">
           {repoLinks.map((link, index) => (
             <Button key={index} variant="outline" size="icon" asChild>
-              <a href={link} target="_blank" rel="noopener noreferrer">
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${t("github.link")} ${index + 1} ${t(
+                  "for"
+                )} ${name}`}
+              >
                 <Github className="h-4 w-4" />
+                <span className="sr-only">
+                  {t("github.link")} {index + 1}
+                </span>
               </a>
             </Button>
           ))}
         </div>
         {prodLink && (
           <Button variant="outline" size="icon" asChild>
-            <a href={prodLink} target="_blank" rel="noopener noreferrer">
+            <a
+              href={prodLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${t("production.link")} ${t("for")} ${name}`}
+            >
               <Globe className="h-4 w-4" />
+              <span className="sr-only">{t("production.link")}</span>
             </a>
           </Button>
         )}

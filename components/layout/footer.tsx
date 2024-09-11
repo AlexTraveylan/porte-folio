@@ -65,14 +65,35 @@ const Footer = () => {
         <div className="flex flex-col items-center lg:items-end">
           <h3 className="text-lg font-semibold mb-4">{scopedI18n("follow")}</h3>
           <div className="flex gap-4">
-            <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-              <Linkedin className="text-blue-800 hover:text-blue-600 hover:scale-110 transition-all" />
+            <Link
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={scopedI18n("linkedinAria")}
+              className="text-blue-800 hover:text-blue-600 hover:scale-110 transition-all"
+            >
+              <Linkedin />
+              <span className="sr-only">{scopedI18n("linkedin")}</span>
             </Link>
-            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="text-muted-foreground hover:text-secondary-foreground hover:scale-110 transition-all" />
+            <Link
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={scopedI18n("githubAria")}
+              className="text-muted-foreground hover:text-secondary-foreground hover:scale-110 transition-all"
+            >
+              <Github />
+              <span className="sr-only">{scopedI18n("github")}</span>
             </Link>
-            <Link href={twitterUrl} target="_blank" rel="noopener noreferrer">
-              <Twitter className=" text-blue-500 hover:text-blue-400 hover:scale-110 transition-all" />
+            <Link
+              href={twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={scopedI18n("twitterAria")}
+              className="text-blue-500 hover:text-blue-400 hover:scale-110 transition-all"
+            >
+              <Twitter />
+              <span className="sr-only">{scopedI18n("twitter")}</span>
             </Link>
           </div>
         </div>

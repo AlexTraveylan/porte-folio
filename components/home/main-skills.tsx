@@ -25,8 +25,9 @@ const MainSkills: React.FC = () => {
             key={skill[0]}
             variant="default"
             className={`text-sm py-1 px-2 ${
-              skill[1] &&
-              "bg-yellow-600/80 dark:bg-yellow-500/80 hover:bg-yellow-500/80 hover:dark:bg-yellow-600/80 text-secondary"
+              skill[1]
+                ? "bg-yellow-600 dark:bg-yellow-500 hover:bg-yellow-500 hover:dark:bg-yellow-600 text-black dark:text-white font-semibold"
+                : ""
             }`}
           >
             {skill[0]}

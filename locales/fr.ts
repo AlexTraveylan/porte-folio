@@ -12,6 +12,12 @@ export default {
   "footer.quotes.6": "Le code est la réponse à la question.",
   "footer.quotes.7": "La programmation est l'art de résoudre des problèmes.",
   "footer.quotes.8": "Je ne perds jamais. Soit je gagne, soit j'apprends.",
+  "footer.linkedinAria": "Visitez mon profil LinkedIn",
+  "footer.linkedin": "LinkedIn",
+  "footer.githubAria": "Consultez mon profil GitHub",
+  "footer.github": "GitHub",
+  "footer.twitterAria": "Suivez-moi sur Twitter",
+  "footer.twitter": "Twitter",
   "home.label": "Accueil",
   "home.aria": "Lien vers la page d'accueil",
   "projects.label": "Projets",
@@ -73,6 +79,8 @@ export default {
   "tarifs.card3.services":
     "Projet web, Projet logiciels, Formation python, Esn, Startup",
   "back-front-balance.title": "Répartition des back-end et front-end",
+  "back-front-balance.progressBarLabel":
+    "Répartition des back-end et front-end",
   "main-skills.title": "Compétences principales",
   "faq.title": "Foire aux questions",
   "faq.question1": "Est-ce que les devis sont gratuits ?",
@@ -108,4 +116,15 @@ export default {
   "zod.name.min": "Le nom doit contenir au moins 2 caractères",
   "zod.email.email": "Adresse e-mail invalide",
   "zod.message.min": "Le message doit contenir au moins 10 caractères",
+  footer: {
+    linkedinAria: "Visitez mon profil LinkedIn",
+    linkedin: "LinkedIn",
+    githubAria: "Consultez mon profil GitHub",
+    github: "GitHub",
+    twitterAria: "Suivez-moi sur Twitter",
+    twitter: "Twitter",
+  },
+  "github.link": "Lien GitHub",
+  "production.link": "Lien de production",
+  for: "pour",
 } as const

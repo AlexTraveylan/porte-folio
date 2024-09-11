@@ -11,6 +11,12 @@ export default {
   "footer.quotes.6": "Code is the answer to the question.",
   "footer.quotes.7": "Programming is the art of solving problems.",
   "footer.quotes.8": "I never lose. Either I win, or I learn.",
+  "footer.linkedinAria": "Visit my LinkedIn profile",
+  "footer.linkedin": "LinkedIn",
+  "footer.githubAria": "Visit my GitHub profile",
+  "footer.github": "GitHub",
+  "footer.twitterAria": "Follow me on Twitter",
+  "footer.twitter": "Twitter",
   "home.label": "Home",
   "home.aria": "Link to the home page",
   "projects.label": "Projects",
@@ -71,6 +77,7 @@ export default {
   "tarifs.card3.services":
     "Web project, Software project, Python training, ESN, Startup",
   "back-front-balance.title": "Back-end and front-end distribution",
+  "back-front-balance.progressBarLabel": "Back-end and front-end distribution",
   "main-skills.title": "Main skills",
   "faq.title": "Frequently asked questions",
   "faq.question1": "Are quotes free?",
@@ -105,4 +112,7 @@ export default {
   "zod.name.min": "The name must contain at least 2 characters",
   "zod.email.email": "Invalid email address",
   "zod.message.min": "The message must contain at least 10 characters",
+  "github.link": "GitHub link",
+  "production.link": "Production link",
+  for: "for",
 } as const
