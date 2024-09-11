@@ -48,6 +48,7 @@ export default {
   "home.software": "Logiciel",
   "home.pythonSoftware": "Développement de logiciels en Python",
   "home.botDiscord": "Développement de bots Discord",
+  "home.achitecture": "Architecture logicielle",
   "tarifs.title": "Tarifs",
   "tarifs.card1.title": "Site vitrine",
   "tarifs.card1.description":

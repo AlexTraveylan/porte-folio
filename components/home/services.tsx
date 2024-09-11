@@ -29,9 +29,13 @@ const maintenanceServices: MaintenanceServices[] = [
   "bugFixes",
 ]
 
-type SoftwareServices = "pythonSoftware" | "botDiscord"
+type SoftwareServices = "pythonSoftware" | "botDiscord" | "achitecture"
 
-const softwareServices: SoftwareServices[] = ["pythonSoftware", "botDiscord"]
+const softwareServices: SoftwareServices[] = [
+  "pythonSoftware",
+  "botDiscord",
+  "achitecture",
+]
 
 const Services = () => {
   const scopedT = useScopedI18n("home")

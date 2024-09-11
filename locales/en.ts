@@ -46,6 +46,7 @@ export default {
   "home.software": "Software",
   "home.pythonSoftware": "Python Software Development",
   "home.botDiscord": "Discord Bot Development",
+  "home.achitecture": "Software Architecture",
   "tarifs.title": "Prices",
   "tarifs.card1.title": "Showcase site",
   "tarifs.card1.description": "Present a service, a person or a company.",
