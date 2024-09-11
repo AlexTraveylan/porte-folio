@@ -69,7 +69,7 @@ const Footer = () => {
               <Linkedin className="text-blue-800 hover:text-blue-600 hover:scale-110 transition-all" />
             </Link>
             <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="hover:text-muted-foreground secondary hover:scale-110 transition-all" />
+              <Github className="text-muted-foreground hover:text-secondary-foreground hover:scale-110 transition-all" />
             </Link>
             <Link href={twitterUrl} target="_blank" rel="noopener noreferrer">
               <Twitter className=" text-blue-500 hover:text-blue-400 hover:scale-110 transition-all" />
