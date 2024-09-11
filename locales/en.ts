@@ -72,4 +72,20 @@ export default {
     "Web project, Software project, Python training, ESN, Startup",
   "back-front-balance.title": "Back-end and front-end distribution",
   "main-skills.title": "Main skills",
+  "faq.title": "Frequently asked questions",
+  "faq.question1": "Are quotes free?",
+  "faq.answer1":
+    "Absolutely, I analyze your needs for free and without any obligation from your part.",
+  "faq.question2": "How do I get a quote?",
+  "faq.answer2":
+    "To request a quote, you can use the contact form on this site containing your request and your contact details (email or phone according to your preference). You can also contact me directly by email at the bottom of the page.",
+  "faq.question3": "What happens if I accept the quote?",
+  "faq.answer3":
+    "I will ask for an advance of 40%, I will start the development upon receipt of this advance. I will present you with a first result quickly, this would be the opportunity to make adjustments to the need, I will take it into account, then at the final delivery, if you are satisfied, I deliver the finished product in exchange for the remaining payment.",
+  "faq.question4": "And if I am not satisfied?",
+  "faq.answer4":
+    "If you are not satisfied and you no longer want to work with me, I refund half of the advance requested.",
+  "faq.question5": "What is a maintenance contract?",
+  "faq.answer5":
+    "I take care of putting the code into production, whether the product is functional and online on my infrastructure or yours (in exchange for access), and of regularly correcting bugs and making small modifications if necessary.",
 } as const

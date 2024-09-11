@@ -1,6 +1,7 @@
 "use client"
 
 import BackFrontBalance from "@/components/home/back-front-balance"
+import FAQPart from "@/components/home/faq-part"
 import MainSkills from "@/components/home/main-skills"
 import Profile from "@/components/home/profile"
 import { ProjectCarousel } from "@/components/home/project-carousel"
@@ -40,6 +41,7 @@ export default function Home() {
         <ProjectCarousel />
         <Services />
         <Tarifs />
+        <FAQPart />
       </div>
     </div>
   )

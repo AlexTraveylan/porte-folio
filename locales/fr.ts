@@ -74,4 +74,20 @@ export default {
     "Projet web, Projet logiciels, Formation python, Esn, Startup",
   "back-front-balance.title": "Répartition des back-end et front-end",
   "main-skills.title": "Compétences principales",
+  "faq.title": "Foire aux questions",
+  "faq.question1": "Est-ce que les devis sont gratuits ?",
+  "faq.answer1":
+    "Absolument, j'analyse votre besoin gratuitement et sans aucune obligation ensuite de votre part.",
+  "faq.question2": "Comment demander un devis ?",
+  "faq.answer2":
+    "Pour demander un devis, vous pouvez utiliser le formulaire de contact de ce site comportant votre demande, et vos coordonnées pour vous contacter (email ou téléphone selon votre préférence). Vous pouvez aussi me contacter directement par l'email qui se trouve en bas de la page.",
+  "faq.question3": "Que se passe-t-il si j'accepte le devis ?",
+  "faq.answer3":
+    "Je vais vous demander une avance de 40%, je commencerai le développement à la réception de celle-ci. Je vous présenterai un premier résultat rapidement, ce serait l'occasion de faire des ajustements du besoin, j'en prendrai compte, puis à la livraison finale, si vous êtes satisfait, je vous livre le produit terminé en échange du reste du paiement.",
+  "faq.question4": "Et si je ne suis pas satisfait ?",
+  "faq.answer4":
+    "Si vous n'êtes pas satisfait et que vous ne souhaitez plus travailler avec moi, je vous rembourse la moitié de l'avance demandée.",
+  "faq.question5": "Qu'est-ce qu'un contrat de maintenance ?",
+  "faq.answer5":
+    "Je m'occupe moi-même de mettre le code en production, que le produit soit fonctionnel et en ligne sur mon infrastructure ou la vôtre (en échange des accès) et de corriger régulièrement les bugs et faire de petites modifications si besoin.",
 } as const
