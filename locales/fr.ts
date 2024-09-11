@@ -35,7 +35,7 @@ export default {
   "projects.passwordGuard":
     "Une application web gestionnaire de mots de passe sécurisée.",
   "home.services": "Services proposés",
-  "home.development": "Développement",
+  "home.development": "Site internet",
   "home.webDevelopment": "Développement web",
   "home.websiteCreation": "Création de site internet",
   "home.ecommerce": "Site de e-commerce",

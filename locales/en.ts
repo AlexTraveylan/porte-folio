@@ -33,7 +33,7 @@ export default {
     "A web application that allows preparing school council advice with parent questions.",
   "projects.passwordGuard": "A secure web application to manage passwords.",
   "home.services": "Services offered",
-  "home.development": "Development",
+  "home.development": "Website",
   "home.webDevelopment": "Web Development",
   "home.websiteCreation": "Website Creation",
   "home.ecommerce": "E-commerce Website",
