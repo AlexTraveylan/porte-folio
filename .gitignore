@@ -38,3 +38,6 @@ next-env.d.ts
 # IDE settings
 .idea
 .vscode
+
+# env
+.env

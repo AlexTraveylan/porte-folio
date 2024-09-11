@@ -1,6 +1,7 @@
 "use client"
 
 import BackFrontBalance from "@/components/home/back-front-balance"
+import { ContactForm } from "@/components/home/contact-form"
 import FAQPart from "@/components/home/faq-part"
 import MainSkills from "@/components/home/main-skills"
 import Profile from "@/components/home/profile"
@@ -42,6 +43,7 @@ export default function Home() {
         <Services />
         <Tarifs />
         <FAQPart />
+        <ContactForm />
       </div>
     </div>
   )
