@@ -172,7 +172,7 @@ type zodError = "name.min" | "email.email" | "message.min"
 const FormMessageI18n = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
->(({ className, children, ...props }, ref) => {
+>(({ className, ...props }, ref) => {
   const { error, formMessageId } = useFormField()
   const body = error ? (String(error?.message) as zodError) : undefined
   const t = useScopedI18n("zod")
