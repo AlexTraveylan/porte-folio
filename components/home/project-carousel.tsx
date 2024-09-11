@@ -91,6 +91,7 @@ const projects: ProjectCardProps[] = [
 export function ProjectCarousel() {
   const [maxHeight, setMaxHeight] = useState(0)
   const cardsRef = useRef<(HTMLDivElement | null)[]>([])
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const updateMaxHeight = () => {
@@ -101,19 +102,27 @@ export function ProjectCarousel() {
       setMaxHeight(newMaxHeight)
     }
 
-    updateMaxHeight()
-    window.addEventListener("resize", updateMaxHeight)
+    const handleResize = () => {
+      updateMaxHeight()
+      setIsMobile(window.innerWidth < 700)
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
 
     return () => {
-      window.removeEventListener("resize", updateMaxHeight)
+      window.removeEventListener("resize", handleResize)
     }
   }, [])
 
   return (
-    <Carousel className="w-full">
+    <Carousel className="w-full relative">
       <CarouselContent>
         {projects.map((project, index) => (
-          <CarouselItem key={index} className="sm:basis-1/2">
+          <CarouselItem
+            key={index}
+            className={"sm:basis-1/2 min-[450px]:basis-3/4"}
+          >
             <div
               ref={(el) => {
                 cardsRef.current[index] = el
@@ -126,8 +135,12 @@ export function ProjectCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      {!isMobile && (
+        <>
+          <CarouselPrevious />
+          <CarouselNext />
+        </>
+      )}
     </Carousel>
   )
 }

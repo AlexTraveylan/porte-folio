@@ -8,14 +8,14 @@ import Profile from "@/components/home/profile"
 import { ProjectCarousel } from "@/components/home/project-carousel"
 import Services from "@/components/home/services"
 import { Tarifs } from "@/components/home/tarifs"
+import ScrollToTopButton from "@/components/ScrollToTopButton"
 import { useScopedI18n } from "@/locales/client"
-import ScrollToTopButton from "../components/ScrollToTopButton"
 
 export default function Home() {
   const scopedT = useScopedI18n("home")
 
   return (
-    <div className="flex justify-center py-7 px-4 sm:px-6 lg:px-8">
+    <div className="relative flex justify-center py-7 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-5 w-full max-w-3xl">
         <Profile />
         <div className="flex flex-col gap-3">
