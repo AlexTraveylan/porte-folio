@@ -70,7 +70,7 @@ export function Tarifs() {
 
   return (
     <>
-      <h2 id="tarifs" className="text-xl font-bold mb-4">
+      <h2 id="tarifs" className="text-xl font-semibold mt-8 mb-4">
         {scopedT("title")}
       </h2>
       <div className="flex gap-6 flex-wrap justify-center">

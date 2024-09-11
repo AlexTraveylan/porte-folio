@@ -54,7 +54,7 @@ const FAQPart: React.FC = () => {
 
   return (
     <>
-      <h2 id="faq" className="text-xl font-semibold">
+      <h2 id="faq" className="text-xl font-semibold mt-8 mb-4">
         {scopedT("title")}
       </h2>
       <Accordion type="single" collapsible className="w-full">
