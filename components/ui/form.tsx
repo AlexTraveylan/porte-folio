@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
+import * as React from "react"
 import {
   Controller,
   ControllerProps,
@@ -12,8 +12,9 @@ import {
   useFormContext,
 } from "react-hook-form"
 
-import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils"
+import { useScopedI18n } from "@/locales/client"
 
 const Form = FormProvider
 
@@ -166,13 +167,41 @@ const FormMessage = React.forwardRef<
 })
 FormMessage.displayName = "FormMessage"
 
+type zodError = "name.min" | "email.email" | "message.min"
+
+const FormMessageI18n = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, children, ...props }, ref) => {
+  const { error, formMessageId } = useFormField()
+  const body = error ? (String(error?.message) as zodError) : undefined
+  const t = useScopedI18n("zod")
+
+  if (!body) {
+    return null
+  }
+
+  return (
+    <p
+      ref={ref}
+      id={formMessageId}
+      className={cn("text-sm font-medium text-destructive", className)}
+      {...props}
+    >
+      {t(body)}
+    </p>
+  )
+})
+FormMessageI18n.displayName = "FormMessageI18n"
+
 export {
-  useFormField,
   Form,
-  FormItem,
-  FormLabel,
   FormControl,
   FormDescription,
-  FormMessage,
   FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  FormMessageI18n,
+  useFormField,
 }

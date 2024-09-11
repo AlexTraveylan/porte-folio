@@ -88,4 +88,21 @@ export default {
   "faq.question5": "What is a maintenance contract?",
   "faq.answer5":
     "I take care of putting the code into production, whether the product is functional and online on my infrastructure or yours (in exchange for access), and of regularly correcting bugs and making small modifications if necessary.",
+  "contact-form.title": "Contact me",
+  "contact-form.card.title": "Contact form",
+  "contact-form.card.description":
+    "You can contact me via this form to request a free quote, to propose me to intervene as a consultant in a company, to request a training or for any other question.",
+  "contact-form.name": "Name",
+  "contact-form.name.placeholder": "Your name",
+  "contact-form.email": "Email",
+  "contact-form.email.placeholder": "Your email",
+  "contact-form.message": "Message",
+  "contact-form.message.placeholder": "Your message",
+  "contact-form.submit": "Send",
+  "contact-form.submit.loading": "Sending...",
+  "contact-form.submit.success": "Message sent successfully!",
+  "contact-form.submit.error": "An error occurred while sending the message.",
+  "zod.name.min": "The name must contain at least 2 characters",
+  "zod.email.email": "Invalid email address",
+  "zod.message.min": "The message must contain at least 10 characters",
 } as const

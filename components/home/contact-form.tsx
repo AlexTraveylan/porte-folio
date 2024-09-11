@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -15,25 +16,29 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessageI18n,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { useScopedI18n } from "@/locales/client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
 const formSchema = z.object({
-  name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
-  email: z.string().email("Adresse e-mail invalide"),
-  message: z
-    .string()
-    .min(10, "Le message doit contenir au moins 10 caractères"),
+  name: z.string().min(2, "name.min"),
+  email: z.string().email("email.email"),
+  message: z.string().min(10, "message.min"),
 })
 
 export function ContactForm() {
   const [isLoading, setIsLoading] = useState(false)
+  const [sendStatusResult, setSendStatusResult] = useState<
+    "success" | "error" | null
+  >(null)
+  const scopedI18n = useScopedI18n("contact-form")
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,7 +53,9 @@ export function ContactForm() {
     try {
       await sendEmail(values)
       form.reset()
+      setSendStatusResult("success")
     } catch (error) {
+      setSendStatusResult("error")
     } finally {
       setIsLoading(false)
     }
@@ -57,17 +64,12 @@ export function ContactForm() {
   return (
     <>
       <h2 id="contact-me" className="text-xl font-semibold mt-8 mb-4">
-        Contactez-moi
+        {scopedI18n("title")}
       </h2>
       <Card>
         <CardHeader>
-          <CardTitle>Formulaire de contact</CardTitle>
-          <CardDescription>
-            Vous pouvez me contacter via ce formulaire pour demander un devis
-            gratuit, pour me proposer d'intervenir comme consultant dans une
-            entreprise, pour demander une formation ou pour n'importe quelle
-            autre question.
-          </CardDescription>
+          <CardTitle>{scopedI18n("card.title")}</CardTitle>
+          <CardDescription>{scopedI18n("card.description")}</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -77,15 +79,15 @@ export function ContactForm() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nom</FormLabel>
+                    <FormLabel>{scopedI18n("name")}</FormLabel>
                     <FormControl>
                       <Input
                         className="border-primary text-md"
-                        placeholder="Votre nom"
+                        placeholder={scopedI18n("name.placeholder")}
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessageI18n />
                   </FormItem>
                 )}
               />
@@ -94,15 +96,15 @@ export function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>E-mail</FormLabel>
+                    <FormLabel>{scopedI18n("email")}</FormLabel>
                     <FormControl>
                       <Input
                         className="border-primary text-md"
-                        placeholder="votre@email.com"
+                        placeholder={scopedI18n("email.placeholder")}
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessageI18n />
                   </FormItem>
                 )}
               />
@@ -111,25 +113,40 @@ export function ContactForm() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>{scopedI18n("message")}</FormLabel>
                     <FormControl>
                       <Textarea
                         rows={8}
-                        placeholder="Votre message"
+                        placeholder={scopedI18n("message.placeholder")}
                         className="border-primary text-md"
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessageI18n />
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading}>
-                {isLoading ? "Envoi en cours..." : "Envoyer"}
+              <Button
+                type="submit"
+                disabled={isLoading || sendStatusResult === "success"}
+              >
+                {isLoading
+                  ? scopedI18n("submit.loading")
+                  : scopedI18n("submit")}
               </Button>
             </form>
           </Form>
         </CardContent>
+        <CardFooter>
+          {sendStatusResult === "success" && (
+            <p className="text-green-700 dark:text-green-500">
+              {scopedI18n("submit.success")}
+            </p>
+          )}
+          {sendStatusResult === "error" && (
+            <p className="text-destructive">{scopedI18n("submit.error")}</p>
+          )}
+        </CardFooter>
       </Card>
     </>
   )

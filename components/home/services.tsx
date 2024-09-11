@@ -63,7 +63,7 @@ const Services = () => {
               <ul className="space-y-2">
                 {developmentServices.map((service) => (
                   <li key={service} className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-700 dark:text-green-500" />
                     {scopedT(service)}
                   </li>
                 ))}
@@ -80,7 +80,7 @@ const Services = () => {
               <ul className="space-y-2">
                 {maintenanceServices.map((service) => (
                   <li key={service} className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-700 dark:text-green-500" />
                     {scopedT(service)}
                   </li>
                 ))}
@@ -97,7 +97,7 @@ const Services = () => {
               <ul className="space-y-2">
                 {softwareServices.map((service) => (
                   <li key={service} className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-700 dark:text-green-500" />
                     {scopedT(service)}
                   </li>
                 ))}

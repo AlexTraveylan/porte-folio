@@ -90,4 +90,22 @@ export default {
   "faq.question5": "Qu'est-ce qu'un contrat de maintenance ?",
   "faq.answer5":
     "Je m'occupe moi-même de mettre le code en production, que le produit soit fonctionnel et en ligne sur mon infrastructure ou la vôtre (en échange des accès) et de corriger régulièrement les bugs et faire de petites modifications si besoin.",
+  "contact-form.title": "Contactez-moi",
+  "contact-form.card.title": "Formulaire de contact",
+  "contact-form.card.description":
+    "Vous pouvez me contacter via ce formulaire pour demander un devis gratuit, pour me proposer d'intervenir comme consultant dans une entreprise, pour demander une formation ou pour n'importe quelle autre question.",
+  "contact-form.name": "Nom",
+  "contact-form.name.placeholder": "Votre nom",
+  "contact-form.email": "Email",
+  "contact-form.email.placeholder": "Votre email",
+  "contact-form.message": "Message",
+  "contact-form.message.placeholder": "Votre message",
+  "contact-form.submit": "Envoyer",
+  "contact-form.submit.loading": "Envoi en cours...",
+  "contact-form.submit.success": "Message envoyé avec succès !",
+  "contact-form.submit.error":
+    "Une erreur est survenue lors de l'envoi du message.",
+  "zod.name.min": "Le nom doit contenir au moins 2 caractères",
+  "zod.email.email": "Adresse e-mail invalide",
+  "zod.message.min": "Le message doit contenir au moins 10 caractères",
 } as const
