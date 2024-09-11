@@ -29,7 +29,7 @@ export const TarifCard: React.FC<TarifCardProps> = ({
       <CardDescription className="text-center">{description}</CardDescription>
     </CardHeader>
     <CardContent className="flex flex-col gap-10">
-      <p className="text-2xl font-bold text-center text-green-700 dark:text-green-500">
+      <p className="text-2xl font-semibold text-center text-green-700 dark:text-green-500">
         {price}
       </p>
       <ul className="space-y-2">
@@ -70,7 +70,7 @@ export function Tarifs() {
 
   return (
     <div className="mt-8">
-      <h2 className="text-xl font-semibold mb-4">{scopedT("title")}</h2>
+      <h2 className="text-xl font-bold mb-4">{scopedT("title")}</h2>
       <div className="flex gap-6 flex-wrap justify-center">
         {tarifCards.map((card, index) => (
           <TarifCard key={index} {...card} />
