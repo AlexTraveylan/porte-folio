@@ -115,4 +115,7 @@ export default {
   "github.link": "GitHub link",
   "production.link": "Production link",
   for: "for",
+  "home.params.title": "Alex Travelan - Developer - Website & Software",
+  "home.params.description":
+    "A french freelance full stack web (website) and sofware developer, Bordeaux, France. Python API with Django, FastAPI, Typescript with React. Wordpress.",
 } as const

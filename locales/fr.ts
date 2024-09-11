@@ -127,4 +127,8 @@ export default {
   "github.link": "Lien GitHub",
   "production.link": "Lien de production",
   for: "pour",
+  "home.params.title":
+    "Alex Traveylan - Développeur - Site internet & Logiciel",
+  "home.params.description":
+    "Un développeur freelance full stack web (site internet) et logiciel en France. Python API avec Django, FastAPI, Typescript avec React. Wordpress.",
 } as const
