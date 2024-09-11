@@ -17,7 +17,7 @@ const projects: ProjectCardProps[] = [
       "https://github.com/AlexTraveylan/taskequalizer_front_v2",
     ],
     prodLink: "https://taskequalizer.vercel.app/fr",
-    imageUrl: "/taskEqualizer.png",
+    imageUrl: "/taskEqualizer.webp",
     tags: [
       "Python",
       "FastAPI",
@@ -39,7 +39,7 @@ const projects: ProjectCardProps[] = [
       "https://github.com/AlexTraveylan/parent_list_maker_front",
     ],
     prodLink: "https://parentslistsmaker.vercel.app",
-    imageUrl: "/parentListMaker.png",
+    imageUrl: "/parentListMaker.webp",
     tags: [
       "Python",
       "Django",
@@ -59,7 +59,7 @@ const projects: ProjectCardProps[] = [
       "https://github.com/AlexTraveylan/math_exerzizer",
       "https://github.com/AlexTraveylan/front-exercizer",
     ],
-    imageUrl: "/mathExerzizer.png",
+    imageUrl: "/mathExerzizer.webp",
     tags: [
       "Python",
       "Flask",
@@ -76,14 +76,14 @@ const projects: ProjectCardProps[] = [
     name: "Parole aux Parents",
     descriptionI18nKey: "paroleAuxParents",
     repoLinks: ["https://github.com/AlexTraveylan/parole-aux-parents"],
-    imageUrl: "/paroleAuxParents.png",
+    imageUrl: "/paroleAuxParents.webp",
     tags: ["Typescript", "React", "Next.js", "Prisma"],
   },
   {
     name: "Password Guard",
     descriptionI18nKey: "passwordGuard",
     repoLinks: ["https://github.com/AlexTraveylan/password-guard-2"],
-    imageUrl: "/passwordGuard.png",
+    imageUrl: "/passwordGuard.webp",
     tags: ["Typescript", "React", "Next.js", "Prisma"],
   },
 ]
