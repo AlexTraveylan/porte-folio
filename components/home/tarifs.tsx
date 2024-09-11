@@ -22,16 +22,20 @@ export const TarifCard: React.FC<TarifCardProps> = ({
   services,
 }) => (
   <Card className="w-[340px] h-[450px]">
-    <CardHeader className="flex flex-col justify-center items-center">
-      <CardTitle>{title}</CardTitle>
-      <CardDescription>{description}</CardDescription>
+    <CardHeader className="flex flex-col items-center gap-5 h-[180px]">
+      <CardTitle className="text-3xl text-green-700 dark:text-green-500">
+        {title}
+      </CardTitle>
+      <CardDescription className="text-center">{description}</CardDescription>
     </CardHeader>
-    <CardContent>
-      <p className="text-2xl font-bold my-5 text-center">{price}</p>
+    <CardContent className="flex flex-col gap-10">
+      <p className="text-2xl font-bold text-center text-green-700 dark:text-green-500">
+        {price}
+      </p>
       <ul className="space-y-2">
         {services.map((service, index) => (
           <li key={index} className="flex items-center">
-            <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+            <CheckCircle className="mr-2 h-4 w-4 text-green-700 dark:text-green-500" />
             {service}
           </li>
         ))}
@@ -67,7 +71,7 @@ export function Tarifs() {
   return (
     <div className="mt-8">
       <h2 className="text-xl font-semibold mb-4">{scopedT("title")}</h2>
-      <div className="flex gap-6 flex-wrap">
+      <div className="flex gap-6 flex-wrap justify-center">
         {tarifCards.map((card, index) => (
           <TarifCard key={index} {...card} />
         ))}

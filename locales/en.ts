@@ -21,7 +21,7 @@ export default {
   "contact.aria": "Link to the contact page",
   "home.title": "Full Stack Python Developer",
   "home.description":
-    "I'm Timothée Demares (alias Alex Travelan), a passionate python web developer in France. My specialty is developing apis in python (FastAPI, Django, Flask) with a front in typescript (React, Next.js).",
+    "I'm Timothée Demares (alias Alex Travelan), a Python Full Stack developer in France. My specialty is the development of API in Python (FastAPI, Django, Flask) with a front-end in typescript (React, Next.js). I can develop for you websites or custom software, simple, maintainable and performant.",
   "home.projects": "My project selection",
   "projects.taskEqualizer":
     "An application to manage the distribution of tasks in a household.",
@@ -49,19 +49,21 @@ export default {
   "home.achitecture": "Software Architecture",
   "tarifs.title": "Prices",
   "tarifs.card1.title": "Showcase site",
-  "tarifs.card1.description": "Present a service, a person or a company.",
-  "tarifs.card1.price": "From 400€ HT",
+  "tarifs.card1.description":
+    "Expose your service, association or company to the world with a website that contains essential information and ways to contact you.",
+  "tarifs.card1.price": "Starting from 400€ HT",
   "tarifs.card1.services":
-    "1 to 5 pages, Responsive, Contact form, SEO optimized",
+    "Your 1-5 page site, Web and Mobile accessible, Optimized natural referencing, Contact form, Social networks",
   "tarifs.card2.title": "Custom",
   "tarifs.card2.description":
-    "Complex site or software, with a database and a back-end logic: e-commerce, discord bot, software, automation, web application.",
-  "tarifs.card2.price": "300€ HT / day",
+    "Site, or complex software requiring a database and back-end logic: e-commerce, discord bot, software, automation, web application.",
+  "tarifs.card2.price": "325€ HT / day",
   "tarifs.card2.services":
-    "On request, Fully customizable, Maintenance, Production release",
+    "Architecture, Clean code, Unit tests, Maintenance, Production deployment",
   "tarifs.card3.title": "Consultant",
   "tarifs.card3.description":
-    "I can join a project in a company as a consultant for a long or short mission.",
-  "tarifs.card3.price": "On request",
-  "tarifs.card3.services": "Web projects, Software projects, Esn, Startup",
+    "I can join a project in a company as a consultant or provide training for a long or short mission.",
+  "tarifs.card3.price": "Upon quote",
+  "tarifs.card3.services":
+    "Web project, Software project, Python training, ESN, Startup",
 } as const

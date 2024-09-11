@@ -15,9 +15,20 @@ export default function Home() {
         <Profile />
         <div className="flex flex-col gap-3">
           <h1 className="text-2xl font-bold">{scopedT("title")}</h1>
-          <p className="text-start text-muted-foreground">
-            {scopedT("description")}
-          </p>
+          <div>
+            {scopedT("description")
+              .split("$ ")
+              .map((sentence, index) => {
+                return (
+                  <p
+                    key={`sent${index}`}
+                    className="text-start text-muted-foreground"
+                  >
+                    {sentence}
+                  </p>
+                )
+              })}
+          </div>
         </div>
         <h2 className="text-xl font-semibold mt-8 mb-4">
           {scopedT("projects")}

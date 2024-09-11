@@ -22,7 +22,7 @@ export default {
   "contact.aria": "Lien vers la page de contact",
   "home.title": "Développeur Full Stack Python",
   "home.description":
-    "Je suis Timothée Demares (alias Alex Traveylan), développeur web passioné python en France. Ma spécialité est le développement d'api en python (FastAPI, Django, Flask) avec un front en typescript (React, Next.js).",
+    "Je suis Timothée Demares (alias Alex Traveylan), développeur web passioné python en France.$ Ma spécialité est le développement d'api en python (FastAPI, Django, Flask) avec un front en typescript (React, Next.js).$  Je peux ainsi developper pour vous des sites internet ou des logiciels sur mesure, simple, maintenable et performants.",
   "home.projects": "Ma sélection de projets",
   "projects.taskEqualizer":
     "Une application pour gérer la répartition des tâches dans un foyer.",
@@ -52,19 +52,20 @@ export default {
   "tarifs.title": "Tarifs",
   "tarifs.card1.title": "Site vitrine",
   "tarifs.card1.description":
-    "Présente un service, une personne ou une entreprise.",
+    "Expose ton service, ton association ou ton entreprise au monde avec un site web qui contient les informations essentielles et les moyens de te contacter.",
   "tarifs.card1.price": "À partir de 400€ HT",
   "tarifs.card1.services":
-    "1 à 5 pages, Responsive, Formulaire de contact, SEO optimisé",
+    "Ton site 1-5 pages, Accessible Web et Mobile, Reférencement naturel optimisé, Formulaire de contact, Réseaux sociaux",
   "tarifs.card2.title": "Sur mesure",
   "tarifs.card2.description":
     "Site, ou logiciel complexe necessitant une base de donnée et une logique back-end : e-commerce, bot discord, logiciel, automatisation, application web.",
-  "tarifs.card2.price": "300€ HT / jour",
+  "tarifs.card2.price": "325€ HT / jour",
   "tarifs.card2.services":
-    "Sur devis, Personnalisé, Maintenance, Mise en production",
+    "Architecture, Code clean, Tests unitaires, Maintenance, Mise en production",
   "tarifs.card3.title": "Consultant",
   "tarifs.card3.description":
-    "Je peux rejoindre un projet dans une entreprise en tant que consultant sur une mission longue ou courte.",
+    "Je peux rejoindre un projet dans une entreprise en tant que consultant ou faire des formations sur une mission longue ou courte.",
   "tarifs.card3.price": "Sur devis",
-  "tarifs.card3.services": "Projets web, Projets logiciels, Esn, Startup",
+  "tarifs.card3.services":
+    "Projet web, Projet logiciels, Formation python, Esn, Startup",
 } as const
