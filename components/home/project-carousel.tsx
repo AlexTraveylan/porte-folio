@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { useScopedI18n } from "@/locales/client"
 import { useEffect, useRef, useState } from "react"
 import { ProjectCard, ProjectCardProps } from "./project-card"
 
@@ -89,6 +90,7 @@ const projects: ProjectCardProps[] = [
 ]
 
 function ProjectCarousel() {
+  const scopedT = useScopedI18n("home")
   const [maxHeight, setMaxHeight] = useState(0)
   const cardsRef = useRef<(HTMLDivElement | null)[]>([])
   const [isMobile, setIsMobile] = useState(false)
@@ -116,32 +118,37 @@ function ProjectCarousel() {
   }, [])
 
   return (
-    <Carousel className="w-full relative">
-      <CarouselContent>
-        {projects.map((project, index) => (
-          <CarouselItem
-            key={index}
-            className={"sm:basis-1/2 min-[450px]:basis-3/4"}
-          >
-            <div
-              ref={(el) => {
-                cardsRef.current[index] = el
-              }}
-              style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
-              className="p-1"
+    <>
+      <h2 id="projects" className="text-xl font-semibold mt-8 mb-4">
+        {scopedT("projects")}
+      </h2>
+      <Carousel className="w-full relative">
+        <CarouselContent>
+          {projects.map((project, index) => (
+            <CarouselItem
+              key={index}
+              className={"sm:basis-1/2 min-[450px]:basis-3/4"}
             >
-              <ProjectCard {...project} />
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      {!isMobile && (
-        <>
-          <CarouselPrevious />
-          <CarouselNext />
-        </>
-      )}
-    </Carousel>
+              <div
+                ref={(el) => {
+                  cardsRef.current[index] = el
+                }}
+                style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
+                className="p-1"
+              >
+                <ProjectCard {...project} />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {!isMobile && (
+          <>
+            <CarouselPrevious />
+            <CarouselNext />
+          </>
+        )}
+      </Carousel>
+    </>
   )
 }
 

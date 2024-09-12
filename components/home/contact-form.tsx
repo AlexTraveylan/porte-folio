@@ -32,7 +32,7 @@ const formSchema = z.object({
   message: z.string().min(10, "message.min"),
 })
 
-export function ContactForm() {
+function ContactForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [sendStatusResult, setSendStatusResult] = useState<
     "success" | "error" | null
@@ -151,3 +151,5 @@ export function ContactForm() {
     </>
   )
 }
+
+export default ContactForm
