@@ -4,6 +4,7 @@ import { navItems } from "@/lib/navigation"
 import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client"
 import { Menu, Moon, Sun, X } from "lucide-react"
 import { useTheme } from "next-themes"
+import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "../ui/button"
@@ -31,7 +32,13 @@ const Header = () => {
         aria-label={t(navItems["home"].i18Aria)}
         className="text-2xl font-bold text-foreground"
       >
-        AlexTraveylan
+        <Image
+          src="/logo.webp"
+          alt="Logo"
+          width={32}
+          height={32}
+          loading="lazy"
+        />
       </Link>
 
       <nav
