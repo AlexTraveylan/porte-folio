@@ -25,7 +25,7 @@ const Header = () => {
   }
 
   return (
-    <header className="relative flex justify-between items-center py-4 px-6 bg-background">
+    <header className="relative flex justify-between items-center py-4 px-6 bg-background z-50">
       <Link
         href={navItems["home"].href}
         aria-label={t(navItems["home"].i18Aria)}
