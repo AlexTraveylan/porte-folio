@@ -66,6 +66,12 @@ function Tarifs() {
       price: scopedT("card3.price"),
       services: scopedT("card3.services").split(", "),
     },
+    {
+      title: scopedT("card4.title"),
+      description: scopedT("card4.description"),
+      price: scopedT("card4.price"),
+      services: scopedT("card4.services").split(", "),
+    },
   ]
 
   return (

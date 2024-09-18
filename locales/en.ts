@@ -76,6 +76,11 @@ export default {
   "tarifs.card3.price": "Upon quote",
   "tarifs.card3.services":
     "Web project, Software project, Python training, ESN, Startup",
+  "tarifs.card4.title": "Quick Intervention",
+  "tarifs.card4.description":
+    "Need a quick task that would take less than a day? I can help you solve your problem quickly and effortlessly.",
+  "tarifs.card4.price": "50€ (excluding tax) / hour",
+  "tarifs.card4.services": "Training, Bug fixes, Feature additions, Deployment",
   "back-front-balance.session.title": "Specialization",
   "back-front-balance.title": "Back-end and front-end distribution",
   "back-front-balance.progressBarLabel": "Back-end and front-end distribution",

@@ -78,6 +78,12 @@ export default {
   "tarifs.card3.price": "Sur devis",
   "tarifs.card3.services":
     "Projet web, Projet logiciels, Formation python, Esn, Startup",
+  "tarifs.card4.title": "Intervention rapide",
+  "tarifs.card4.description":
+    "Une tâche rapide qui prendrait moins d'une journée ? Je peux vous aider à résoudre votre problème rapidement et sans effort.",
+  "tarifs.card4.price": "50€ HT / heure",
+  "tarifs.card4.services":
+    "Formation, Correctif de bugs, Ajout de fonctionnalités, Mise en production",
   "back-front-balance.session.title": "Spécialisation",
   "back-front-balance.title": "Répartition des back-end et front-end",
   "back-front-balance.progressBarLabel":
