@@ -62,10 +62,10 @@ export default {
   "tarifs.title": "Tarifs",
   "tarifs.card1.title": "Site vitrine",
   "tarifs.card1.description":
-    "Expose ton service, ton association ou ton entreprise au monde avec un site web qui contient les informations essentielles et les moyens de te contacter.",
+    "Exposez votre service, votre association ou votre entreprise au monde avec un site web qui contient les informations essentielles et les moyens de vous contacter.",
   "tarifs.card1.price": "À partir de 400€ HT",
   "tarifs.card1.services":
-    "Ton site 1-5 pages, Accessible Web et Mobile, Reférencement naturel optimisé, Formulaire de contact, Réseaux sociaux",
+    "Votre site 1-5 pages, Accessible Web et Mobile, Reférencement naturel optimisé, Formulaire de contact, Réseaux sociaux",
   "tarifs.card2.title": "Sur mesure",
   "tarifs.card2.description":
     "Site, ou logiciel complexe necessitant une base de donnée et une logique back-end : e-commerce, bot discord, logiciel, automatisation, application web.",
