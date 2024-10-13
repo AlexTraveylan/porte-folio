@@ -22,6 +22,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.2.1",
     "lucide-react": "^0.439.0",
+    "mon_porte_folio": "file:",
     "next": "14.2.8",
     "next-international": "^1.2.4",
     "next-themes": "^0.3.0",
