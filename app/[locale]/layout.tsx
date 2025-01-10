@@ -16,11 +16,12 @@ export const metadata: Metadata = {
   description:
     "A french freelance full stack web (website) and sofware developer, Bordeaux, France. Python API with Django, FastAPI, Typescript with React. Wordpress.",
   other: {
-    "Cache-Control": "public, max-age=31536000, immutable",
+    "Cache-Control": "public, max-age=3600, must-revalidate",
   },
 }
 
-export const revalidate = 3600
+// Use shorter revalidation time
+export const revalidate = 1800
 
 export default function RootLayout({
   children,

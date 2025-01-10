@@ -3,10 +3,6 @@ const config = {
   plugins: {
     tailwindcss: {},
   },
-  "postcss-preset-env": {},
-  cssnano: {
-    preset: "default",
-  },
 }
 
 export default config

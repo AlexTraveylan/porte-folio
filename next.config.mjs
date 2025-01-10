@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   async headers() {
     return [
@@ -13,7 +12,8 @@ const nextConfig = {
         ],
       },
       {
-        source: "/:path*",
+        // Add specific rule for locale paths
+        source: "/:locale(fr|en)/:path*",
         headers: [
           {
             key: "Cache-Control",
