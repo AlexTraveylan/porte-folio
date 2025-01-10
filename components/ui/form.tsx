@@ -126,23 +126,6 @@ const FormControl = React.forwardRef<
 })
 FormControl.displayName = "FormControl"
 
-const FormDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => {
-  const { formDescriptionId } = useFormField()
-
-  return (
-    <p
-      ref={ref}
-      id={formDescriptionId}
-      className={cn("text-[0.8rem] text-muted-foreground", className)}
-      {...props}
-    />
-  )
-})
-FormDescription.displayName = "FormDescription"
-
 type zodError = "name.min" | "email.email" | "message.min"
 
 const FormMessageI18n = React.forwardRef<
@@ -173,7 +156,6 @@ FormMessageI18n.displayName = "FormMessageI18n"
 export {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
