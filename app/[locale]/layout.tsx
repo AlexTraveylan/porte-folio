@@ -1,6 +1,8 @@
 import Footer from "@/components/layout/footer"
 import Header from "@/components/layout/header"
+import LazyLoad from "@/components/lazy-load"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
 import { I18nProviderClient } from "@/locales/client"
 import type { Metadata } from "next"
@@ -34,7 +36,9 @@ export default function RootLayout({
           >
             <Header />
             {children}
-            <Footer />
+            <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+              <Footer />
+            </LazyLoad>
           </ThemeProvider>
         </I18nProviderClient>
       </body>

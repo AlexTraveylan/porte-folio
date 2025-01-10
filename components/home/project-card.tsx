@@ -40,7 +40,7 @@ export function ProjectCard({
   const t = useI18n()
 
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex flex-col h-[535px] w-[350px]">
       <CardHeader className="flex-shrink-0 flex flex-col items-center gap-1">
         <Image
           src={imageUrl}

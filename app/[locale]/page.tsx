@@ -1,6 +1,11 @@
 "use client"
 
+import ContactForm from "@/components/home/contact-form"
+import FAQPart from "@/components/home/faq-part"
 import Profile from "@/components/home/profile"
+import Services from "@/components/home/services"
+import Tarifs from "@/components/home/tarifs"
+import LazyLoad from "@/components/lazy-load"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
 import { Skeleton } from "@/components/ui/skeleton"
 import { githubUrl, linkedinUrl } from "@/lib/constants"
@@ -52,70 +57,6 @@ const DynamicProjectCarousel = dynamic(
             <Skeleton className="h-8 w-1/2" />
           </div>
           <Skeleton className="h-[490px] w-full" />
-        </div>
-      )
-    },
-  }
-)
-const DynamicServices = dynamic(() => import("@/components/home/services"), {
-  ssr: false,
-  loading: () => {
-    return (
-      <div className="flex flex-col gap-3">
-        <div className="mt-8 mb-4">
-          <Skeleton className="h-8 w-1/2" />
-        </div>
-        <div className="flex flex-col gap-2">
-          <Skeleton className="h-[30px] w-full" />
-          <Skeleton className="h-[230px] w-full" />
-        </div>
-      </div>
-    )
-  },
-})
-const DynamicTarifs = dynamic(() => import("@/components/home/tarifs"), {
-  ssr: false,
-  loading: () => {
-    return (
-      <div className="flex flex-col gap-3">
-        <div className="mt-8 mb-4">
-          <Skeleton className="h-8 w-1/2" />
-        </div>
-        <div className="flex gap-6 flex-wrap justify-center">
-          <Skeleton className="w-[340px] h-[450px]" />
-          <Skeleton className="w-[340px] h-[450px]" />
-          <Skeleton className="w-[340px] h-[450px]" />
-        </div>
-      </div>
-    )
-  },
-})
-
-const DynamicFAQPart = dynamic(() => import("@/components/home/faq-part"), {
-  ssr: false,
-  loading: () => {
-    return (
-      <div className="flex flex-col gap-3">
-        <div className="mt-8 mb-4">
-          <Skeleton className="h-8 w-1/2" />
-        </div>
-        <Skeleton className="h-[300px] w-full" />
-      </div>
-    )
-  },
-})
-
-const DynamicContactForm = dynamic(
-  () => import("@/components/home/contact-form"),
-  {
-    ssr: false,
-    loading: () => {
-      return (
-        <div className="flex flex-col gap-3">
-          <div className="mt-8 mb-4">
-            <Skeleton className="h-8 w-1/2" />
-          </div>
-          <Skeleton className="h-[700px] w-full" />
         </div>
       )
     },
@@ -196,10 +137,21 @@ export default function Home() {
           <DynamicMainSkills />
 
           <DynamicProjectCarousel />
-          <DynamicServices />
-          <DynamicTarifs />
-          <DynamicFAQPart />
-          <DynamicContactForm />
+          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+            <Services />
+          </LazyLoad>
+
+          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+            <Tarifs />
+          </LazyLoad>
+
+          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+            <FAQPart />
+          </LazyLoad>
+
+          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+            <ContactForm />
+          </LazyLoad>
         </div>
         <ScrollToTopButton />
       </div>

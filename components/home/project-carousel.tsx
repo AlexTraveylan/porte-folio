@@ -1,12 +1,4 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
 import { useScopedI18n } from "@/locales/client"
-import { useEffect, useRef, useState } from "react"
 import { ProjectCard, ProjectCardProps } from "./project-card"
 
 const projects: ProjectCardProps[] = [
@@ -91,63 +83,20 @@ const projects: ProjectCardProps[] = [
 
 function ProjectCarousel() {
   const scopedT = useScopedI18n("home")
-  const [maxHeight, setMaxHeight] = useState(0)
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const updateMaxHeight = () => {
-      const heights = cardsRef.current.map(
-        (card) => card?.getBoundingClientRect().height ?? 0
-      )
-      const newMaxHeight = Math.max(...heights)
-      setMaxHeight(newMaxHeight)
-    }
-
-    const handleResize = () => {
-      updateMaxHeight()
-      setIsMobile(window.innerWidth < 700)
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
 
   return (
     <>
       <h2 id="projects" className="text-xl font-semibold mt-8 mb-4">
         {scopedT("projects")}
       </h2>
-      <Carousel className="w-full relative">
-        <CarouselContent>
-          {projects.map((project, index) => (
-            <CarouselItem
-              key={index}
-              className={"sm:basis-1/2 min-[450px]:basis-3/4"}
-            >
-              <div
-                ref={(el) => {
-                  cardsRef.current[index] = el
-                }}
-                style={{ height: maxHeight > 0 ? `${maxHeight}px` : "auto" }}
-                className="p-1"
-              >
-                <ProjectCard {...project} />
-              </div>
-            </CarouselItem>
+      <div className="flex gap-4 flex-wrap justify-center">
+        {projects
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 4)
+          .map((project, index) => (
+            <ProjectCard key={index} {...project} />
           ))}
-        </CarouselContent>
-        {!isMobile && (
-          <>
-            <CarouselPrevious />
-            <CarouselNext />
-          </>
-        )}
-      </Carousel>
+      </div>
     </>
   )
 }
