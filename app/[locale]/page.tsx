@@ -3,6 +3,7 @@
 import ContactForm from "@/components/home/contact-form"
 import FAQPart from "@/components/home/faq-part"
 import Profile from "@/components/home/profile"
+import ProjectCarousel from "@/components/home/project-carousel"
 import Services from "@/components/home/services"
 import Tarifs from "@/components/home/tarifs"
 import LazyLoad from "@/components/lazy-load"
@@ -41,22 +42,6 @@ const DynamicMainSkills = dynamic(
             <Skeleton className="h-8 w-1/2" />
           </div>
           <Skeleton className="h-[50px] w-full" />
-        </div>
-      )
-    },
-  }
-)
-const DynamicProjectCarousel = dynamic(
-  () => import("@/components/home/project-carousel"),
-  {
-    ssr: false,
-    loading: () => {
-      return (
-        <div className="flex flex-col gap-3">
-          <div className="mt-8 mb-4">
-            <Skeleton className="h-8 w-1/2" />
-          </div>
-          <Skeleton className="h-[490px] w-full" />
         </div>
       )
     },
@@ -136,7 +121,10 @@ export default function Home() {
           <DynamicBackFrontBalance />
           <DynamicMainSkills />
 
-          <DynamicProjectCarousel />
+          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+            <ProjectCarousel />
+          </LazyLoad>
+
           <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
             <Services />
           </LazyLoad>
