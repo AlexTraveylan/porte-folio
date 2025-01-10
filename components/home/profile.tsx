@@ -9,8 +9,8 @@ function Profile() {
         <AvatarImage
           src={"/profil.webp"}
           alt="Photo de profil"
-          width={40}
-          height={40}
+          width={64}
+          height={64}
         />
         <AvatarFallback>VP</AvatarFallback>
       </Avatar>
