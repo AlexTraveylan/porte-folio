@@ -15,7 +15,12 @@ export const metadata: Metadata = {
   title: "AlexTravelan - Developer - Website & Software",
   description:
     "A french freelance full stack web (website) and sofware developer, Bordeaux, France. Python API with Django, FastAPI, Typescript with React. Wordpress.",
+  other: {
+    "Cache-Control": "public, max-age=31536000, immutable",
+  },
 }
+
+export const revalidate = 3600
 
 export default function RootLayout({
   children,
