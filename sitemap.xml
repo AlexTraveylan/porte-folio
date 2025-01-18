@@ -1,24 +1,49 @@
-<?xml version="1.1" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://www.alextraveylan.fr/fr/</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-18</lastmod> 
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link 
+    <xhtml:link
                rel="alternate"
                hreflang="en"
                href="https://www.alextraveylan.fr/en/"/>
   </url>
+
   <url>
     <loc>https://www.alextraveylan.fr/en/</loc>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link 
+    <xhtml:link
                rel="alternate"
                hreflang="fr"
                href="https://www.alextraveylan.fr/fr/"/>
   </url>
+
+  <url>
+    <loc>https://www.alextraveylan.fr/fr/contact</loc>
+    <lastmod>2025-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link
+               rel="alternate"
+               hreflang="en"
+               href="https://www.alextraveylan.fr/en/contact"/>
+  </url>
+
+  <url>
+    <loc>https://www.alextraveylan.fr/en/contact</loc>
+    <lastmod>2025-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link
+               rel="alternate"
+               hreflang="fr"
+               href="https://www.alextraveylan.fr/fr/contact"/>
+  </url>
+
 </urlset>

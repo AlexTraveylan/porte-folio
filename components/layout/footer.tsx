@@ -1,8 +1,8 @@
 "use client"
 
-import { githubUrl, linkedinUrl, myEmail, twitterUrl } from "@/lib/constants"
+import { githubUrl, linkedinUrl, myEmail } from "@/lib/constants"
 import { useScopedI18n } from "@/locales/client"
-import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -36,9 +36,9 @@ const Footer = () => {
   }, [])
 
   return (
-    <footer className="bg-background py-8 px-6 mt-12">
+    <footer className="bg-background py-4 px-6 mt-4">
       <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="flex flex-col items-center lg:items-start">
+        <div className="flex flex-col items-center">
           <h3 className="text-lg font-semibold mb-4">
             {scopedI18n("contact")}
           </h3>
@@ -62,7 +62,7 @@ const Footer = () => {
           )}"`}</p>
         </div>
 
-        <div className="flex flex-col items-center lg:items-end">
+        <div className="flex flex-col items-center">
           <h3 className="text-lg font-semibold mb-4">{scopedI18n("follow")}</h3>
           <div className="flex gap-4">
             <Link
@@ -84,16 +84,6 @@ const Footer = () => {
             >
               <Github />
               <span className="sr-only">{scopedI18n("github")}</span>
-            </Link>
-            <Link
-              href={twitterUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={scopedI18n("twitterAria")}
-              className="text-blue-500 hover:text-blue-400 hover:scale-110 transition-all"
-            >
-              <Twitter />
-              <span className="sr-only">{scopedI18n("twitter")}</span>
             </Link>
           </div>
         </div>
