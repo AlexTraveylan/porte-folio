@@ -20,7 +20,7 @@ type hrefPossibilities =
   | "/#faq"
   | "/#services"
   | "/#tarifs"
-  | "/#contact-me"
+  | "/contact"
 
 type recordOfNavPossibilities =
   | "home"
@@ -64,7 +64,7 @@ export const navItems: Record<recordOfNavPossibilities, NavItem> = {
   },
   contact: {
     i18nKey: "contact.label",
-    href: "/#contact-me",
+    href: "/contact",
     i18Aria: "contact.aria",
   },
 }
