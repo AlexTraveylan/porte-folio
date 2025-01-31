@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-8 text-center text-sm">{scopedI18n("right")}</div>
+      <div className="mt-4 text-center text-sm">{scopedI18n("right")}</div>
     </footer>
   )
 }

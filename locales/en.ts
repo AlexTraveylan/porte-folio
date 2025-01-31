@@ -2,7 +2,7 @@ export default {
   "footer.contact": "Contact",
   "footer.quote": "Quote",
   "footer.follow": "Follow me",
-  "footer.right": "© 2024 AlexTravelan. All rights reserved.",
+  "footer.right": "© 2025 AlexTravelan. All rights reserved.",
   "footer.quotes.1": "Code is poetry.",
   "footer.quotes.2": "Life is a constant debugging process.",
   "footer.quotes.3": "Every bug is an opportunity to learn.",
@@ -67,7 +67,7 @@ export default {
   "tarifs.card2.title": "Custom",
   "tarifs.card2.description":
     "Site, or complex software requiring a database and back-end logic: e-commerce, discord bot, software, automation, web application.",
-  "tarifs.card2.price": "325€ HT / day",
+  "tarifs.card2.price": "350€ HT / day",
   "tarifs.card2.services":
     "Architecture, Clean code, Unit tests, Maintenance, Production deployment",
   "tarifs.card3.title": "Consultant",
@@ -79,7 +79,7 @@ export default {
   "tarifs.card4.title": "Quick Intervention",
   "tarifs.card4.description":
     "Need a quick task that would take less than a day? I can help you solve your problem quickly and effortlessly.",
-  "tarifs.card4.price": "50€ (excluding tax) / hour",
+  "tarifs.card4.price": "52€ (excluding tax) / hour",
   "tarifs.card4.services": "Training, Bug fixes, Feature additions, Deployment",
   "back-front-balance.session.title": "Specialization",
   "back-front-balance.title": "Back-end and front-end distribution",

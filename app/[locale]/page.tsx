@@ -121,19 +121,27 @@ export default function Home() {
           <DynamicBackFrontBalance />
           <DynamicMainSkills />
 
-          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+          <LazyLoad
+            fallback={<Skeleton id="projects" className="h-[490px] w-full" />}
+          >
             <ProjectCarousel />
           </LazyLoad>
 
-          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+          <LazyLoad
+            fallback={<Skeleton id="services" className="h-[490px] w-full" />}
+          >
             <Services />
           </LazyLoad>
 
-          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+          <LazyLoad
+            fallback={<Skeleton id="tarifs" className="h-[490px] w-full" />}
+          >
             <Tarifs />
           </LazyLoad>
 
-          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
+          <LazyLoad
+            fallback={<Skeleton id="faq" className="h-[490px] w-full" />}
+          >
             <FAQPart />
           </LazyLoad>
 
