@@ -74,21 +74,21 @@ export default {
   "back-front-balance.progressBarLabel": "Back-end and front-end distribution",
   "main-skills.title": "Main skills",
   "faq.title": "Frequently asked questions",
-  "faq.question1": "Are quotes free?",
+  "faq.question1": "What is the minimum duration for a mission?",
   "faq.answer1":
-    "Absolutely, I analyze your needs for free and without any obligation from your part.",
-  "faq.question2": "How do I get a quote?",
+    "I can work on short missions from a few days to long-term projects spanning several months. The duration adapts to your needs: specific feature development, refactoring, team training, or support on complete projects.",
+  "faq.question2": "How do you integrate into our teams?",
   "faq.answer2":
-    "To request a quote, you can use the contact form on this site containing your request and your contact details (email or phone according to your preference). You can also contact me directly by email at the bottom of the page.",
-  "faq.question3": "What happens if I accept the quote?",
+    "I'm experienced working in teams across different environments. I quickly adapt to your tools (Git, Jira, Slack, Teams...), methodologies (Agile, Scrum) and coding standards. My experience in code review and collaboration makes integration smooth.",
+  "faq.question3": "Do you work on-site or remotely?",
   "faq.answer3":
-    "I will ask for an advance of 40%, I will start the development upon receipt of this advance. I will present you with a first result quickly, this would be the opportunity to make adjustments to the need, I will take it into account, then at the final delivery, if you are satisfied, I deliver the finished product in exchange for the remaining payment.",
-  "faq.question4": "And if I am not satisfied?",
+    "I offer both options according to your preferences. Based in Bordeaux, I can work on-site for companies in the Bordeaux region. For missions elsewhere in France or internationally, I work exclusively remotely. I have experience with collaborative tools and excellent remote communication skills.",
+  "faq.question4": "What types of Python projects do you work on?",
   "faq.answer4":
-    "If you are not satisfied and you no longer want to work with me, I refund half of the advance requested.",
-  "faq.question5": "What is maintenance ?",
+    "I work on APIs (Django, FastAPI), full-stack web applications, Data Science and Machine Learning projects, data pipelines with SQL, automation scripts, complex data integrations, legacy code refactoring, implementing clean architectures (Clean Code, design patterns) and training teams in best practices. My expertise covers both traditional development and Machine Learning Engineering with solid experience in the B2B sector.",
+  "faq.question5": "How do we start working together?",
   "faq.answer5":
-    "I take care of putting the code into production, whether the product is functional and online on my infrastructure or yours (in exchange for access), and of regularly correcting bugs and making small modifications if necessary.",
+    "Contact me via the form or email to discuss your needs. We'll schedule a call to define the mission, objectives and working arrangements. I can usually start quickly, typically within 1-2 weeks depending on my availability.",
   "contact-form.title": "Contact me",
   "contact-form.card.title": "Contact form",
   "contact-form.card.description":

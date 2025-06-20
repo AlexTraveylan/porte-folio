@@ -77,21 +77,21 @@ export default {
     "Répartition des back-end et front-end",
   "main-skills.title": "Compétences principales",
   "faq.title": "Foire aux questions",
-  "faq.question1": "Est-ce que les devis sont gratuits ?",
+  "faq.question1": "Quelle est la durée minimale d'une mission ?",
   "faq.answer1":
-    "Absolument, j'analyse votre besoin gratuitement et sans aucune obligation ensuite de votre part.",
-  "faq.question2": "Comment demander un devis ?",
+    "Je peux intervenir pour des missions courtes à partir de quelques jours, jusqu'à des projets longs de plusieurs mois. La durée s'adapte selon vos besoins : développement de fonctionnalités spécifiques, refactoring, formation d'équipe, ou accompagnement sur des projets complets.",
+  "faq.question2": "Comment vous intégrez-vous dans nos équipes ?",
   "faq.answer2":
-    "Pour demander un devis, vous pouvez utiliser le formulaire de contact de ce site comportant votre demande, et vos coordonnées pour vous contacter (email ou téléphone selon votre préférence). Vous pouvez aussi me contacter directement par l'email qui se trouve en bas de la page.",
-  "faq.question3": "Que se passe-t-il si j'accepte le devis ?",
+    "J'ai l'habitude de travailler en équipe dans différents environnements. Je m'adapte rapidement à vos outils (Git, Jira, Slack, Teams...), méthodologies (Agile, Scrum) et standards de code. Mon expérience en code review et collaboration facilite l'intégration.",
+  "faq.question3": "Travaillez-vous en présentiel ou à distance ?",
   "faq.answer3":
-    "Je vais vous demander une avance de 40%, je commencerai le développement à la réception de celle-ci. Je vous présenterai un premier résultat rapidement, ce serait l'occasion de faire des ajustements du besoin, j'en prendrai compte, puis à la livraison finale, si vous êtes satisfait, je vous livre le produit terminé en échange du reste du paiement.",
-  "faq.question4": "Et si je ne suis pas satisfait ?",
+    "Je propose les deux modalités selon vos préférences. Basé à Bordeaux, je peux travailler en présentiel pour les entreprises de la région bordelaise. Pour les missions ailleurs en France ou à l'international, j'interviens exclusivement en télétravail. J'ai l'expérience des outils collaboratifs et une excellente communication à distance.",
+  "faq.question4": "Sur quels types de projets Python intervenez-vous ?",
   "faq.answer4":
-    "Si vous n'êtes pas satisfait et que vous ne souhaitez plus travailler avec moi, je vous rembourse la moitié de l'avance demandée.",
-  "faq.question5": "Qu'est-ce que la maintenance ?",
+    "J'interviens sur des APIs (Django, FastAPI), applications web full-stack, projets de Data Science et Machine Learning, pipelines de données avec SQL, scripts d'automatisation, intégrations de données complexes, refactoring de code legacy, mise en place d'architectures propres (Clean Code, design patterns) et formation d'équipes aux bonnes pratiques. Mon expertise couvre le développement classique et le Machine Learning Engineering avec une solide expérience dans le secteur B2B.",
+  "faq.question5": "Comment démarrer une collaboration ?",
   "faq.answer5":
-    "Je m'occupe moi-même de mettre le code en production, que le produit soit fonctionnel et en ligne sur mon infrastructure ou la vôtre (en échange des accès) et de corriger régulièrement les bugs et faire de petites modifications si besoin.",
+    "Contactez-moi via le formulaire ou par email pour échanger sur votre besoin. Nous planifierons un appel pour définir la mission, les objectifs et modalités. Je peux commencer rapidement, généralement sous 1-2 semaines selon ma disponibilité.",
   "contact-form.title": "Contactez-moi",
   "contact-form.card.title": "Formulaire de contact",
   "contact-form.card.description":
