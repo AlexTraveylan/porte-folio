@@ -71,8 +71,6 @@ export default {
   "tarifs.advantages":
     "Hexagonal architecture and Clean Code, Design patterns and best practices, Code review and collaboration, Fast team integration, Technical training and mentoring, Unit tests and documentation, Python & TypeScript expertise, On-time delivery",
   "tarifs.cta": "Contact me to discuss your project",
-  "tarifs.note":
-    "Degressive pricing possible for long missions (3+ months). Custom quote based on project complexity.",
   "back-front-balance.session.title": "Specialization",
   "back-front-balance.title": "Back-end and front-end distribution",
   "back-front-balance.progressBarLabel": "Back-end and front-end distribution",

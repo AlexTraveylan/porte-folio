@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { githubUrl, linkedinUrl } from "@/lib/constants"
 import { useScopedI18n } from "@/locales/client"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 
 function HeroSection() {
@@ -31,7 +31,6 @@ function HeroSection() {
           <div className="relative flex items-center">
             <Mail className="h-5 w-5 mr-3" />
             {scopedT("cta.contact")}
-            <ArrowRight className="h-5 w-5 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
           </div>
         </Link>
 

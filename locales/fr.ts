@@ -73,8 +73,6 @@ export default {
   "tarifs.advantages":
     "Architecture hexagonale et Clean Code, Design patterns et bonnes pratiques, Code review et collaboration, Intégration rapide en équipe, Formation et mentoring technique, Tests unitaires et documentation, Expertise Python & TypeScript, Livraison dans les délais",
   "tarifs.cta": "Contactez-moi pour échanger sur votre projet",
-  "tarifs.note":
-    "Tarif dégressif possible pour les missions longues (+ de 3 mois). Devis personnalisé selon la complexité du projet.",
   "back-front-balance.session.title": "Spécialisation",
   "back-front-balance.title": "Répartition des back-end et front-end",
   "back-front-balance.progressBarLabel":
