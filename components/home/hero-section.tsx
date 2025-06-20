@@ -23,34 +23,48 @@ function HeroSection() {
 
       {/* Call to action buttons */}
       <div className="flex flex-wrap items-center gap-4">
-        <Button asChild size="lg" className="group">
-          <Link href="/contact">
-            <Mail className="h-4 w-4 mr-2" />
+        <Link
+          href="/contact"
+          className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary-foreground transition-all duration-300 ease-out transform hover:scale-105 active:scale-95 rounded-lg bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-primary/50"
+        >
+          <div className="absolute inset-0 bg-primary rounded-lg blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+          <div className="relative flex items-center">
+            <Mail className="h-5 w-5 mr-3" />
             {scopedT("cta.contact")}
-            <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </Button>
+            <ArrowRight className="h-5 w-5 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+          </div>
+        </Link>
 
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="icon" asChild>
+          <Button
+            variant="outline"
+            size="lg"
+            asChild
+            className="hover:scale-110 transition-transform duration-200"
+          >
             <Link
               href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={scopedT("aria.linkedin")}
             >
-              <Linkedin className="h-4 w-4" />
+              <Linkedin className="h-5 w-5" />
             </Link>
           </Button>
 
-          <Button variant="outline" size="icon" asChild>
+          <Button
+            variant="outline"
+            size="lg"
+            asChild
+            className="hover:scale-110 transition-transform duration-200"
+          >
             <Link
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={scopedT("aria.github")}
             >
-              <Github className="h-4 w-4" />
+              <Github className="h-5 w-5" />
             </Link>
           </Button>
         </div>

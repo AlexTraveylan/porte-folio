@@ -4,10 +4,14 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import { I18nProviderClient } from "@/locales/client"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Outfit } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "AlexTravelan - Python Developer",
@@ -26,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale}>
-      <body className={cn("container mx-auto", inter.className)}>
+      <body className={cn("container mx-auto", outfit.className)}>
         <I18nProviderClient locale={locale}>
           <ThemeProvider
             attribute="class"
