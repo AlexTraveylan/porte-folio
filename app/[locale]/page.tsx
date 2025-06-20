@@ -6,7 +6,6 @@ import FAQPart from "@/components/home/faq-part"
 import MainSkills from "@/components/home/main-skills"
 import Profile from "@/components/home/profile"
 import ProjectCarousel from "@/components/home/project-carousel"
-import Services from "@/components/home/services"
 import Tarifs from "@/components/home/tarifs"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
 import { githubUrl, linkedinUrl } from "@/lib/constants"
@@ -87,7 +86,6 @@ export default function Home() {
           <BackFrontBalance />
           <MainSkills />
           <ProjectCarousel />
-          <Services />
           <Tarifs />
           <FAQPart />
           <ContactForm />

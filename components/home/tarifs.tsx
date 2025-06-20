@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { startDate } from "@/lib/constants"
 import { computeTjm } from "@/lib/utils"
 import { useScopedI18n } from "@/locales/client"
 import { CheckCircle, Clock, Star, Target } from "lucide-react"
@@ -14,7 +15,6 @@ function Tarifs() {
   const scopedT = useScopedI18n("tarifs")
 
   const advantages = scopedT("advantages").split(", ")
-  const startDate = new Date("2023-03-01")
   const computedTjm = computeTjm(startDate)
 
   return (
@@ -38,7 +38,7 @@ function Tarifs() {
               </div>
 
               <CardTitle className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent mb-2">
-                {`${computedTjm} ${scopedT("tjm")}`}
+                {`${computedTjm}€ ${scopedT("tjm")}`}
               </CardTitle>
 
               <div className="flex items-center justify-center gap-2 text-muted-foreground">
