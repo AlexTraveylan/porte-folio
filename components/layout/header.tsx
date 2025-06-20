@@ -26,33 +26,33 @@ const Header = () => {
   }
 
   return (
-    <header className="relative flex justify-between items-center py-4 px-6 bg-background z-50">
+    <header className="relative flex justify-between items-center py-6 px-6 bg-background/95 backdrop-blur-sm border-b z-50">
       <Link
         href={navItems["home"].href}
         aria-label={t(navItems["home"].i18Aria)}
-        className="text-2xl font-bold text-foreground"
+        className="text-3xl font-bold text-foreground hover:scale-105 transition-transform"
       >
         <Image
           src="/logo.webp"
           alt="Logo"
-          width={32}
-          height={32}
+          width={40}
+          height={40}
           loading="lazy"
         />
       </Link>
 
       <nav
-        className={`absolute top-10 right-0 bg-background md:bg-transparent md:static ${
+        className={`absolute top-16 right-0 bg-background/95 backdrop-blur-sm border rounded-lg shadow-lg md:bg-transparent md:static md:border-0 md:shadow-none ${
           isMenuOpen ? "block" : "hidden"
         } md:block mt-4 md:mt-0`}
       >
-        <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 p-4 md:p-0">
+        <ul className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-6 p-4 md:p-0">
           {Object.values(navItems).map((item) => (
             <li key={item.i18nKey}>
               <Link
                 href={item.href}
                 aria-label={t(item.i18Aria)}
-                className="hover:text-muted-foreground block md:inline"
+                className="text-lg font-medium hover:text-primary hover:scale-105 transition-all duration-200 block md:inline"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t(item.i18nKey)}
@@ -62,40 +62,51 @@ const Header = () => {
         </ul>
       </nav>
 
-      <div className="flex">
-        <div className="flex items-center gap-3">
-          <Button
-            variant="outline"
-            onClick={toggleTheme}
-            className="rounded-full"
-            aria-label="Basculer le thème"
-          >
-            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100" />
+      <div className="flex items-center gap-2">
+        {/* Bouton Contact attractif - maintenant visible sur mobile */}
+        <Link href="/contact">
+          <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold px-4 md:px-6 py-2 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200">
+            {t("contact.label")}
           </Button>
-          <Button
-            onClick={toggleLang}
-            variant="outline"
-            size="icon"
-            className="rounded-full"
-          >
-            {currentLocale === "fr" ? "🇫🇷" : "🇬🇧"}
-          </Button>
-          <Button
-            className="md:hidden"
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
-        </div>
+        </Link>
+
+        <Button
+          variant="outline"
+          onClick={toggleTheme}
+          className="rounded-full w-11 h-11 border-2 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200"
+          aria-label="Basculer le thème"
+        >
+          <div className="relative">
+            <Sun
+              size={24}
+              className="transition-all duration-300 dark:opacity-0 dark:rotate-90"
+            />
+            <Moon
+              size={24}
+              className="absolute inset-0 opacity-0 rotate-90 transition-all duration-300 dark:opacity-100 dark:rotate-0"
+            />
+          </div>
+        </Button>
+        <Button
+          onClick={toggleLang}
+          variant="outline"
+          className="rounded-full w-11 h-11 border-2 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 text-lg"
+        >
+          {currentLocale === "fr" ? "🇫🇷" : "🇬🇧"}
+        </Button>
+        <Button
+          className="md:hidden rounded-full w-11 h-11"
+          variant="ghost"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </Button>
       </div>
     </header>
   )
