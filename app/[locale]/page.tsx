@@ -1,11 +1,9 @@
 "use client"
 
-import BackFrontBalance from "@/components/home/back-front-balance"
 import ContactForm from "@/components/home/contact-form"
 import FAQPart from "@/components/home/faq-part"
 import HeroSection from "@/components/home/hero-section"
-import MainSkills from "@/components/home/main-skills"
-import Profile from "@/components/home/profile"
+
 import ProjectCarousel from "@/components/home/project-carousel"
 import Tarifs from "@/components/home/tarifs"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
@@ -66,10 +64,7 @@ export default function Home() {
       />
       <div className="relative flex justify-center py-7 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 w-full max-w-3xl">
-          <Profile />
           <HeroSection />
-          <BackFrontBalance />
-          <MainSkills />
           <ProjectCarousel />
           <Tarifs />
           <FAQPart />

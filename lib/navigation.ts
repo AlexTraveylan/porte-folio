@@ -3,23 +3,16 @@ type i18nKeyPossibilities =
   | "projects.label"
   | "faq.label"
   | "tarifs.label"
-  | "contact.label"
 
 type i18nAriaPossibilities =
   | "home.aria"
   | "projects.aria"
   | "faq.aria"
   | "tarifs.aria"
-  | "contact.aria"
 
 type hrefPossibilities = "/" | "/#projects" | "/#faq" | "/#tarifs" | "/contact"
 
-type recordOfNavPossibilities =
-  | "home"
-  | "projects"
-  | "faq"
-  | "tarifs"
-  | "contact"
+type recordOfNavPossibilities = "home" | "projects" | "faq" | "tarifs"
 
 type NavItem = {
   i18nKey: i18nKeyPossibilities
@@ -47,10 +40,5 @@ export const navItems: Record<recordOfNavPossibilities, NavItem> = {
     i18nKey: "faq.label",
     href: "/#faq",
     i18Aria: "faq.aria",
-  },
-  contact: {
-    i18nKey: "contact.label",
-    href: "/contact",
-    i18Aria: "contact.aria",
   },
 }

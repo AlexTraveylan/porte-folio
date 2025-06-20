@@ -63,7 +63,6 @@ const Header = () => {
       </nav>
 
       <div className="flex items-center gap-2">
-        {/* Bouton Contact attractif - maintenant visible sur mobile */}
         <Link href="/contact">
           <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold px-4 md:px-6 py-2 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200">
             {t("contact.label")}

@@ -35,6 +35,7 @@ export default {
   "hero.cta.contact": "Discutons de votre projet",
   "hero.aria.linkedin": "Voir mon profil LinkedIn",
   "hero.aria.github": "Consulter mon GitHub",
+  "hero.years": "ans d'expérience",
   "home.projects": "Ma sélection de projets",
   "projects.taskEqualizer":
     "Une application pour gérer la répartition des tâches dans un foyer.",
@@ -76,6 +77,8 @@ export default {
   "back-front-balance.progressBarLabel":
     "Répartition des back-end et front-end",
   "main-skills.title": "Compétences principales",
+  "profile.title": "À propos",
+  "profile.years": "ans d'expérience",
   "faq.title": "Foire aux questions",
   "faq.question1": "Quelle est la durée minimale d'une mission ?",
   "faq.answer1":
