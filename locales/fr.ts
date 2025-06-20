@@ -30,9 +30,13 @@ export default {
   "tarifs.aria": "Lien vers la page des tarifs",
   "contact.label": "Contact",
   "contact.aria": "Lien vers la page de contact",
-  "home.title": "Développeur Full Stack Python",
-  "home.description":
-    "Je suis Timothée Demares (alias Alex Traveylan), développeur web freelance passionné python à Bordeaux en France.$ Ma spécialité est le développement d'api en python (FastAPI, Django, Flask) avec un front en typescript (React, Next.js).$  Je peux ainsi developper pour vous des sites internet ou des logiciels sur mesure, simple, maintenable et performants.",
+  "home.title": "Alex Travelan - Développeur",
+  "hero.title": "Développeur Full Stack Python Freelance",
+  "hero.description":
+    "J'accompagne les entreprises dans leurs projets de développement Python. Missions courtes ou longues, je m'intègre rapidement pour livrer des solutions de qualité.",
+  "hero.cta.contact": "Discutons de votre projet",
+  "hero.aria.linkedin": "Voir mon profil LinkedIn",
+  "hero.aria.github": "Consulter mon GitHub",
   "home.projects": "Ma sélection de projets",
   "projects.taskEqualizer":
     "Une application pour gérer la répartition des tâches dans un foyer.",
@@ -67,7 +71,7 @@ export default {
     "En tant que développeur freelance expérimenté, je propose mes services aux entreprises qui souhaitent renforcer leur équipe de développement ou développer des projets spécifiques.",
   "tarifs.included": "Inclus dans le TJM",
   "tarifs.advantages":
-    "Architecture hexagonale et Clean Code, Design patterns et bonnes pratiques, Tests unitaires et documentation, Formation et mentoring technique, Expertise Python & TypeScript, Livraison dans les délais",
+    "Architecture hexagonale et Clean Code, Design patterns et bonnes pratiques, Code review et collaboration, Intégration rapide en équipe, Formation et mentoring technique, Tests unitaires et documentation, Expertise Python & TypeScript, Livraison dans les délais",
   "tarifs.cta": "Contactez-moi pour échanger sur votre projet",
   "tarifs.note":
     "Tarif dégressif possible pour les missions longues (+ de 3 mois). Devis personnalisé selon la complexité du projet.",

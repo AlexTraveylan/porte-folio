@@ -29,9 +29,13 @@ export default {
   "tarifs.aria": "Link to the prices page",
   "contact.label": "Contact",
   "contact.aria": "Link to the contact page",
-  "home.title": "Full Stack Python Developer",
-  "home.description":
-    "I'm Timothée Demares (alias Alex Travelan), a Python Full Stack freelance web developer in Bordeaux, France.$ My specialty is the development of API in Python (FastAPI, Django, Flask) with a front-end in typescript (React, Next.js).$ I can develop for you websites or custom software, simple, maintainable and performant.",
+  "home.title": "Alex Travelan - Python Developer",
+  "hero.title": "Freelance Full Stack Python Developer",
+  "hero.description":
+    "I help companies with their Python development projects. Short or long-term missions, I integrate quickly to deliver quality solutions.",
+  "hero.cta.contact": "Let's discuss your project",
+  "hero.aria.linkedin": "View my LinkedIn profile",
+  "hero.aria.github": "Check out my GitHub",
   "home.projects": "My project selection",
   "projects.taskEqualizer":
     "An application to manage the distribution of tasks in a household.",
@@ -65,7 +69,7 @@ export default {
     "As an experienced freelance developer, I offer my services to companies looking to strengthen their development team or develop specific projects.",
   "tarifs.included": "Included in the daily rate",
   "tarifs.advantages":
-    "Hexagonal architecture and Clean Code, Design patterns and best practices, Unit tests and documentation, Technical training and mentoring, Python & TypeScript expertise, On-time delivery",
+    "Hexagonal architecture and Clean Code, Design patterns and best practices, Code review and collaboration, Fast team integration, Technical training and mentoring, Unit tests and documentation, Python & TypeScript expertise, On-time delivery",
   "tarifs.cta": "Contact me to discuss your project",
   "tarifs.note":
     "Degressive pricing possible for long missions (3+ months). Custom quote based on project complexity.",
