@@ -1,26 +1,9 @@
-import { Skeleton } from "@/components/ui/skeleton"
-import dynamic from "next/dynamic"
+import ContactForm from "@/components/home/contact-form"
 
-const DynamicContactForm = dynamic(
-  () => import("@/components/home/contact-form"),
-  {
-    ssr: false,
-    loading: () => {
-      return (
-        <div className="flex flex-col gap-3">
-          <div className="mt-8 mb-4">
-            <Skeleton className="h-8 w-1/3" />
-          </div>
-          <Skeleton className="h-[145px] w-full" />
-        </div>
-      )
-    },
-  }
-)
 export default function ContactPage() {
   return (
     <div className="container mx-auto max-w-4xl p-4">
-      <DynamicContactForm />
+      <ContactForm />
     </div>
   )
 }

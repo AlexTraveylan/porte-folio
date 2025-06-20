@@ -1,52 +1,18 @@
 "use client"
 
+import BackFrontBalance from "@/components/home/back-front-balance"
 import ContactForm from "@/components/home/contact-form"
 import FAQPart from "@/components/home/faq-part"
+import MainSkills from "@/components/home/main-skills"
 import Profile from "@/components/home/profile"
 import ProjectCarousel from "@/components/home/project-carousel"
 import Services from "@/components/home/services"
 import Tarifs from "@/components/home/tarifs"
-import LazyLoad from "@/components/lazy-load"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
-import { Skeleton } from "@/components/ui/skeleton"
 import { githubUrl, linkedinUrl } from "@/lib/constants"
 import { useScopedI18n } from "@/locales/client"
-import dynamic from "next/dynamic"
 import { useParams } from "next/navigation"
 import Script from "next/script"
-
-const DynamicBackFrontBalance = dynamic(
-  () => import("@/components/home/back-front-balance"),
-  {
-    ssr: false,
-    loading: () => {
-      return (
-        <div className="flex flex-col gap-3">
-          <div className="mt-8 mb-4">
-            <Skeleton className="h-8 w-1/3" />
-          </div>
-          <Skeleton className="h-[145px] w-full" />
-        </div>
-      )
-    },
-  }
-)
-const DynamicMainSkills = dynamic(
-  () => import("@/components/home/main-skills"),
-  {
-    ssr: false,
-    loading: () => {
-      return (
-        <div className="flex flex-col gap-3">
-          <div className="mt-8 mb-4">
-            <Skeleton className="h-8 w-1/2" />
-          </div>
-          <Skeleton className="h-[50px] w-full" />
-        </div>
-      )
-    },
-  }
-)
 
 export default function Home() {
   const scopedT = useScopedI18n("home")
@@ -118,36 +84,13 @@ export default function Home() {
                 })}
             </div>
           </div>
-          <DynamicBackFrontBalance />
-          <DynamicMainSkills />
-
-          <LazyLoad
-            fallback={<Skeleton id="projects" className="h-[490px] w-full" />}
-          >
-            <ProjectCarousel />
-          </LazyLoad>
-
-          <LazyLoad
-            fallback={<Skeleton id="services" className="h-[490px] w-full" />}
-          >
-            <Services />
-          </LazyLoad>
-
-          <LazyLoad
-            fallback={<Skeleton id="tarifs" className="h-[490px] w-full" />}
-          >
-            <Tarifs />
-          </LazyLoad>
-
-          <LazyLoad
-            fallback={<Skeleton id="faq" className="h-[490px] w-full" />}
-          >
-            <FAQPart />
-          </LazyLoad>
-
-          <LazyLoad fallback={<Skeleton className="h-[490px] w-full" />}>
-            <ContactForm />
-          </LazyLoad>
+          <BackFrontBalance />
+          <MainSkills />
+          <ProjectCarousel />
+          <Services />
+          <Tarifs />
+          <FAQPart />
+          <ContactForm />
         </div>
         <ScrollToTopButton />
       </div>
