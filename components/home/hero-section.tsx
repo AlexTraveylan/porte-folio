@@ -11,7 +11,6 @@ import Link from "next/link"
 function HeroSection() {
   const scopedT = useScopedI18n("hero")
 
-  // Calculer l'expérience en années depuis startDate
   const currentDate = new Date()
   const experienceYears = Math.floor(
     (currentDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365)
@@ -26,9 +25,9 @@ function HeroSection() {
         </h1>
       </div>
 
-      {/* Photo et informations personnelles */}
+      {/* Photo and personal information */}
       <div className="flex flex-col items-center gap-6">
-        {/* Photo professionnelle */}
+        {/* Professional photo */}
         <div className="relative">
           <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-primary/20 ring-offset-4 ring-offset-background">
             <Image
@@ -41,13 +40,13 @@ function HeroSection() {
           </div>
         </div>
 
-        {/* Nom et infos */}
+        {/* Name and information */}
         <div className="text-center space-y-4">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Timothée Demares
           </h2>
 
-          {/* Badges d'expertise */}
+          {/* Expertise badges */}
           <div className="flex flex-wrap justify-center gap-2">
             <Badge variant="secondary" className="text-sm">
               Python Full Stack
@@ -60,7 +59,7 @@ function HeroSection() {
             </Badge>
           </div>
 
-          {/* Informations de localisation */}
+          {/* Location information */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4" />
