@@ -37,15 +37,15 @@ function HeroSection() {
         <div className="flex items-center gap-3">
           <Button
             variant="outline"
-            size="lg"
             asChild
-            className="hover:scale-110 transition-transform duration-200"
+            className="h-16 w-16 p-0 hover:scale-110 transition-transform duration-200"
           >
             <Link
               href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={scopedT("aria.linkedin")}
+              className="flex items-center justify-center h-full w-full"
             >
               <Linkedin className="h-5 w-5" />
             </Link>
@@ -53,15 +53,15 @@ function HeroSection() {
 
           <Button
             variant="outline"
-            size="lg"
             asChild
-            className="hover:scale-110 transition-transform duration-200"
+            className="h-16 w-16 p-0 hover:scale-110 transition-transform duration-200"
           >
             <Link
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={scopedT("aria.github")}
+              className="flex items-center justify-center h-full w-full"
             >
               <Github className="h-5 w-5" />
             </Link>
