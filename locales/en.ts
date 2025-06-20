@@ -23,8 +23,6 @@ export default {
   "projects.aria": "Link to the projects page",
   "faq.label": "FAQ",
   "faq.aria": "Link to the FAQ page",
-  "services.label": "Services",
-  "services.aria": "Link to the services page",
   "tarifs.label": "Prices",
   "tarifs.aria": "Link to the prices page",
   "contact.label": "Contact",

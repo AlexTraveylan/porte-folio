@@ -24,8 +24,6 @@ export default {
   "projects.aria": "Lien vers la page des projets",
   "faq.label": "FAQ",
   "faq.aria": "Lien vers la page FAQ",
-  "services.label": "Services",
-  "services.aria": "Lien vers la page des services",
   "tarifs.label": "Tarifs",
   "tarifs.aria": "Lien vers la page des tarifs",
   "contact.label": "Contact",
