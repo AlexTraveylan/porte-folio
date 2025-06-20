@@ -57,30 +57,18 @@ export default {
   "home.pythonSoftware": "Python Software Development",
   "home.botDiscord": "Discord Bot Development",
   "home.achitecture": "Software Architecture",
-  "tarifs.title": "Prices",
-  "tarifs.card1.title": "Showcase site",
-  "tarifs.card1.description":
-    "Expose your service, association or company to the world with a website that contains essential information and ways to contact you.",
-  "tarifs.card1.price": "Starting from 400€ HT",
-  "tarifs.card1.services":
-    "Your 1-5 page site, Web and Mobile accessible, Optimized natural referencing, Contact form, Social networks",
-  "tarifs.card2.title": "Custom",
-  "tarifs.card2.description":
-    "Site, or complex software requiring a database and back-end logic: e-commerce, discord bot, software, automation, web application.",
-  "tarifs.card2.price": "350€ HT / day",
-  "tarifs.card2.services":
-    "Architecture, Clean code, Unit tests, Maintenance, Production deployment",
-  "tarifs.card3.title": "Consultant",
-  "tarifs.card3.description":
-    "I can join a project in a company as a consultant or provide training for a long or short mission.",
-  "tarifs.card3.price": "Upon quote",
-  "tarifs.card3.services":
-    "Web project, Software project, Python training, ESN, Startup",
-  "tarifs.card4.title": "Quick Intervention",
-  "tarifs.card4.description":
-    "Need a quick task that would take less than a day? I can help you solve your problem quickly and effortlessly.",
-  "tarifs.card4.price": "52€ (excluding tax) / hour",
-  "tarifs.card4.services": "Training, Bug fixes, Feature additions, Deployment",
+  "tarifs.title": "Pricing",
+  "tarifs.badge": "Python Full Stack Freelancer",
+  "tarifs.tjm": "excl. VAT",
+  "tarifs.unit": "per day",
+  "tarifs.description":
+    "As an experienced freelance developer, I offer my services to companies looking to strengthen their development team or develop specific projects.",
+  "tarifs.included": "Included in the daily rate",
+  "tarifs.advantages":
+    "Hexagonal architecture and Clean Code, Design patterns and best practices, Unit tests and documentation, Technical training and mentoring, Python & TypeScript expertise, On-time delivery",
+  "tarifs.cta": "Contact me to discuss your project",
+  "tarifs.note":
+    "Degressive pricing possible for long missions (3+ months). Custom quote based on project complexity.",
   "back-front-balance.session.title": "Specialization",
   "back-front-balance.title": "Back-end and front-end distribution",
   "back-front-balance.progressBarLabel": "Back-end and front-end distribution",

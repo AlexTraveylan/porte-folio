@@ -60,30 +60,17 @@ export default {
   "home.botDiscord": "Développement de bots Discord",
   "home.achitecture": "Architecture logicielle",
   "tarifs.title": "Tarifs",
-  "tarifs.card1.title": "Site vitrine",
-  "tarifs.card1.description":
-    "Exposez votre service, votre association ou votre entreprise au monde avec un site web qui contient les informations essentielles et les moyens de vous contacter.",
-  "tarifs.card1.price": "À partir de 400€ HT",
-  "tarifs.card1.services":
-    "Votre site 1-5 pages, Accessible Web et Mobile, Reférencement naturel optimisé, Formulaire de contact, Réseaux sociaux",
-  "tarifs.card2.title": "Sur mesure",
-  "tarifs.card2.description":
-    "Site, ou logiciel complexe necessitant une base de donnée et une logique back-end : e-commerce, bot discord, logiciel, automatisation, application web.",
-  "tarifs.card2.price": "325€ HT / jour",
-  "tarifs.card2.services":
-    "Architecture, Code clean, Tests unitaires, Maintenance, Mise en production",
-  "tarifs.card3.title": "Consultant",
-  "tarifs.card3.description":
-    "Je peux rejoindre un projet dans une entreprise en tant que consultant ou faire des formations sur une mission longue ou courte.",
-  "tarifs.card3.price": "Sur devis",
-  "tarifs.card3.services":
-    "Projet web, Projet logiciels, Formation python, Esn, Startup",
-  "tarifs.card4.title": "Intervention rapide",
-  "tarifs.card4.description":
-    "Une tâche rapide qui prendrait moins d'une journée ? Je peux vous aider à résoudre votre problème rapidement et sans effort.",
-  "tarifs.card4.price": "50€ HT / heure",
-  "tarifs.card4.services":
-    "Formation, Correctif de bugs, Ajout de fonctionnalités, Mise en production",
+  "tarifs.badge": "Freelance Python Full Stack",
+  "tarifs.tjm": "HT",
+  "tarifs.unit": "par jour",
+  "tarifs.description":
+    "En tant que développeur freelance expérimenté, je propose mes services aux entreprises qui souhaitent renforcer leur équipe de développement ou développer des projets spécifiques.",
+  "tarifs.included": "Inclus dans le TJM",
+  "tarifs.advantages":
+    "Architecture hexagonale et Clean Code, Design patterns et bonnes pratiques, Tests unitaires et documentation, Formation et mentoring technique, Expertise Python & TypeScript, Livraison dans les délais",
+  "tarifs.cta": "Contactez-moi pour échanger sur votre projet",
+  "tarifs.note":
+    "Tarif dégressif possible pour les missions longues (+ de 3 mois). Devis personnalisé selon la complexité du projet.",
   "back-front-balance.session.title": "Spécialisation",
   "back-front-balance.title": "Répartition des back-end et front-end",
   "back-front-balance.progressBarLabel":

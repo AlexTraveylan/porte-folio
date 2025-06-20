@@ -1,0 +1,287 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# AlexTravelan Portfolio - Project Description
+
+## Project Overview
+
+This project is a personal portfolio for a Python full-stack developer named AlexTravelan (Timothée Demares). It's a Next.js 14 web application with multilingual support, developed with TypeScript and a modern web development approach.
+
+## Core Technologies
+
+### Framework and Runtime
+- **Next.js 14.2.23** with App Router (new architecture)
+- **React 18.3.1** with Server Components and Client Components
+- **TypeScript 5.7.3** for strict typing
+- **Node.js** with npm for dependency management
+
+### Styling and Design System
+- **Tailwind CSS 3.4.17** with custom configuration
+- **shadcn/ui** as component system ("new-york" style)
+- **Radix UI** for accessible primitive components
+- **Lucide React** for icons
+- **tailwindcss-animate** for animations
+- **next-themes** for dark/light mode support
+
+### Form Management and Validation
+- **React Hook Form 7.54.2** for form management
+- **Zod 3.24.1** for schema validation
+- **@hookform/resolvers** for Zod + React Hook Form integration
+
+### Internationalization (i18n)
+- **next-international 1.3.1** for multilingual management
+- Supported languages: English (default) and French
+- Configuration with middleware for language detection
+
+## Project Architecture
+
+### Folder Structure
+```
+mon_porte_folio/
+├── app/[locale]/          # Pages with i18n routing
+├── components/            # Reusable components
+│   ├── home/             # Home page specific components
+│   ├── layout/           # Header and Footer
+│   └── ui/               # shadcn/ui components
+├── lib/                  # Utilities and constants
+├── locales/              # Translation files
+├── actions/              # Next.js Server Actions
+└── public/               # Static assets
+```
+
+### Custom Tailwind Configuration
+The project uses a fully customized Tailwind theme with:
+- **CSS custom variables** for colors (light and dark mode)
+- **Semantic colors**: primary, secondary, muted, accent, destructive, etc.
+- **HSL variables** for fine color management
+- **Custom animations** for accordions
+- **Custom radius** via `--radius: 0.5rem`
+
+### Color System
+- **Light mode**: natural green tones (HSL 105)
+- **Dark mode**: blue tones (HSL 232)
+- **Custom gradient** defined in CSS variables
+- **Complete support** for CSS variables in all states
+
+## Internationalization Strategy
+
+### Configuration
+- **Supported languages**: `en` (default), `fr`
+- **Middleware**: automatic language detection
+- **Structure**: `/[locale]/page` for each route
+- **Cache**: Cache headers with `max-age=3600, must-revalidate`
+
+### i18n Hooks
+- `useI18n()` - Main hook for translations
+- `useScopedI18n()` - Scoped translations (e.g., "contact-form")
+- `useChangeLocale()` - Language switching
+- `useCurrentLocale()` - Current language
+
+### Translation Structure
+The `en.ts` and `fr.ts` files contain flat objects with dot-separated keys:
+- `"contact-form.name"` for form labels
+- `"zod.email.email"` for validation error messages
+- `"footer.quotes.1"` for quotes
+
+## Components and Patterns
+
+### Used shadcn/ui Components
+- `Button`, `Input`, `Textarea` - Forms
+- `Card`, `CardHeader`, `CardContent`, `CardFooter` - Layout
+- `Form`, `FormField`, `FormItem`, `FormLabel` - Forms with validation
+- `Badge`, `Avatar`, `Progress` - Data display
+- `Accordion`, `Tabs` - Navigation
+- `Skeleton` - Loading states
+
+### Form Pattern
+All forms follow this strict pattern:
+1. **Zod schema** for validation
+2. **useForm** from React Hook Form with `zodResolver`
+3. **Form components** from shadcn/ui
+4. **Internationalized error messages** via `FormMessageI18n`
+5. **State management** (loading, success, error)
+
+### Typical Form Example
+```typescript
+const formSchema = z.object({
+  name: z.string().min(2, "name.min"),
+  email: z.string().email("email.email"),
+  message: z.string().min(10, "message.min"),
+})
+
+const form = useForm<z.infer<typeof formSchema>>({
+  resolver: zodResolver(formSchema),
+  defaultValues: { name: "", email: "", message: "" },
+})
+```
+
+## Development Rules
+
+### Code Conventions
+1. **Code language**: ALWAYS in English
+   - Variable names, functions, comments: English
+   - Only translations are in French/English
+   
+2. **Strict TypeScript**
+   - Explicit typing for all props
+   - Use interfaces for complex objects
+   - No `any`, prefer `unknown` if necessary
+
+3. **Components**
+   - Functional components only
+   - TypeScript props with interfaces
+   - Default export for main components
+   - Named exports for utilities
+
+4. **Styling**
+   - ALWAYS use Tailwind CSS
+   - No custom CSS except in `globals.css`
+   - Use defined CSS custom variables
+   - Conditional classes with `cn()` from `lib/utils`
+
+### Mandatory Patterns
+
+#### Forms
+- React Hook Form + Zod + shadcn/ui Form
+- Internationalized error messages
+- Loading states with disabled
+- Success/error handling
+
+#### i18n
+- `useScopedI18n()` for specific components
+- Structured keys with dots: `"section.subsection.key"`
+- Zod messages with `"zod.field.error"` keys
+
+#### Components
+- Client Components: `"use client"` on first line
+- Server Components by default
+- Props typed with TypeScript interfaces
+
+### Component Structure
+```typescript
+// Interface for props
+interface ComponentProps {
+  title: string
+  isLoading?: boolean
+}
+
+// Component with default export
+function ComponentName({ title, isLoading = false }: ComponentProps) {
+  const scopedI18n = useScopedI18n("component-scope")
+  
+  return (
+    <div className="bg-background text-foreground">
+      {/* Content */}
+    </div>
+  )
+}
+
+export default ComponentName
+```
+
+## Tool Configuration
+
+### shadcn/ui
+- Style: "new-york"
+- RSC: enabled
+- TSX: enabled
+- Base color: "neutral"
+- CSS variables: enabled
+
+### Tailwind
+- Animate plugin enabled
+- Content paths configured
+- CSS custom variables in `globals.css`
+- Dark mode via `class`
+
+### TypeScript
+- Strict configuration
+- Path aliases configured: `@/` points to root
+
+## Actions and API
+
+### Server Actions
+- `actions/send-email.ts` file for email sending
+- Using Resend for sending
+- Server-side Zod validation
+
+### State Management
+- React Hook Form for forms
+- useState for simple local state
+- No global store (Redux/Zustand) currently
+
+## Best Practices
+
+### Performance
+- Server Components by default
+- Client Components only when necessary
+- Optimized images with Next.js Image
+- SEO metadata configured
+
+### Accessibility
+- Radix UI for accessible components
+- ARIA labels in translations
+- Contrast respected with CSS variables
+- Keyboard navigation supported
+
+### SEO
+- Metadata in layout.tsx
+- Sitemap.xml present
+- robots.txt configured
+- Semantic HTML structure
+
+## Deployment
+
+### Environment
+- Next.js with static build or SSR
+- Environment variables for secrets
+- Cache headers configured in middleware
+
+### Scripts
+- `npm run dev`: development
+- `npm run build`: production build
+- `npm run start`: production server
+- `npm run lint`: ESLint linting
+
+## Key Points for Contributors
+
+1. **NEVER write code in French** (except translations)
+2. **ALWAYS use the custom Tailwind theme**
+3. **MANDATORY**: React Hook Form + Zod for all forms
+4. **RESPECT** the i18n structure with next-international
+5. **USE** shadcn/ui for all UI components
+6. **TYPE** strictly with TypeScript
+7. **FOLLOW** established patterns for consistency
+
+This project prioritizes maintainability, performance, and user experience with a modern web development approach.
+
+## Critical Implementation Details
+
+### CSS Variables Usage
+- ALL colors must use the predefined CSS variables
+- Format: `hsl(var(--variable-name))`
+- Never hardcode colors, always use the semantic color system
+
+### Form Validation Messages
+- Error messages MUST be internationalized
+- Use `FormMessageI18n` component for displaying errors
+- Zod error keys follow pattern: `"zod.fieldName.errorType"`
+
+### Component Export Pattern
+- Main components: `export default ComponentName`
+- Utility functions: `export const utilityFunction`
+- Types/interfaces: `export interface ComponentProps`
+
+### i18n Key Naming Convention
+- Use dots for nesting: `"section.subsection.key"`
+- Scope forms: `"contact-form.field"`
+- Validation: `"zod.field.error"`
+- Navigation: `"navigation.item"`
+
+This documentation ensures any LLM contributor understands the exact technical requirements and maintains code consistency across the project.
+
+
+
+
