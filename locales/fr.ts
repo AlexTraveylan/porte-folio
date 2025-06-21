@@ -71,7 +71,7 @@ export default {
   "tarifs.included": "Inclus dans le TJM",
   "tarifs.advantages":
     "Architecture hexagonale et Clean Code, Design patterns et bonnes pratiques, Code review et collaboration, Intégration rapide en équipe, Formation et mentoring technique, Tests unitaires et documentation, Expertise Python & TypeScript, Livraison dans les délais",
-  "tarifs.cta": "Contactez-moi pour échanger sur votre projet",
+  "tarifs.cta": "Contactez-moi",
   "back-front-balance.session.title": "Spécialisation",
   "back-front-balance.title": "Répartition des back-end et front-end",
   "back-front-balance.progressBarLabel":
