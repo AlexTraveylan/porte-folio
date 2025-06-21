@@ -36,15 +36,6 @@ export default {
   "hero.aria.github": "Check out my GitHub",
   "hero.years": "years experience",
   "home.projects": "My project selection",
-  "projects.taskEqualizer":
-    "An application to manage the distribution of tasks in a household.",
-  "projects.parentListMaker":
-    "An application to manage the creation and organization of parent-teacher association lists.",
-  "projects.mathExerzizer":
-    "Application to generate random math exercises with OpenAI.",
-  "projects.paroleAuxParents":
-    "A web application that allows preparing school council advice with parent questions.",
-  "projects.passwordGuard": "A secure web application to manage passwords.",
   "home.services": "Services offered",
   "home.development": "Website",
   "home.webDevelopment": "Web Development",
@@ -117,4 +108,14 @@ export default {
     "A french freelance full stack web (website) and sofware developer, Bordeaux, France. Python API with Django, FastAPI, Typescript with React. Wordpress.",
   openMenu: "Open menu",
   closeMenu: "Close menu",
+  "ecotrack.title": "EcoTrack",
+  "ecotrack.tagline": "Analyze your website's environmental impact",
+  "ecotrack.description":
+    "Discover how to reduce your site's digital footprint with personalized recommendations.",
+  "ecotrack.badge": "Personal project",
+  "ecotrack.score": "Score",
+  "ecotrack.myScore": "My score",
+  "ecotrack.cta.viewScore": "View my analysis",
+  "ecotrack.cta.scanYourSite": "Analyze your site",
+  "ecotrack.cta.github": "View code",
 } as const

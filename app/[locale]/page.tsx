@@ -2,7 +2,6 @@
 
 import FAQPart from "@/components/home/faq-part"
 import HeroSection from "@/components/home/hero-section"
-
 import ProjectCarousel from "@/components/home/project-carousel"
 import Tarifs from "@/components/home/tarifs"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
