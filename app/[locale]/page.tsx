@@ -1,6 +1,5 @@
 "use client"
 
-import ContactForm from "@/components/home/contact-form"
 import FAQPart from "@/components/home/faq-part"
 import HeroSection from "@/components/home/hero-section"
 
@@ -68,7 +67,6 @@ export default function Home() {
           <ProjectCarousel />
           <Tarifs />
           <FAQPart />
-          <ContactForm />
         </div>
         <ScrollToTopButton />
       </div>
