@@ -2,9 +2,11 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { ecoIndex } from "@/lib/constants"
 import { useScopedI18n } from "@/locales/client"
 import { BarChart3, Github, Leaf, Search } from "lucide-react"
 import Link from "next/link"
+import EcoIndexDisplay from "./ecoindex-card"
 
 function EcoTrackHighlight() {
   const scopedI18n = useScopedI18n("ecotrack")
@@ -34,20 +36,9 @@ function EcoTrackHighlight() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center space-y-4">
-        {/* Large Score Display */}
-        <div className="text-center space-y-2">
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <BarChart3 className="h-4 w-4" />
-            <span>{scopedI18n("myScore")}</span>
-          </div>
-          <div className="text-6xl font-bold bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
-            78/100
-          </div>
-          <div className="text-2xl font-semibold text-green-600">Score B</div>
-        </div>
+      <EcoIndexDisplay ecoIndex={ecoIndex} />
 
-        {/* Action buttons */}
+      <div className="flex flex-col items-center space-y-4">
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
           <Button asChild size="lg" className="w-full sm:w-auto">
             <Link

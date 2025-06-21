@@ -3,6 +3,7 @@
 import FAQPart from "@/components/home/faq-part"
 import HeroSection from "@/components/home/hero-section"
 import ProjectCarousel from "@/components/home/project-carousel"
+import SkillsPacMan from "@/components/home/skills-pacman"
 import Tarifs from "@/components/home/tarifs"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
 import { githubUrl, linkedinUrl } from "@/lib/constants"
@@ -48,7 +49,7 @@ export default function Home() {
             ? "Développeur Full Stack Python"
             : "Full Stack Python Developer",
         url: baseUrl,
-        sameAs: [linkedinUrl, githubUrl, linkedinUrl],
+        sameAs: [linkedinUrl, githubUrl],
       },
     ],
   }
@@ -63,6 +64,7 @@ export default function Home() {
       <div className="relative flex justify-center py-7 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 w-full max-w-3xl">
           <HeroSection />
+          <SkillsPacMan />
           <ProjectCarousel />
           <Tarifs />
           <FAQPart />

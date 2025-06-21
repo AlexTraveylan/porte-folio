@@ -125,8 +125,22 @@ export default {
     "Découvrez comment réduire l'empreinte numérique de votre site avec des recommandations personnalisées.",
   "ecotrack.badge": "Projet personnel",
   "ecotrack.score": "Score",
-  "ecotrack.myScore": "Mon score",
   "ecotrack.cta.viewScore": "Voir mon analyse",
   "ecotrack.cta.scanYourSite": "Analysez votre site",
   "ecotrack.cta.github": "Voir le code",
+  "skills-pacman.title": "Mes compétences",
+  "skills-pacman.gameOver": "Fin de partie !",
+  "skills-pacman.collected": "Compétences collectées",
+  "skills-pacman.missing": "manquantes",
+  "skills-pacman.congratulations": "Félicitations",
+  "skills-pacman.allSkillsCollected":
+    "Vous avez collecté toutes mes compétences ! Prêt à me recruter ?",
+  "skills-pacman.impressedBySkills":
+    "Mangé par mes compétences ? Contactez-moi pour en savoir plus ! 🚀",
+  "skills-pacman.playAgain": "Rejouer",
+  "skills-pacman.contact": "Me contacter",
+  "skills-pacman.startMessage": "Prêt à découvrir mes compétences ?",
+  "skills-pacman.startDescription":
+    "Mes compétences apparaissent au hasard sur le plateau. Si tu croises exactement ce que tu cherches... c'est le moment de me contacter !",
+  "skills-pacman.startGame": "Découvrir mes compétences",
 } as const

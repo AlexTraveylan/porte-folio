@@ -114,8 +114,22 @@ export default {
     "Discover how to reduce your site's digital footprint with personalized recommendations.",
   "ecotrack.badge": "Personal project",
   "ecotrack.score": "Score",
-  "ecotrack.myScore": "My score",
   "ecotrack.cta.viewScore": "View my analysis",
   "ecotrack.cta.scanYourSite": "Analyze your site",
   "ecotrack.cta.github": "View code",
+  "skills-pacman.title": "My Skills",
+  "skills-pacman.gameOver": "Game Over!",
+  "skills-pacman.collected": "Collected Skills",
+  "skills-pacman.missing": "missing",
+  "skills-pacman.congratulations": "Congratulations",
+  "skills-pacman.allSkillsCollected":
+    "You collected all my skills! Ready to hire me?",
+  "skills-pacman.impressedBySkills":
+    "Eaten by my skills? Contact me to learn more! 🚀",
+  "skills-pacman.playAgain": "Play Again",
+  "skills-pacman.contact": "Contact Me",
+  "skills-pacman.startMessage": "Ready to discover my skills?",
+  "skills-pacman.startDescription":
+    "My skills appear randomly on the board. If you spot exactly what you're looking for... that's your cue to contact me!",
+  "skills-pacman.startGame": "Explore my skills",
 } as const
