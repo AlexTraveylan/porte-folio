@@ -94,16 +94,16 @@ const Header = () => {
           {currentLocale === "fr" ? "🇫🇷" : "🇬🇧"}
         </Button>
         <Button
-          className="md:hidden rounded-full w-11 h-11"
+          className="md:hidden rounded-full w-14 h-14"
           variant="ghost"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
           aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? (
-            <X className="h-6 w-6" />
+            <X className="h-12 w-12" />
           ) : (
-            <Menu className="h-6 w-6" />
+            <Menu className="h-12 w-12" />
           )}
         </Button>
       </div>
