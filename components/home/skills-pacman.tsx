@@ -12,36 +12,39 @@ type Position = { x: number; y: number }
 type Direction = "up" | "down" | "left" | "right"
 type GameState = "start" | "playing" | "won" | "lost"
 
-// Skills list with colors
+// Skills list (Python is pre-collected)
 const SKILLS = [
-  { name: "Python", color: "bg-blue-500" },
-  { name: "TypeScript", color: "bg-blue-600" },
-  { name: "FastAPI", color: "bg-green-500" },
-  { name: "Django", color: "bg-green-600" },
-  { name: "React", color: "bg-cyan-500" },
-  { name: "Next.js", color: "bg-gray-800" },
-  { name: "SQL", color: "bg-orange-500" },
-  { name: "Snowflake", color: "bg-blue-400" },
-  { name: "Git", color: "bg-red-500" },
-  { name: "Docker", color: "bg-blue-700" },
-  { name: "Kubernetes", color: "bg-purple-600" },
-  { name: "Kafka", color: "bg-yellow-600" },
-  { name: "Pandas", color: "bg-purple-500" },
-  { name: "NumPy", color: "bg-indigo-500" },
-  { name: "scikit-learn", color: "bg-orange-600" },
-  { name: "MyPy", color: "bg-teal-500" },
-  { name: "Ruff", color: "bg-red-600" },
-  { name: "UV", color: "bg-violet-500" },
-  { name: "Pytest", color: "bg-green-700" },
-  { name: "GitHub", color: "bg-gray-700" },
-  { name: "GitLab", color: "bg-orange-700" },
-  { name: "Jira", color: "bg-blue-800" },
-  { name: "Kanban", color: "bg-emerald-500" },
-  { name: "Agile", color: "bg-pink-500" },
-  { name: "REST", color: "bg-lime-500" },
-  { name: "SOLID", color: "bg-amber-500" },
-  { name: "Clean Code", color: "bg-slate-600" },
+  { name: "TypeScript" },
+  { name: "FastAPI" },
+  { name: "Django" },
+  { name: "React" },
+  { name: "Next.js" },
+  { name: "SQL" },
+  { name: "Snowflake" },
+  { name: "Git" },
+  { name: "Docker" },
+  { name: "Kubernetes" },
+  { name: "Kafka" },
+  { name: "Pandas" },
+  { name: "NumPy" },
+  { name: "scikit-learn" },
+  { name: "MyPy" },
+  { name: "Ruff" },
+  { name: "UV" },
+  { name: "Pytest" },
+  { name: "GitHub" },
+  { name: "GitLab" },
+  { name: "Jira" },
+  { name: "Kanban" },
+  { name: "Agile" },
+  { name: "REST" },
+  { name: "SOLID" },
+  { name: "Clean Code" },
+  { name: "Grafana" },
 ]
+
+// Python is pre-collected as the core skill
+const PYTHON_SKILL = { name: "Python" }
 
 // Mobile-friendly Pac-Man maze (13x15 grid)
 const MAZE = [
@@ -78,11 +81,11 @@ export default function SkillsPacMan() {
     { pos: { x: 5, y: 7 }, dir: "left", color: "bg-pink-500" },
   ])
   const [fruits, setFruits] = useState<
-    Array<{ pos: Position; skill: (typeof SKILLS)[0] }>
+    Array<{ pos: Position; skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL }>
   >([])
   const [collectedSkills, setCollectedSkills] = useState<
-    Array<(typeof SKILLS)[0]>
-  >([])
+    Array<(typeof SKILLS)[0] | typeof PYTHON_SKILL>
+  >([PYTHON_SKILL])
   const [gameState, setGameState] = useState<GameState>("start")
   const [availableSkills, setAvailableSkills] =
     useState<Array<(typeof SKILLS)[0]>>(SKILLS)
@@ -112,12 +115,12 @@ export default function SkillsPacMan() {
       { pos: { x: 6, y: 7 }, dir: "up", color: "bg-red-500" },
       { pos: { x: 5, y: 7 }, dir: "left", color: "bg-pink-500" },
     ])
-    setCollectedSkills([])
+    setCollectedSkills([PYTHON_SKILL])
     setAvailableSkills(SKILLS)
     setGameState("start")
   }, [])
 
-  // Generate random fruits on empty spaces (Python always first)
+  // Generate random fruits on empty spaces
   const generateFruits = useCallback(() => {
     if (availableSkills.length === 0) return []
 
@@ -132,34 +135,16 @@ export default function SkillsPacMan() {
 
     const newFruits: Array<{ pos: Position; skill: (typeof SKILLS)[0] }> = []
     const fruitsToGenerate = Math.min(5, availableSkills.length)
-    const tempAvailableSkills = [...availableSkills] // Copy to avoid modifying original
 
-    // Always put Python first if available
-    const pythonSkill = tempAvailableSkills.find(
-      (skill) => skill.name === "Python"
-    )
-    if (pythonSkill && emptySpaces.length > 0) {
-      const randomSpaceIndex = Math.floor(Math.random() * emptySpaces.length)
-      const randomSpace = emptySpaces.splice(randomSpaceIndex, 1)[0]
-      newFruits.push({ pos: randomSpace, skill: pythonSkill })
-
-      // Remove Python from temp array
-      const pythonIndex = tempAvailableSkills.findIndex(
-        (skill) => skill.name === "Python"
-      )
-      tempAvailableSkills.splice(pythonIndex, 1)
-    }
-
-    // Add remaining fruits randomly
-    const remainingFruits = fruitsToGenerate - newFruits.length
-    for (let i = 0; i < remainingFruits; i++) {
-      if (emptySpaces.length > 0 && tempAvailableSkills.length > 0) {
+    // Add fruits randomly
+    for (let i = 0; i < fruitsToGenerate; i++) {
+      if (emptySpaces.length > 0 && availableSkills.length > 0) {
         const randomSpaceIndex = Math.floor(Math.random() * emptySpaces.length)
         const randomSpace = emptySpaces.splice(randomSpaceIndex, 1)[0]
         const randomSkillIndex = Math.floor(
-          Math.random() * tempAvailableSkills.length
+          Math.random() * availableSkills.length
         )
-        const skill = tempAvailableSkills.splice(randomSkillIndex, 1)[0] // Remove from temp array
+        const skill = availableSkills[randomSkillIndex]
 
         newFruits.push({ pos: randomSpace, skill })
       }
@@ -444,7 +429,7 @@ export default function SkillsPacMan() {
 
     // Wall or empty space
     if (MAZE[y][x] === 1) {
-      return <div className="w-full h-full bg-blue-800"></div>
+      return <div className="w-full h-full bg-primary"></div>
     }
 
     return null
@@ -459,7 +444,7 @@ export default function SkillsPacMan() {
       <div className="flex justify-center">
         <div className="relative">
           <div
-            className="grid gap-px bg-gray-800 p-2 border-2 border-gray-600 rounded-lg"
+            className="grid gap-px bg-card p-2 border-2 border-border rounded-lg shadow-lg"
             style={{
               gridTemplateColumns: `repeat(${MAZE_WIDTH}, 1fr)`,
               gridTemplateRows: `repeat(${MAZE_HEIGHT}, 1fr)`,
@@ -473,7 +458,7 @@ export default function SkillsPacMan() {
                 return (
                   <div
                     key={index}
-                    className="w-6 h-6 flex items-center justify-center bg-black"
+                    className="w-6 h-6 flex items-center justify-center bg-background"
                   >
                     {renderCell(x, y)}
                   </div>
@@ -483,9 +468,9 @@ export default function SkillsPacMan() {
 
           {/* Start Screen Overlay */}
           {gameState === "start" && (
-            <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center rounded-lg">
-              <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 text-center space-y-4">
-                <h3 className="text-2xl font-bold text-primary mb-4">
+            <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-lg">
+              <div className="bg-card border border-border p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 text-center space-y-4">
+                <h3 className="text-2xl font-bold text-card-foreground mb-4">
                   {t("startMessage")}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-6">
@@ -500,15 +485,15 @@ export default function SkillsPacMan() {
 
           {/* Game Over Overlay */}
           {(gameState === "won" || gameState === "lost") && (
-            <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center rounded-lg">
-              <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 text-center space-y-4">
+            <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center rounded-lg">
+              <div className="bg-card border border-border p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 text-center space-y-4">
                 {/* Game result */}
                 {gameState === "won" && (
                   <>
-                    <h3 className="text-3xl font-bold text-green-600 mb-4">
+                    <h3 className="text-3xl font-bold text-primary mb-4">
                       {t("congratulations")}
                     </h3>
-                    <p className="text-lg text-gray-700">
+                    <p className="text-lg text-card-foreground">
                       {t("allSkillsCollected")}
                     </p>
                   </>
