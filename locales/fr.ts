@@ -53,7 +53,6 @@ export default {
   "home.botDiscord": "Développement de bots Discord",
   "home.achitecture": "Architecture logicielle",
   "tarifs.title": "Tarifs",
-  "tarifs.badge": "Freelance Python Full Stack",
   "tarifs.tjm": "HT",
   "tarifs.unit": "par jour",
   "tarifs.description":

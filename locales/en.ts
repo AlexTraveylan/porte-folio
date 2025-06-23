@@ -52,7 +52,6 @@ export default {
   "home.botDiscord": "Discord Bot Development",
   "home.achitecture": "Software Architecture",
   "tarifs.title": "Pricing",
-  "tarifs.badge": "Python Full Stack Freelancer",
   "tarifs.tjm": "excl. VAT",
   "tarifs.unit": "per day",
   "tarifs.description":

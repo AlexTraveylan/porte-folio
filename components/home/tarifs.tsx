@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { startDate } from "@/lib/constants"
 import { computeTjm } from "@/lib/utils"
@@ -18,13 +17,6 @@ function Tarifs() {
       </h2>
 
       <div className="mb-8 text-center space-y-8">
-        {/* Badge */}
-        <div>
-          <Badge variant="secondary" className="text-base font-medium">
-            {scopedT("badge")}
-          </Badge>
-        </div>
-
         {/* Price */}
         <div className="space-y-2">
           <div className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
