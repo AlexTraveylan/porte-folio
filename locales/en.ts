@@ -132,4 +132,12 @@ export default {
   "skills-pacman.startDescription":
     "My skills appear randomly on the board. If you spot exactly what you're looking for... that's your cue to contact me!",
   "skills-pacman.startGame": "Explore my skills",
+  "availability.title": "Availability",
+  "availability.duration.very-short": "Very Short (≤1 week)",
+  "availability.duration.short": "Short (<1 month)",
+  "availability.duration.medium": "Medium (<6 months)",
+  "availability.duration.long": "Long (<1 year)",
+  "availability.duration.very-long": "Very Long (<3 years)",
+  "availability.badge.available": "Available",
+  "availability.badge.unavailable": "Unavailable",
 } as const

@@ -143,4 +143,12 @@ export default {
   "skills-pacman.startDescription":
     "Mes compétences apparaissent au hasard sur le plateau. Si tu croises exactement ce que tu cherches... c'est le moment de me contacter !",
   "skills-pacman.startGame": "Découvrir mes compétences",
+  "availability.title": "Disponibilités",
+  "availability.duration.very-short": "Très Court (≤1 semaine)",
+  "availability.duration.short": "Court (<1 mois)",
+  "availability.duration.medium": "Durée Moyenne (<6 mois)",
+  "availability.duration.long": "Long (<1 an)",
+  "availability.duration.very-long": "Très Long (<3 ans)",
+  "availability.badge.available": "Disponible",
+  "availability.badge.unavailable": "Indisponible",
 } as const

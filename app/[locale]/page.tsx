@@ -1,5 +1,6 @@
 "use client"
 
+import AvailabilityStatus from "@/components/home/availability-status"
 import FAQPart from "@/components/home/faq-part"
 import HeroSection from "@/components/home/hero-section"
 import ProjectCarousel from "@/components/home/project-carousel"
@@ -64,6 +65,7 @@ export default function Home() {
       <div className="relative flex justify-center py-7 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 w-full max-w-3xl">
           <HeroSection />
+          <AvailabilityStatus />
           <SkillsPacMan />
           <ProjectCarousel />
           <Tarifs />
