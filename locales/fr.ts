@@ -133,9 +133,9 @@ export default {
   "skills-pacman.missing": "manquantes",
   "skills-pacman.congratulations": "Félicitations",
   "skills-pacman.allSkillsCollected":
-    "Vous avez collecté toutes mes compétences ! Prêt à me recruter ?",
+    "C'etait pas prévu que quelqu'un arrive ici ... Bravo !",
   "skills-pacman.impressedBySkills":
-    "Mangé par mes compétences ? Contactez-moi pour en savoir plus ! 🚀",
+    "Mangé ? Moi non plus je n'y arrive pas ...",
   "skills-pacman.playAgain": "Rejouer",
   "skills-pacman.contact": "Me contacter",
   "skills-pacman.startMessage": "Prêt à découvrir mes compétences ?",

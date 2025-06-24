@@ -122,9 +122,8 @@ export default {
   "skills-pacman.missing": "missing",
   "skills-pacman.congratulations": "Congratulations",
   "skills-pacman.allSkillsCollected":
-    "You collected all my skills! Ready to hire me?",
-  "skills-pacman.impressedBySkills":
-    "Eaten by my skills? Contact me to learn more! 🚀",
+    "It was not planned that someone would get here ... Congratulations!",
+  "skills-pacman.impressedBySkills": "Eaten? I don't either I can't do it ...",
   "skills-pacman.playAgain": "Play Again",
   "skills-pacman.contact": "Contact Me",
   "skills-pacman.startMessage": "Ready to discover my skills?",
