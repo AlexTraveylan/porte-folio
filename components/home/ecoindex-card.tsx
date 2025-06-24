@@ -5,21 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { EcoIndex, Grade } from "@/lib/types"
-
-const getGradeColor = (grade: Grade): string => {
-  const colors = {
-    A: "bg-green-500",
-    B: "bg-green-400",
-    C: "bg-yellow-400",
-    D: "bg-yellow-500",
-    E: "bg-orange-500",
-    F: "bg-red-400",
-    G: "bg-red-500",
-  }[grade]
-
-  return colors
-}
+import { EcoIndex } from "@/lib/types"
 
 const EcoIndexDisplay: React.FC<{ ecoIndex: EcoIndex }> = ({ ecoIndex }) => {
   return (
