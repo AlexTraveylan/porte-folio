@@ -31,9 +31,7 @@ const EcoIndexDisplay: React.FC<{ ecoIndex: EcoIndex }> = ({ ecoIndex }) => {
       <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex items-center justify-center">
           <div
-            className={`${getGradeColor(
-              ecoIndex.grade
-            )} w-24 h-24 rounded-full flex items-center justify-center`}
+            className={`bg-primary w-24 h-24 rounded-full flex items-center justify-center`}
           >
             <span className="text-4xl font-bold text-white">
               {ecoIndex.grade}
