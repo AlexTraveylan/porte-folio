@@ -2,7 +2,8 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { githubUrl, linkedinUrl, startDate } from "@/lib/constants"
+import { combinaison, githubUrl, linkedinUrl, startDate } from "@/lib/constants"
+import { useGlitchText } from "@/lib/useGlitchText"
 import { useScopedI18n } from "@/locales/client"
 import { Calendar, Github, Linkedin, Mail, MapPin } from "lucide-react"
 import Image from "next/image"
@@ -10,6 +11,10 @@ import Link from "next/link"
 
 function HeroSection() {
   const scopedT = useScopedI18n("hero")
+  const glitchTitle = useGlitchText({
+    text: scopedT("title"),
+    hiddenDigit: combinaison[0],
+  })
 
   const currentDate = new Date()
   const experienceYears = Math.floor(
@@ -21,7 +26,7 @@ function HeroSection() {
       {/* Title */}
       <div className="space-y-3 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-          {scopedT("title")}
+          {glitchTitle}
         </h1>
       </div>
 

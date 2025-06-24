@@ -4,6 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { combinaison } from "@/lib/constants"
+import { useGlitchText } from "@/lib/useGlitchText"
 import { useScopedI18n } from "@/locales/client"
 import Script from "next/script"
 import React from "react"
@@ -52,6 +54,10 @@ const faqData: FAQData[] = [
 
 const FAQPart: React.FC = () => {
   const scopedT = useScopedI18n("faq")
+  const glitchTitle = useGlitchText({
+    text: scopedT("title"),
+    hiddenDigit: combinaison[5],
+  })
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -74,7 +80,7 @@ const FAQPart: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <h2 id="faq" className="text-xl font-semibold mt-8 mb-4">
-        {scopedT("title")}
+        {glitchTitle}
       </h2>
       <Accordion type="single" collapsible className="w-full">
         {faqData.map((item, index) => (

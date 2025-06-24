@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { startDate } from "@/lib/constants"
+import { combinaison, startDate } from "@/lib/constants"
+import { useGlitchText } from "@/lib/useGlitchText"
 import { computeTjm } from "@/lib/utils"
 import { useScopedI18n } from "@/locales/client"
 import { CheckCircle, Clock } from "lucide-react"
@@ -7,13 +8,17 @@ import Link from "next/link"
 
 function Tarifs() {
   const scopedT = useScopedI18n("tarifs")
+  const glitchTitle = useGlitchText({
+    text: scopedT("title"),
+    hiddenDigit: combinaison[4],
+  })
   const advantages = scopedT("advantages").split(", ")
   const computedTjm = computeTjm(startDate)
 
   return (
     <>
       <h2 id="tarifs" className="text-xl font-semibold mt-8 mb-4">
-        {scopedT("title")}
+        {glitchTitle}
       </h2>
 
       <div className="mb-8 text-center space-y-8">

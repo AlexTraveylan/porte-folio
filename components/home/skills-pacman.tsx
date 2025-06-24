@@ -2,6 +2,8 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { combinaison } from "@/lib/constants"
+import { useGlitchText } from "@/lib/useGlitchText"
 import { useScopedI18n } from "@/locales/client"
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react"
 import Link from "next/link"
@@ -70,6 +72,10 @@ const MAZE_HEIGHT = 15
 
 export default function SkillsPacMan() {
   const t = useScopedI18n("skills-pacman")
+  const glitchTitle = useGlitchText({
+    text: t("title"),
+    hiddenDigit: combinaison[2],
+  })
 
   // Game state
   const [pacmanPos, setPacmanPos] = useState<Position>({ x: 6, y: 11 })
@@ -438,7 +444,7 @@ export default function SkillsPacMan() {
   return (
     <div className="space-y-8">
       {/* Title */}
-      <h2 className="text-xl font-semibold">{t("title")}</h2>
+      <h2 className="text-xl font-semibold">{glitchTitle}</h2>
 
       {/* Game board */}
       <div className="flex justify-center">

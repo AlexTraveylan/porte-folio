@@ -1,6 +1,8 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
+import { combinaison } from "@/lib/constants"
+import { useGlitchText } from "@/lib/useGlitchText"
 import { useScopedI18n } from "@/locales/client"
 import { Calendar, CheckCircle2, Clock, XCircle } from "lucide-react"
 
@@ -14,6 +16,10 @@ interface ContractType {
 
 function AvailabilityStatus() {
   const scopedT = useScopedI18n("availability")
+  const glitchTitle = useGlitchText({
+    text: scopedT("title"),
+    hiddenDigit: combinaison[1],
+  })
 
   // Get availability from environment variables
   const contractTypes: ContractType[] = [
@@ -52,7 +58,7 @@ function AvailabilityStatus() {
   return (
     <div className="space-y-6">
       {/* Title */}
-      <h2 className="text-xl font-semibold mt-8 mb-4">{scopedT("title")}</h2>
+      <h2 className="text-xl font-semibold mt-8 mb-4">{glitchTitle}</h2>
 
       {/* Timeline */}
       <div className="relative max-w-2xl mx-auto">

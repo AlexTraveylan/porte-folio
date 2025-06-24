@@ -12,3 +12,5 @@ export const ecoIndex: EcoIndex = {
   water: 2.01,
   grade: "A",
 }
+
+export const combinaison = "123456"
