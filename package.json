@@ -21,6 +21,7 @@
     "@radix-ui/react-tabs": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "input-otp": "^1.4.2",
     "lucide-react": "^0.439.0",
     "mon_porte_folio": "file:",
     "next": "^14.2.23",
@@ -32,7 +33,8 @@
     "resend": "^4.0.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.24.1"
+    "zod": "^3.24.1",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",

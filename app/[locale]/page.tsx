@@ -7,6 +7,7 @@ import ProjectCarousel from "@/components/home/project-carousel"
 import SkillsPacMan from "@/components/home/skills-pacman"
 import Tarifs from "@/components/home/tarifs"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
+import SecretLock from "@/components/SecretLock"
 import { githubUrl, linkedinUrl } from "@/lib/constants"
 import { useScopedI18n } from "@/locales/client"
 import { useParams } from "next/navigation"
@@ -73,6 +74,7 @@ export default function Home() {
         </div>
         <ScrollToTopButton />
       </div>
+      <SecretLock />
     </>
   )
 }

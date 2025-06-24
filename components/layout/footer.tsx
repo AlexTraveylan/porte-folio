@@ -1,11 +1,19 @@
 "use client"
 
-import { githubUrl, linkedinUrl, myEmail } from "@/lib/constants"
+import {
+  githubUrl,
+  linkedinUrl,
+  myEmail,
+  secretCitationEn,
+  secretCitationFr,
+} from "@/lib/constants"
+import { useSecretStore } from "@/lib/store"
+import { cn } from "@/lib/utils"
 import { useScopedI18n } from "@/locales/client"
 import { Github, Linkedin, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
+import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
-
 type QuoteKey =
   | "quotes.1"
   | "quotes.2"
@@ -16,23 +24,31 @@ type QuoteKey =
   | "quotes.7"
   | "quotes.8"
 
-const quotes: QuoteKey[] = [
-  "quotes.1",
-  "quotes.2",
-  "quotes.3",
-  "quotes.4",
-  "quotes.5",
-  "quotes.6",
-  "quotes.7",
-  "quotes.8",
-]
-
-const Footer = () => {
+export default function Footer() {
   const [quote, setQuote] = useState<QuoteKey>("quotes.1")
   const scopedI18n = useScopedI18n("footer")
+  const { locale } = useParams()
+  const { isSecretUnlocked } = useSecretStore()
+
+  const secretText = locale === "fr" ? secretCitationFr : secretCitationEn
 
   useEffect(() => {
-    setQuote(quotes[Math.floor(Math.random() * quotes.length)])
+    const interval = setInterval(() => {
+      const quotes: QuoteKey[] = [
+        "quotes.1",
+        "quotes.2",
+        "quotes.3",
+        "quotes.4",
+        "quotes.5",
+        "quotes.6",
+        "quotes.7",
+        "quotes.8",
+      ]
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+      setQuote(randomQuote)
+    }, 8000)
+
+    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -57,9 +73,14 @@ const Footer = () => {
 
         <div className="flex flex-col items-center">
           <h3 className="text-lg font-semibold mb-4">{scopedI18n("quote")}</h3>
-          <p className="text-center italic text-muted-foreground">{`"${scopedI18n(
-            quote
-          )}"`}</p>
+          <p
+            className={cn(
+              "text-center italic text-muted-foreground",
+              isSecretUnlocked && "text-primary"
+            )}
+          >
+            {isSecretUnlocked ? `"${secretText}"` : `"${scopedI18n(quote)}"`}
+          </p>
         </div>
 
         <div className="flex flex-col items-center">
@@ -93,5 +114,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer
