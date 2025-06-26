@@ -138,4 +138,6 @@ export default {
   "availability.duration.very-long": "Very Long (<3 years)",
   "availability.badge.available": "Available",
   "availability.badge.unavailable": "Unavailable",
+  "secret.modal.title": "Secret code",
+  "secret.modal.description": "Enter the 6-digit code to unlock the secret",
 } as const

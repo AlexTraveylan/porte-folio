@@ -150,4 +150,7 @@ export default {
   "availability.duration.very-long": "Très Long (<3 ans)",
   "availability.badge.available": "Disponible",
   "availability.badge.unavailable": "Indisponible",
+  "secret.modal.title": "Code secret",
+  "secret.modal.description":
+    "Entrez le code à 6 chiffres pour déverrouiller le secret",
 } as const
