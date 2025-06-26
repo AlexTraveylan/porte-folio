@@ -7,7 +7,7 @@ function ProjectCarousel() {
   const scopedT = useScopedI18n("home")
   const glitchTitle = useGlitchText({
     text: scopedT("projects"),
-    hiddenDigit: combinaison[3],
+    hiddenDigit: combinaison[2],
   })
 
   return (

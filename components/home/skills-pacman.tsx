@@ -74,7 +74,7 @@ export default function SkillsPacMan() {
   const t = useScopedI18n("skills-pacman")
   const glitchTitle = useGlitchText({
     text: t("title"),
-    hiddenDigit: combinaison[2],
+    hiddenDigit: combinaison[1],
   })
 
   // Game state

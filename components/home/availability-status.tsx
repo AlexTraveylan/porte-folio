@@ -18,7 +18,7 @@ function AvailabilityStatus() {
   const scopedT = useScopedI18n("availability")
   const glitchTitle = useGlitchText({
     text: scopedT("title"),
-    hiddenDigit: combinaison[1],
+    hiddenDigit: combinaison[3],
   })
 
   // Get availability from environment variables

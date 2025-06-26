@@ -66,9 +66,9 @@ export default function Home() {
       <div className="relative flex justify-center py-7 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 w-full max-w-3xl">
           <HeroSection />
-          <AvailabilityStatus />
           <SkillsPacMan />
           <ProjectCarousel />
+          <AvailabilityStatus />
           <Tarifs />
           <FAQPart />
         </div>
