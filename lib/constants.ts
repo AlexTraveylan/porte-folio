@@ -17,3 +17,5 @@ export const combinaison = process.env.NEXT_PUBLIC_COMBINAISON || "123456"
 
 export const secretCitationFr = process.env.NEXT_PUBLIC_SECRET_CITATION_FR
 export const secretCitationEn = process.env.NEXT_PUBLIC_SECRET_CITATION_EN
+
+export const lockAppearanceIntervalMs = 8000

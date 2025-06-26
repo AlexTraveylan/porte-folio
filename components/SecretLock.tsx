@@ -6,7 +6,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp"
-import { combinaison } from "@/lib/constants"
+import { combinaison, lockAppearanceIntervalMs } from "@/lib/constants"
 import { useSecretStore } from "@/lib/store"
 import { Lock, X } from "lucide-react"
 import { useEffect, useState } from "react"
@@ -36,7 +36,7 @@ export default function SecretLock() {
       setTimeout(() => {
         setShowLock(false)
       }, 1000)
-    }, 3000)
+    }, lockAppearanceIntervalMs)
 
     return () => clearInterval(interval)
   }, [isSecretUnlocked])
