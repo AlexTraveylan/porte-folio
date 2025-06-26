@@ -519,9 +519,7 @@ export default function SkillsPacMan() {
                 {/* Collected skills */}
                 {(collectedSkills.length > 0 || gameState === "lost") && (
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-primary">
-                      {t("collected")}
-                    </h4>
+                    <h4 className="text-lg font-semibold">{t("collected")}</h4>
                     <div className="flex flex-wrap justify-center gap-2">
                       {collectedSkills.map((skill, index) => (
                         <Badge key={index} variant="secondary">

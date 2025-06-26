@@ -128,7 +128,7 @@ export default {
   "ecotrack.cta.scanYourSite": "Analysez votre site",
   "ecotrack.cta.github": "Voir le code",
   "skills-pacman.title": "Mes compétences",
-  "skills-pacman.gameOver": "Fin de partie !",
+  "skills-pacman.gameOver": "Game over !",
   "skills-pacman.collected": "Compétences collectées",
   "skills-pacman.missing": "manquantes",
   "skills-pacman.congratulations": "Félicitations",
