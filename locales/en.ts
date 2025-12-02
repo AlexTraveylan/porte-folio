@@ -78,7 +78,7 @@ export default {
     "I offer both options according to your preferences. Based in Bordeaux, I can work on-site for companies in the Bordeaux region. For missions elsewhere in France or internationally, I work exclusively remotely. I have experience with collaborative tools and excellent remote communication skills.",
   "faq.question4": "What types of Python projects do you work on?",
   "faq.answer4":
-    "I work on APIs (Django, FastAPI), full-stack web applications, Data Science and Machine Learning projects, data pipelines with SQL, automation scripts, complex data integrations, legacy code refactoring, implementing clean architectures (Clean Code, design patterns) and training teams in best practices. My expertise covers both traditional development and Machine Learning Engineering with solid experience in the B2B sector.",
+    "I work on APIs (Django, FastAPI), full-stack web applications, Data Science and Machine Learning projects, data pipelines with SQL, automation scripts, complex data integrations, legacy code refactoring, implementing clean architectures (Clean Code, design patterns) and training teams in best practices. My expertise covers both traditional development and Machine Learning Engineering, with solid experience in the B2C sector, particularly on e-commerce platforms and search engines.",
   "faq.question5": "How do we start working together?",
   "faq.answer5":
     "Contact me via the form or email to discuss your needs. We'll schedule a call to define the mission, objectives and working arrangements. I can usually start quickly, typically within 1-2 weeks depending on my availability.",
