@@ -107,6 +107,13 @@ export default {
     "A french freelance full stack web (website) and sofware developer, Bordeaux, France. Python API with Django, FastAPI, Typescript with React. Wordpress.",
   openMenu: "Open menu",
   closeMenu: "Close menu",
+  "calcRush.title": "Calc Rush",
+  "calcRush.tagline": "Mental math becomes a competitive game",
+  "calcRush.description":
+    "Compete against other players in real-time mental math duels, from elementary to high school level. A ranking and grade system inspired by League of Legends and Rocket League to progress and climb the ladder.",
+  "calcRush.badge": "Personal project",
+  "calcRush.cta.play": "Play now",
+  "calcRush.cta.multiplayer": "Multiplayer mode",
   "ecotrack.title": "EcoTrack",
   "ecotrack.tagline": "Analyze your website's environmental impact",
   "ecotrack.description":

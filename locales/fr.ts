@@ -118,6 +118,13 @@ export default {
     "Un développeur freelance full stack web (site internet) et logiciel en France. Python API avec Django, FastAPI, Typescript avec React. Wordpress.",
   openMenu: "Ouvrir le menu",
   closeMenu: "Fermer le menu",
+  "calcRush.title": "Calc Rush",
+  "calcRush.tagline": "Le calcul mental devient un jeu compétitif",
+  "calcRush.description":
+    "Affrontez d'autres joueurs en temps réel dans des duels de calcul mental, du CP au lycée. Un système de classement et de grades inspiré de League of Legends et Rocket League pour progresser et grimper les rangs.",
+  "calcRush.badge": "Projet personnel",
+  "calcRush.cta.play": "Jouer maintenant",
+  "calcRush.cta.multiplayer": "Mode multijoueur",
   "ecotrack.title": "EcoTrack",
   "ecotrack.tagline": "Analysez l'impact environnemental de votre site web",
   "ecotrack.description":

@@ -1,6 +1,7 @@
 import { combinaison } from "@/lib/constants"
 import { useGlitchText } from "@/lib/useGlitchText"
 import { useScopedI18n } from "@/locales/client"
+import CalcRushHighlight from "./calc-rush-highlight"
 import EcoTrackHighlight from "./ecotrack-highlight"
 
 function ProjectCarousel() {
@@ -15,6 +16,7 @@ function ProjectCarousel() {
       <h2 id="projects" className="text-xl font-semibold mt-8 mb-4">
         {glitchTitle}
       </h2>
+      <CalcRushHighlight />
       <EcoTrackHighlight />
     </>
   )
