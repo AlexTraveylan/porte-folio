@@ -26,7 +26,7 @@ const fr: CalcRushContent = {
   seo: {
     title: "Calc Rush : l'appli de calcul mental du CP à la 3ème",
     description:
-      "Calc Rush est une application gratuite pour s'entraîner au calcul mental du CP à la 3ème : duels multijoueurs, grades, titres et écriture manuscrite des réponses.",
+      "Calc Rush est une application de calcul mental du CP à la 3ème, gratuite pour jouer : parties multijoueurs, grades et écriture manuscrite des réponses.",
   },
   hero: {
     title: "Calc Rush",
@@ -48,7 +48,7 @@ const fr: CalcRushContent = {
     title: "C'est quoi, Calc Rush ?",
     paragraphs: [
       "Calc Rush est une application web pour mobile, tablette et ordinateur qui aide les enfants et les adolescents à progresser en calcul mental. On répond à des calculs adaptés à son niveau scolaire, du CP à la 3ème, dans des parties courtes et rythmées.",
-      "Le principe : s'entraîner sans s'en rendre compte. Les parties se jouent contre d'autres joueurs de son niveau, chaque bonne réponse fait gagner de l'expérience, et la progression est visible grâce aux grades et aux titres. Jouer est gratuit : l'expérience, le niveau, le grade et la série quotidienne ne dépendent jamais d'un abonnement.",
+      "Le principe : s'entraîner sans s'en rendre compte. Les parties se jouent contre d'autres joueurs de son niveau, chaque bonne réponse fait gagner de l'expérience, et la progression est visible grâce aux grades (et aux titres avec Calc Rush+). Jouer est gratuit : l'expérience, le niveau, le grade et la série quotidienne ne dépendent jamais d'un abonnement.",
     ],
   },
   features: [
@@ -62,7 +62,7 @@ const fr: CalcRushContent = {
     },
     {
       title: "Des titres à débloquer",
-      text: "Des titres comme Apprenti Calculateur, Machine à Calculer ou Cerveau Quantique récompensent les séries de victoires, les bonnes réponses et les parties sans faute.",
+      text: "Des titres comme Apprenti Calculateur, Machine à Calculer ou Cerveau Quantique récompensent les séries de victoires, les bonnes réponses et les parties sans faute. La progression des titres fait partie de l'offre Calc Rush+.",
     },
     {
       title: "Écriture manuscrite",
@@ -70,14 +70,14 @@ const fr: CalcRushContent = {
     },
     {
       title: "Mode entraînement",
-      text: "Pour réviser à son rythme, sans adversaire, sur les types de calculs de son niveau.",
+      text: "Pour réviser à son rythme, sans adversaire, en choisissant le niveau et la catégorie de calculs. Ce mode fait partie de l'offre Calc Rush+.",
     },
   ],
   audiences: [
     {
       key: "students",
       title: "Pour les élèves",
-      text: "Des parties courtes et des duels pour progresser en s'amusant, avec des grades, des titres et une série quotidienne qui donnent envie de revenir.",
+      text: "Des parties courtes et des duels pour progresser en s'amusant, avec des grades et une série quotidienne qui donnent envie de revenir.",
     },
     {
       key: "parents",
@@ -99,12 +99,12 @@ const fr: CalcRushContent = {
     {
       question: "Comment s'entraîner au calcul mental du CP à la 3ème ?",
       answer:
-        "Calc Rush propose des calculs pour chaque niveau, du CP à la 3ème. En jouant quelques minutes par jour, on retrouve les automatismes de calcul, et le mode entraînement permet de réviser sans adversaire.",
+        "Calc Rush propose des calculs pour chaque niveau, du CP à la 3ème. En jouant quelques minutes par jour, on retrouve les automatismes de calcul, et le mode entraînement (offre Calc Rush+) permet de réviser sans adversaire.",
     },
     {
       question: "Calc Rush est-il gratuit ?",
       answer:
-        "Oui, on peut jouer gratuitement, même en invité. L'expérience, le niveau, le grade et la série quotidienne ne dépendent pas d'un abonnement. Une offre optionnelle, Calc Rush+, ajoute notamment la création de salons privés.",
+        "Oui, on peut jouer gratuitement, même en invité. L'expérience, le niveau, le grade et la série quotidienne ne dépendent pas d'un abonnement. Une offre optionnelle, Calc Rush+, ajoute la création de salons privés, le mode entraînement, la progression des quêtes et des titres, et la couronne du profil.",
     },
     {
       question: "Peut-on jouer à plusieurs ?",
@@ -138,7 +138,7 @@ const en: CalcRushContent = {
   seo: {
     title: "Calc Rush: the mental math app for grades 1 to 9",
     description:
-      "Calc Rush is a free app to practice mental math from primary school to 9th grade: multiplayer duels, ranks, titles and handwritten answers.",
+      "Calc Rush is a mental math app from primary school to 9th grade, free to play: multiplayer games, ranks and handwritten answers.",
   },
   hero: {
     title: "Calc Rush",
@@ -160,7 +160,7 @@ const en: CalcRushContent = {
     title: "What is Calc Rush?",
     paragraphs: [
       "Calc Rush is a web app for phones, tablets and computers that helps children and teenagers get better at mental math. Players answer calculations matched to their school level, from the first years of primary school to 9th grade, in short, fast-paced games.",
-      "The idea is to practice without noticing it. Games are played against other players of the same level, every correct answer earns experience, and progress shows through ranks and titles. Playing is free: experience, level, rank and daily streak never depend on a subscription.",
+      "The idea is to practice without noticing it. Games are played against other players of the same level, every correct answer earns experience, and progress shows through ranks (and titles with Calc Rush+). Playing is free: experience, level, rank and daily streak never depend on a subscription.",
     ],
   },
   features: [
@@ -174,7 +174,7 @@ const en: CalcRushContent = {
     },
     {
       title: "Titles to unlock",
-      text: "Titles reward win streaks, correct answers and perfect games, with names such as Apprentice Calculator or Quantum Brain.",
+      text: "Titles reward win streaks, correct answers and perfect games, with names such as Apprentice Calculator or Quantum Brain. Title progression is part of the Calc Rush+ offer.",
     },
     {
       title: "Handwriting",
@@ -182,14 +182,14 @@ const en: CalcRushContent = {
     },
     {
       title: "Practice mode",
-      text: "Revise at your own pace, with no opponent, on the types of calculations of your level.",
+      text: "Revise at your own pace, with no opponent, choosing the level and the category of calculations. This mode is part of the Calc Rush+ offer.",
     },
   ],
   audiences: [
     {
       key: "students",
       title: "For students",
-      text: "Short games and duels to improve while having fun, with ranks, titles and a daily streak that make you want to come back.",
+      text: "Short games and duels to improve while having fun, with ranks and a daily streak that make you want to come back.",
     },
     {
       key: "parents",
@@ -211,12 +211,12 @@ const en: CalcRushContent = {
     {
       question: "How can kids practice mental math from grade 1 to 9?",
       answer:
-        "Calc Rush offers calculations for every level, from the first years of primary school to 9th grade. A few minutes a day builds calculation habits, and practice mode lets you revise without an opponent.",
+        "Calc Rush offers calculations for every level, from the first years of primary school to 9th grade. A few minutes a day builds calculation habits, and practice mode (Calc Rush+ offer) lets you revise without an opponent.",
     },
     {
       question: "Is Calc Rush free?",
       answer:
-        "Yes, you can play for free, even as a guest. Experience, level, rank and daily streak do not depend on a subscription. An optional offer, Calc Rush+, adds private room creation, among other things.",
+        "Yes, you can play for free, even as a guest. Experience, level, rank and daily streak do not depend on a subscription. An optional offer, Calc Rush+, adds private room creation, practice mode, quest and title progression, and the profile crown.",
     },
     {
       question: "Can you play with other people?",

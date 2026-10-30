@@ -32,6 +32,26 @@ describe("getCalcRushContent", () => {
   })
 })
 
+describe("Calc Rush+ disclosure", () => {
+  it.each(["fr", "en"] as const)(
+    "labels paid features and lists the perks in the free answer (%s)",
+    (locale) => {
+      const content = getCalcRushContent(locale)
+      const paid = content.features.filter((feature) =>
+        /entraînement|practice mode|titres|titles/i.test(feature.title)
+      )
+      expect(paid).toHaveLength(2)
+      for (const feature of paid) expect(feature.text).toContain("Calc Rush+")
+
+      const freeAnswer = content.faq[2].answer
+      expect(freeAnswer).toContain("Calc Rush+")
+      expect(freeAnswer).toMatch(/entraînement|practice mode/i)
+      expect(freeAnswer).toMatch(/titres|titles?/i)
+      expect(freeAnswer).toMatch(/privé|private/i)
+    }
+  )
+})
+
 describe("locale and topic guards", () => {
   it("accepts only fr and en as site locales", () => {
     expect(isSiteLocale("fr")).toBe(true)
