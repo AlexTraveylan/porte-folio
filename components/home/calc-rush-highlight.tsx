@@ -2,8 +2,9 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { CALC_RUSH_URL } from "@/lib/calc-rush"
 import { useCurrentLocale, useScopedI18n } from "@/locales/client"
-import { Brain, ArrowRight } from "lucide-react"
+import { ArrowRight, Brain, Trophy } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -46,7 +47,7 @@ function CalcRushHighlight() {
         </p>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
         <Button asChild size="lg" className="w-full sm:w-auto">
           <Link
             href={`/${locale}/calc-rush`}
@@ -54,6 +55,23 @@ function CalcRushHighlight() {
           >
             {scopedI18n("cta.discover")}
             <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Button>
+
+        <Button
+          asChild
+          variant="outline"
+          size="lg"
+          className="w-full sm:w-auto"
+        >
+          <Link
+            href={CALC_RUSH_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
+            <Trophy className="h-4 w-4" />
+            {scopedI18n("cta.play")}
           </Link>
         </Button>
       </div>
