@@ -45,7 +45,11 @@ function ContactForm() {
     setIsLoading(true)
     setSendStatusResult(null)
     try {
-      await sendEmail(values)
+      const result = await sendEmail(values)
+      if (!result.success) {
+        setSendStatusResult("error")
+        return
+      }
       form.reset()
       setSendStatusResult("success")
     } catch (error) {
