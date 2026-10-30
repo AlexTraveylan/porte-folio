@@ -71,7 +71,7 @@ function CalcRushContactForm() {
         <h1
           className={cn(
             nunito.className,
-            "text-3xl font-black text-[#4f46e5] dark:text-[#a5b4fc]"
+            "text-3xl font-black text-[#4f46e5] dark:text-[#a5b4fc]",
           )}
         >
           {t("title")}
@@ -94,7 +94,7 @@ function CalcRushContactForm() {
                     <select
                       className={cn(
                         fieldClass,
-                        "h-10 w-full rounded-md border px-3"
+                        "h-10 w-full rounded-md border px-3",
                       )}
                       {...field}
                       value={field.value ?? ""}
@@ -191,12 +191,18 @@ function CalcRushContactForm() {
               </Button>
 
               {sendStatusResult === "success" && (
-                <p className="text-center font-medium text-primary">
+                <p
+                  role="status"
+                  className="text-center font-medium text-primary"
+                >
                   {formT("submit.success")}
                 </p>
               )}
               {sendStatusResult === "error" && (
-                <p className="text-center font-medium text-destructive">
+                <p
+                  role="alert"
+                  className="text-center font-medium text-destructive"
+                >
                   {formT("submit.error")}
                 </p>
               )}

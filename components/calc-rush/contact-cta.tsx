@@ -14,7 +14,9 @@ function ContactCta({
 }) {
   return (
     <section className="space-y-4 rounded-3xl border-2 border-border bg-card p-8 text-center">
-      <h2 className={cn(nunito.className, "text-2xl font-black text-foreground")}>
+      <h2
+        className={cn(nunito.className, "text-2xl font-black text-foreground")}
+      >
         {content.title}
       </h2>
       <p className="mx-auto max-w-xl text-muted-foreground">{content.text}</p>

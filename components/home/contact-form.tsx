@@ -157,12 +157,18 @@ function ContactForm() {
               </Button>
 
               {sendStatusResult === "success" && (
-                <p className="text-primary font-medium text-center">
+                <p
+                  role="status"
+                  className="text-primary font-medium text-center"
+                >
                   {scopedI18n("submit.success")}
                 </p>
               )}
               {sendStatusResult === "error" && (
-                <p className="text-destructive font-medium text-center">
+                <p
+                  role="alert"
+                  className="text-destructive font-medium text-center"
+                >
                   {scopedI18n("submit.error")}
                 </p>
               )}

@@ -20,7 +20,7 @@ function Hero({ content }: { content: CalcRushContent["hero"] }) {
       <h1
         className={cn(
           nunito.className,
-          "text-4xl font-black text-[#4f46e5] dark:text-[#a5b4fc] sm:text-5xl"
+          "text-4xl font-black text-[#4f46e5] dark:text-[#a5b4fc] sm:text-5xl",
         )}
       >
         {content.title}

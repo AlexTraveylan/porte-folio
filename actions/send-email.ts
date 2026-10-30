@@ -1,7 +1,8 @@
 "use server"
 
-import { CalcRushTopic, isCalcRushTopic } from "@/lib/calc-rush"
+import { CalcRushTopic } from "@/lib/calc-rush"
 import { myEmail } from "@/lib/constants"
+import { contactPayloadSchema } from "@/lib/contact-schema"
 import { buildMailSubject } from "@/lib/mail-subject"
 import { Resend } from "resend"
 
@@ -14,15 +15,17 @@ export async function sendEmail(formData: {
   topic?: CalcRushTopic
 }) {
   try {
-    const { name, email, message, topic } = formData
-    if (topic !== undefined && !isCalcRushTopic(topic)) {
-      throw new Error("Invalid topic")
+    const parsed = contactPayloadSchema.safeParse(formData)
+    if (!parsed.success) {
+      throw new Error("Invalid form data")
     }
+    const { name, email, message, topic } = parsed.data
 
     const topicLine = topic ? `Sujet: ${topic}\n` : ""
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "PorteFolio <contact@alextraveylan.fr>",
       to: [myEmail],
+      replyTo: email,
       subject: buildMailSubject(name, topic),
       text: `${topicLine}Nom: ${name}\nEmail: ${email}\nMessage: ${message}`,
     })

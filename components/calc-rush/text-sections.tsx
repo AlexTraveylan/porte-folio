@@ -6,7 +6,11 @@ import { nunito } from "./font"
 
 const headingClass = cn(nunito.className, "text-2xl font-black text-foreground")
 
-export function AboutSection({ content }: { content: CalcRushContent["about"] }) {
+export function AboutSection({
+  content,
+}: {
+  content: CalcRushContent["about"]
+}) {
   return (
     <section className="space-y-4">
       <h2 className={headingClass}>{content.title}</h2>
@@ -60,7 +64,10 @@ export function AudiencesSection({
         {audiences.map((audience) => (
           <Card key={audience.key} className="rounded-3xl border-2">
             <CardHeader>
-              <Badge className="w-fit bg-[#fbbf24] text-slate-900 hover:bg-[#fbbf24]">
+              <Badge
+                aria-hidden="true"
+                className="w-fit bg-[#fbbf24] text-slate-900 hover:bg-[#fbbf24]"
+              >
                 {audience.title}
               </Badge>
               <CardTitle className="sr-only">{audience.title}</CardTitle>

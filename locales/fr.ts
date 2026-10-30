@@ -98,7 +98,7 @@ export default {
   "contact-form.submit.loading": "Envoi en cours...",
   "contact-form.submit.success": "Message envoyé avec succès !",
   "contact-form.submit.error": "Erreur lors de l'envoi. Réessayez plus tard.",
-  "calc-rush-contact.title": "Contacter Calc Rush",
+  "calc-rush-contact.title": "Contacter l'équipe Calc Rush",
   "calc-rush-contact.description": "Un bug, une idée, une question ou un partenariat ? Écrivez-nous.",
   "calc-rush-contact.topic": "Sujet",
   "calc-rush-contact.topic.placeholder": "Choisissez un sujet",
@@ -131,7 +131,7 @@ export default {
   "calcRush.title": "Calc Rush",
   "calcRush.tagline": "Le calcul mental devient un jeu compétitif",
   "calcRush.description":
-    "Affrontez d'autres joueurs en temps réel dans des duels de calcul mental, du CP à la 3ème. Un système de classement et de grades inspiré de League of Legends et Rocket League pour progresser et grimper les rangs.",
+    "Affrontez d'autres joueurs en temps réel dans des parties de calcul mental, du CP à la 3ème. Un système de classement et de grades inspiré de League of Legends et Rocket League pour progresser et grimper les rangs.",
   "calcRush.badge": "Projet personnel",
   "calcRush.cta.play": "Jouer maintenant",
   "calcRush.cta.discover": "Découvrir Calc Rush",

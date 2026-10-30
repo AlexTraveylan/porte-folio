@@ -96,7 +96,7 @@ export default {
   "contact-form.submit.loading": "Sending...",
   "contact-form.submit.success": "Message sent successfully!",
   "contact-form.submit.error": "An error occurred while sending the message.",
-  "calc-rush-contact.title": "Contact Calc Rush",
+  "calc-rush-contact.title": "Contact the Calc Rush team",
   "calc-rush-contact.description": "A bug, an idea, a question or a partnership? Write to us.",
   "calc-rush-contact.topic": "Subject",
   "calc-rush-contact.topic.placeholder": "Choose a subject",
@@ -120,7 +120,7 @@ export default {
   "calcRush.title": "Calc Rush",
   "calcRush.tagline": "Mental math becomes a competitive game",
   "calcRush.description":
-    "Compete against other players in real-time mental math duels, from grade 1 to 9. A ranking and grade system inspired by League of Legends and Rocket League to progress and climb the ladder.",
+    "Compete against other players in real-time mental math games, from grade 1 to 9. A ranking and grade system inspired by League of Legends and Rocket League to progress and climb the ladder.",
   "calcRush.badge": "Personal project",
   "calcRush.cta.play": "Play now",
   "calcRush.cta.discover": "Discover Calc Rush",

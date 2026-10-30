@@ -3,10 +3,34 @@ import type { CalcRushContent } from "@/lib/calc-rush-content"
 import Image from "next/image"
 
 const CAPTURES = [
-  { src: "/calc-rush/capture-1.webp", alt: { fr: "Écran d'accueil de Calc Rush avec partie classée et salon privé", en: "Calc Rush home screen with ranked game and private room" } },
-  { src: "/calc-rush/capture-2.webp", alt: { fr: "Salon d'attente avec les joueurs et leur grade", en: "Waiting room with players and their rank" } },
-  { src: "/calc-rush/capture-3.webp", alt: { fr: "Une question de calcul mental en cours de partie", en: "A mental math question during a game" } },
-  { src: "/calc-rush/capture-4.webp", alt: { fr: "Podium et classement à la fin d'une partie", en: "Podium and ranking at the end of a game" } },
+  {
+    src: "/calc-rush/capture-1.webp",
+    alt: {
+      fr: "Écran d'accueil de Calc Rush avec partie classée et partie privée",
+      en: "Calc Rush home screen with ranked game and private game",
+    },
+  },
+  {
+    src: "/calc-rush/capture-2.webp",
+    alt: {
+      fr: "Salle d'attente avec les joueurs et leur grade",
+      en: "Waiting room with players and their rank",
+    },
+  },
+  {
+    src: "/calc-rush/capture-3.webp",
+    alt: {
+      fr: "Une question de calcul mental en cours de partie",
+      en: "A mental math question during a game",
+    },
+  },
+  {
+    src: "/calc-rush/capture-4.webp",
+    alt: {
+      fr: "Podium et classement à la fin d'une partie",
+      en: "Podium and ranking at the end of a game",
+    },
+  },
 ] as const
 
 function VideoSection({

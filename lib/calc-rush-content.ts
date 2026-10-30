@@ -30,7 +30,8 @@ const fr: CalcRushContent = {
   },
   hero: {
     title: "Calc Rush",
-    tagline: "L'appli de calcul mental du CP à la 3ème, pour s'entraîner en jouant",
+    tagline:
+      "L'appli de calcul mental du CP à la 3ème, pour s'entraîner en jouant",
     play: "Jouer gratuitement",
     soon: "Bientôt disponible sur l'App Store et Google Play",
     mascotAlt: "Rushy, la mascotte de Calc Rush",
@@ -48,13 +49,13 @@ const fr: CalcRushContent = {
     title: "C'est quoi, Calc Rush ?",
     paragraphs: [
       "Calc Rush est une application web pour mobile, tablette et ordinateur qui aide les enfants et les adolescents à progresser en calcul mental. On répond à des calculs adaptés à son niveau scolaire, du CP à la 3ème, dans des parties courtes et rythmées.",
-      "Le principe : s'entraîner sans s'en rendre compte. Les parties se jouent contre d'autres joueurs de son niveau, chaque bonne réponse fait gagner de l'expérience, et la progression est visible grâce aux grades (et aux titres avec Calc Rush+). Jouer est gratuit : l'expérience, le niveau, le grade et la série quotidienne ne dépendent jamais d'un abonnement.",
+      "Le principe : s'entraîner sans s'en rendre compte. Les parties se jouent contre d'autres joueurs de son niveau, bien jouer fait gagner de l'expérience, et la progression est visible grâce aux grades (et aux titres avec Calc Rush+). Jouer est gratuit : l'expérience, le niveau, le grade et la série quotidienne ne dépendent jamais d'un abonnement.",
     ],
   },
   features: [
     {
-      title: "Duels multijoueurs",
-      text: "Des parties rapides en temps réel contre des joueurs de son niveau, ou dans un salon privé avec un code pour jouer entre amis ou en classe.",
+      title: "Parties multijoueurs",
+      text: "Des parties rapides en temps réel contre des joueurs de son niveau, ou dans une partie privée avec un code pour jouer entre amis ou en classe.",
     },
     {
       title: "5 grades",
@@ -77,7 +78,7 @@ const fr: CalcRushContent = {
     {
       key: "students",
       title: "Pour les élèves",
-      text: "Des parties courtes et des duels pour progresser en s'amusant, avec des grades et une série quotidienne qui donnent envie de revenir.",
+      text: "Des parties courtes et du multijoueur pour progresser en s'amusant, avec des grades et une série quotidienne qui donnent envie de revenir.",
     },
     {
       key: "parents",
@@ -87,7 +88,7 @@ const fr: CalcRushContent = {
     {
       key: "teachers",
       title: "Pour les professeurs",
-      text: "Un salon privé avec un code, que les élèves rejoignent gratuitement depuis leur appareil. La création d'un salon privé fait partie de l'offre optionnelle Calc Rush+.",
+      text: "Une partie privée avec un code, que les élèves rejoignent gratuitement depuis leur appareil. La création d'une partie privée fait partie de l'offre optionnelle Calc Rush+.",
     },
   ],
   faq: [
@@ -104,12 +105,12 @@ const fr: CalcRushContent = {
     {
       question: "Calc Rush est-il gratuit ?",
       answer:
-        "Oui, on peut jouer gratuitement, même en invité. L'expérience, le niveau, le grade et la série quotidienne ne dépendent pas d'un abonnement. Une offre optionnelle, Calc Rush+, ajoute la création de salons privés, le mode entraînement, la progression des quêtes et des titres, et la couronne du profil.",
+        "Oui, on peut jouer gratuitement, même en invité. L'expérience, le niveau, le grade et la série quotidienne ne dépendent pas d'un abonnement. Une offre optionnelle, Calc Rush+, ajoute la création de parties privées, le mode entraînement, la progression des quêtes et des titres, et la couronne du profil.",
     },
     {
       question: "Peut-on jouer à plusieurs ?",
       answer:
-        "Oui. Les parties classées opposent des joueurs de même niveau en temps réel. On peut aussi rejoindre un salon privé avec un code, par exemple pour jouer en classe.",
+        "Oui. Les parties classées opposent des joueurs de même niveau en temps réel. On peut aussi rejoindre une partie privée avec un code, par exemple pour jouer en classe.",
     },
     {
       question: "Comment fonctionne l'écriture manuscrite ?",
@@ -119,7 +120,7 @@ const fr: CalcRushContent = {
     {
       question: "Comment utiliser Calc Rush en classe ?",
       answer:
-        "Un professeur crée un salon privé (offre Calc Rush+) et communique le code au tableau. Les élèves rejoignent gratuitement depuis un téléphone, une tablette ou un ordinateur.",
+        "Un professeur crée une partie privée (offre Calc Rush+) et communique le code au tableau. Les élèves rejoignent gratuitement depuis un téléphone, une tablette ou un ordinateur.",
     },
     {
       question: "Calc Rush est-il disponible sur l'App Store et Google Play ?",
@@ -142,7 +143,8 @@ const en: CalcRushContent = {
   },
   hero: {
     title: "Calc Rush",
-    tagline: "The mental math app for kids from grade 1 to 9, practice by playing",
+    tagline:
+      "The mental math app for kids from grade 1 to 9, practice by playing",
     play: "Play for free",
     soon: "Coming soon on the App Store and Google Play",
     mascotAlt: "Rushy, the Calc Rush mascot",
@@ -160,13 +162,13 @@ const en: CalcRushContent = {
     title: "What is Calc Rush?",
     paragraphs: [
       "Calc Rush is a web app for phones, tablets and computers that helps children and teenagers get better at mental math. Players answer calculations matched to their school level, from the first years of primary school to 9th grade, in short, fast-paced games.",
-      "The idea is to practice without noticing it. Games are played against other players of the same level, every correct answer earns experience, and progress shows through ranks (and titles with Calc Rush+). Playing is free: experience, level, rank and daily streak never depend on a subscription.",
+      "The idea is to practice without noticing it. Games are played against other players of the same level, playing well earns experience, and progress shows through ranks (and titles with Calc Rush+). Playing is free: experience, level, rank and daily streak never depend on a subscription.",
     ],
   },
   features: [
     {
-      title: "Multiplayer duels",
-      text: "Fast real-time games against players of your level, or in a private room with a code to play with friends or in class.",
+      title: "Multiplayer games",
+      text: "Fast real-time games against players of your level, or in a private game with a code to play with friends or in class.",
     },
     {
       title: "5 ranks",
@@ -189,7 +191,7 @@ const en: CalcRushContent = {
     {
       key: "students",
       title: "For students",
-      text: "Short games and duels to improve while having fun, with ranks and a daily streak that make you want to come back.",
+      text: "Short games and multiplayer matches to improve while having fun, with ranks and a daily streak that make you want to come back.",
     },
     {
       key: "parents",
@@ -199,7 +201,7 @@ const en: CalcRushContent = {
     {
       key: "teachers",
       title: "For teachers",
-      text: "A private room with a code that students join for free from their own device. Creating a private room is part of the optional Calc Rush+ offer.",
+      text: "A private game with a code that students join for free from their own device. Creating a private game is part of the optional Calc Rush+ offer.",
     },
   ],
   faq: [
@@ -216,12 +218,12 @@ const en: CalcRushContent = {
     {
       question: "Is Calc Rush free?",
       answer:
-        "Yes, you can play for free, even as a guest. Experience, level, rank and daily streak do not depend on a subscription. An optional offer, Calc Rush+, adds private room creation, practice mode, quest and title progression, and the profile crown.",
+        "Yes, you can play for free, even as a guest. Experience, level, rank and daily streak do not depend on a subscription. An optional offer, Calc Rush+, adds private game creation, practice mode, quest and title progression, and the profile crown.",
     },
     {
       question: "Can you play with other people?",
       answer:
-        "Yes. Ranked games match players of the same level in real time. You can also join a private room with a code, for example to play in class.",
+        "Yes. Ranked games match players of the same level in real time. You can also join a private game with a code, for example to play in class.",
     },
     {
       question: "How does handwriting work?",
@@ -231,7 +233,7 @@ const en: CalcRushContent = {
     {
       question: "How can Calc Rush be used in the classroom?",
       answer:
-        "A teacher creates a private room (Calc Rush+ offer) and shares the code on the board. Students join for free from a phone, a tablet or a computer.",
+        "A teacher creates a private game (Calc Rush+ offer) and shares the code on the board. Students join for free from a phone, a tablet or a computer.",
     },
     {
       question: "Is Calc Rush available on the App Store and Google Play?",
