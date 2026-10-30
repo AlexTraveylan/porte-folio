@@ -62,6 +62,9 @@ function HeroSection() {
             <Badge variant="secondary" className="text-sm">
               Data Science
             </Badge>
+            <Badge variant="secondary" className="text-sm">
+              AI-Assisted Dev
+            </Badge>
           </div>
 
           {/* Location information */}

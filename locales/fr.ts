@@ -1,5 +1,5 @@
 export default {
-  "footer.right": "© 2025 AlexTravelan. Tous droits réservés.",
+  "footer.right": "© {year} AlexTravelan. Tous droits réservés.",
   "footer.follow": "Suivez-moi",
   "footer.quote": "Citation",
   "footer.contact": "Contact",
@@ -31,7 +31,7 @@ export default {
   "home.title": "Alex Travelan - Développeur",
   "hero.title": "Développeur Full Stack Python Freelance",
   "hero.description":
-    "J'accompagne les entreprises dans leurs projets de développement Python. Missions courtes ou longues, je m'intègre rapidement pour livrer des solutions de qualité.",
+    "J'accompagne les entreprises dans leurs projets de développement Python. Missions courtes ou longues, je m'intègre rapidement pour livrer des solutions de qualité, avec une pratique avancée du développement assisté par IA (Claude Code).",
   "hero.cta.contact": "Discutons de votre projet",
   "hero.aria.linkedin": "Voir mon profil LinkedIn",
   "hero.aria.github": "Consulter mon GitHub",
@@ -59,7 +59,7 @@ export default {
     "En tant que développeur freelance expérimenté, je propose mes services aux entreprises qui souhaitent renforcer leur équipe de développement ou développer des projets spécifiques.",
   "tarifs.included": "Inclus dans le TJM",
   "tarifs.advantages":
-    "Architecture hexagonale et Clean Code, Design patterns et bonnes pratiques, Code review et collaboration, Intégration rapide en équipe, Formation et mentoring technique, Tests unitaires et documentation, Expertise Python & TypeScript, Livraison dans les délais",
+    "Architecture hexagonale et Clean Code, Design patterns et bonnes pratiques, Code review et collaboration, Intégration rapide en équipe, Formation et mentoring technique, Tests unitaires et documentation, Expertise Python & TypeScript, Développement accéléré par l'IA (Claude Code), Livraison dans les délais",
   "tarifs.cta": "Contactez-moi",
   "back-front-balance.session.title": "Spécialisation",
   "back-front-balance.title": "Répartition des back-end et front-end",
@@ -80,7 +80,7 @@ export default {
     "Je propose les deux modalités selon vos préférences. Basé à Bordeaux, je peux travailler en présentiel pour les entreprises de la région bordelaise. Pour les missions ailleurs en France ou à l'international, j'interviens exclusivement en télétravail. J'ai l'expérience des outils collaboratifs et une excellente communication à distance.",
   "faq.question4": "Sur quels types de projets Python intervenez-vous ?",
   "faq.answer4":
-    "J'interviens sur des APIs (Django, FastAPI), applications web full-stack, projets de Data Science et Machine Learning, pipelines de données avec SQL, scripts d'automatisation, intégrations de données complexes, refactoring de code legacy, mise en place d'architectures propres (Clean Code, design patterns) et formation d'équipes aux bonnes pratiques. Mon expertise couvre le développement classique et le Machine Learning Engineering, avec une solide expérience dans le secteur B2C, notamment sur des plateformes e-commerce et des moteurs de recherche.",
+    "J'interviens sur des APIs (Django, FastAPI), applications web full-stack, projets de Data Science et Machine Learning, pipelines de données avec SQL, scripts d'automatisation, intégrations de données complexes, refactoring de code legacy, mise en place d'architectures propres (Clean Code, design patterns) formation d'équipes aux bonnes pratiques et workflows de développement avec agents IA (Claude Code). Mon expertise couvre le développement classique et le Machine Learning Engineering, avec une solide expérience dans le secteur B2C, notamment sur des plateformes e-commerce et des moteurs de recherche.",
   "faq.question5": "Comment démarrer une collaboration ?",
   "faq.answer5":
     "Contactez-moi via le formulaire ou par email pour échanger sur votre besoin. Nous planifierons un appel pour définir la mission, les objectifs et modalités. Je peux commencer rapidement, généralement sous 1-2 semaines selon ma disponibilité.",

@@ -2,7 +2,7 @@ export default {
   "footer.contact": "Contact",
   "footer.quote": "Quote",
   "footer.follow": "Follow me",
-  "footer.right": "© 2025 AlexTravelan. All rights reserved.",
+  "footer.right": "© {year} AlexTravelan. All rights reserved.",
   "footer.quotes.1": "Code is poetry.",
   "footer.quotes.2": "Life is a constant debugging process.",
   "footer.quotes.3": "Every bug is an opportunity to learn.",
@@ -30,7 +30,7 @@ export default {
   "home.title": "Alex Travelan - Python Developer",
   "hero.title": "Freelance Full Stack Python Developer",
   "hero.description":
-    "I help companies with their Python development projects. Short or long-term missions, I integrate quickly to deliver quality solutions.",
+    "I help companies with their Python development projects. Short or long-term missions, I integrate quickly to deliver quality solutions, with advanced hands-on practice of AI-assisted development (Claude Code).",
   "hero.cta.contact": "Let's discuss your project",
   "hero.aria.linkedin": "View my LinkedIn profile",
   "hero.aria.github": "Check out my GitHub",
@@ -58,7 +58,7 @@ export default {
     "As an experienced freelance developer, I offer my services to companies looking to strengthen their development team or develop specific projects.",
   "tarifs.included": "Included in the daily rate",
   "tarifs.advantages":
-    "Hexagonal architecture and Clean Code, Design patterns and best practices, Code review and collaboration, Fast team integration, Technical training and mentoring, Unit tests and documentation, Python & TypeScript expertise, On-time delivery",
+    "Hexagonal architecture and Clean Code, Design patterns and best practices, Code review and collaboration, Fast team integration, Technical training and mentoring, Unit tests and documentation, Python & TypeScript expertise, AI-accelerated development (Claude Code), On-time delivery",
   "tarifs.cta": "Contact me",
   "back-front-balance.session.title": "Specialization",
   "back-front-balance.title": "Back-end and front-end distribution",
@@ -78,7 +78,7 @@ export default {
     "I offer both options according to your preferences. Based in Bordeaux, I can work on-site for companies in the Bordeaux region. For missions elsewhere in France or internationally, I work exclusively remotely. I have experience with collaborative tools and excellent remote communication skills.",
   "faq.question4": "What types of Python projects do you work on?",
   "faq.answer4":
-    "I work on APIs (Django, FastAPI), full-stack web applications, Data Science and Machine Learning projects, data pipelines with SQL, automation scripts, complex data integrations, legacy code refactoring, implementing clean architectures (Clean Code, design patterns) and training teams in best practices. My expertise covers both traditional development and Machine Learning Engineering, with solid experience in the B2C sector, particularly on e-commerce platforms and search engines.",
+    "I work on APIs (Django, FastAPI), full-stack web applications, Data Science and Machine Learning projects, data pipelines with SQL, automation scripts, complex data integrations, legacy code refactoring, implementing clean architectures (Clean Code, design patterns) training teams in best practices and AI-agent development workflows (Claude Code). My expertise covers both traditional development and Machine Learning Engineering, with solid experience in the B2C sector, particularly on e-commerce platforms and search engines.",
   "faq.question5": "How do we start working together?",
   "faq.answer5":
     "Contact me via the form or email to discuss your needs. We'll schedule a call to define the mission, objectives and working arrangements. I can usually start quickly, typically within 1-2 weeks depending on my availability.",

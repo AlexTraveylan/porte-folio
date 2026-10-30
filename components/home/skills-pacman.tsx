@@ -60,6 +60,9 @@ const SKILLS = [
   { name: "SOLID" },
   { name: "Clean Code" },
   { name: "Grafana" },
+  { name: "Claude Code" },
+  { name: "Agents IA" },
+  { name: "MCP" },
 ]
 
 // Python is pre-collected as the core skill
