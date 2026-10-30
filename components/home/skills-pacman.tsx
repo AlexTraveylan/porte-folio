@@ -7,16 +7,29 @@ import { useGlitchText } from "@/lib/useGlitchText"
 import { useScopedI18n } from "@/locales/client"
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react"
 import Link from "next/link"
-import React, { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 // Types for Pac-Man game
 type Position = { x: number; y: number }
 type Direction = "up" | "down" | "left" | "right"
 type GameState = "start" | "playing" | "won" | "lost"
 
-// Game constants
-const GAME_SPEED = 200
-const PACMAN_ANIMATION_SPEED = 300
+type Skill = { name: string }
+type Mover = { x: number; y: number; dir: Direction; p: number; moving: boolean }
+type Ghost = Mover & { color: string }
+type Fruit = { x: number; y: number; skill: Skill }
+type Popup = { x: number; y: number; text: string; born: number }
+type Colors = { background: string; wall: string; text: string }
+
+// Game constants (speeds in tiles per second)
+const PACMAN_SPEED = 6
+const GHOST_SPEED = 4.8
+const GHOST_START_DELAY = 0.8
+const MAX_FRUITS = 5
+const CELL = 28
+const HIT_DISTANCE = 0.6
+const POPUP_DURATION = 800
+const TUNNEL_ROW = 7
 
 // Skills list (Python is pre-collected)
 const SKILLS = [
@@ -74,6 +87,137 @@ const MAZE = [
 const MAZE_WIDTH = 13
 const MAZE_HEIGHT = 15
 
+const DIRECTIONS: Direction[] = ["up", "down", "left", "right"]
+const VECTORS: Record<Direction, Position> = {
+  up: { x: 0, y: -1 },
+  down: { x: 0, y: 1 },
+  left: { x: -1, y: 0 },
+  right: { x: 1, y: 0 },
+}
+const OPPOSITE: Record<Direction, Direction> = {
+  up: "down",
+  down: "up",
+  left: "right",
+  right: "left",
+}
+const ANGLES: Record<Direction, number> = {
+  right: 0,
+  down: Math.PI / 2,
+  left: Math.PI,
+  up: -Math.PI / 2,
+}
+
+const GHOST_COLORS = ["#ef4444", "#ec4899"]
+
+// Next tile in a direction, or null if blocked. Only Pac-Man can use the tunnel.
+function nextTile(
+  x: number,
+  y: number,
+  dir: Direction,
+  canWrap: boolean
+): Position | null {
+  let nx = x + VECTORS[dir].x
+  const ny = y + VECTORS[dir].y
+  if (canWrap && y === TUNNEL_ROW) {
+    if (nx < 0) nx = MAZE_WIDTH - 1
+    else if (nx >= MAZE_WIDTH) nx = 0
+  }
+  if (nx < 0 || nx >= MAZE_WIDTH || ny < 0 || ny >= MAZE_HEIGHT) return null
+  return MAZE[ny][nx] === 0 ? { x: nx, y: ny } : null
+}
+
+function createGame() {
+  return {
+    status: "start" as GameState,
+    pacman: { x: 6, y: 11, dir: "right", p: 0, moving: false } as Mover,
+    queued: null as Direction | null,
+    ghosts: [
+      { x: 6, y: 7, dir: "up", p: 0, moving: false, color: GHOST_COLORS[0] },
+      { x: 5, y: 7, dir: "left", p: 0, moving: false, color: GHOST_COLORS[1] },
+    ] as Ghost[],
+    fruits: [] as Fruit[],
+    remaining: [...SKILLS] as Skill[],
+    popups: [] as Popup[],
+    elapsed: 0,
+  }
+}
+
+type Game = ReturnType<typeof createGame>
+
+// Visual (interpolated) position of an entity in tile units
+function visualPos(m: Mover): Position {
+  const v = VECTORS[m.dir]
+  return m.moving ? { x: m.x + v.x * m.p, y: m.y + v.y * m.p } : { x: m.x, y: m.y }
+}
+
+function spawnFruit(g: Game) {
+  const onBoard = new Set(g.fruits.map((f) => f.skill.name))
+  const candidates = g.remaining.filter((s) => !onBoard.has(s.name))
+  if (candidates.length === 0) return
+
+  const empty: Position[] = []
+  for (let y = 0; y < MAZE_HEIGHT; y++) {
+    for (let x = 0; x < MAZE_WIDTH; x++) {
+      if (
+        MAZE[y][x] === 0 &&
+        !(x === g.pacman.x && y === g.pacman.y) &&
+        !g.fruits.some((f) => f.x === x && f.y === y)
+      ) {
+        empty.push({ x, y })
+      }
+    }
+  }
+  if (empty.length === 0) return
+
+  const spot = empty[Math.floor(Math.random() * empty.length)]
+  const skill = candidates[Math.floor(Math.random() * candidates.length)]
+  g.fruits.push({ ...spot, skill })
+}
+
+function pickGhostDir(ghost: Ghost, target: Position): Direction | null {
+  let possible = DIRECTIONS.filter((d) => nextTile(ghost.x, ghost.y, d, false))
+  if (possible.length === 0) return null
+
+  // Avoid U-turns unless it's a dead end
+  const withoutReverse = possible.filter((d) => d !== OPPOSITE[ghost.dir])
+  if (withoutReverse.length > 0) possible = withoutReverse
+
+  const dx = target.x - ghost.x
+  const dy = target.y - ghost.y
+  const preferred: Direction =
+    Math.abs(dx) > Math.abs(dy)
+      ? dx > 0 ? "right" : "left"
+      : dy > 0 ? "down" : "up"
+
+  return possible.includes(preferred)
+    ? preferred
+    : possible[Math.floor(Math.random() * possible.length)]
+}
+
+function DirButton({
+  dir,
+  onPress,
+  icon: Icon,
+}: {
+  dir: Direction
+  onPress: (dir: Direction) => void
+  icon: typeof ChevronUp
+}) {
+  return (
+    <Button
+      variant="outline"
+      size="sm"
+      className="h-12 w-12 p-0 touch-manipulation active:scale-95 transition-transform"
+      onPointerDown={(e) => {
+        e.preventDefault()
+        onPress(dir)
+      }}
+    >
+      <Icon className="h-6 w-6" />
+    </Button>
+  )
+}
+
 export default function SkillsPacMan() {
   const t = useScopedI18n("skills-pacman")
   const glitchTitle = useGlitchText({
@@ -81,533 +225,357 @@ export default function SkillsPacMan() {
     hiddenDigit: combinaison[1],
   })
 
-  // Game state
-  const [pacmanPos, setPacmanPos] = useState<Position>({ x: 6, y: 11 })
-  const [pacmanDir, setPacmanDir] = useState<Direction>("right")
-  const [ghosts, setGhosts] = useState<
-    Array<{ pos: Position; dir: Direction; color: string }>
-  >([
-    { pos: { x: 6, y: 7 }, dir: "up", color: "bg-red-500" },
-    { pos: { x: 5, y: 7 }, dir: "left", color: "bg-pink-500" },
-  ])
-  const [fruits, setFruits] = useState<
-    Array<{ pos: Position; skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL }>
-  >([])
-  const [collectedSkills, setCollectedSkills] = useState<
-    Array<(typeof SKILLS)[0] | typeof PYTHON_SKILL>
-  >([PYTHON_SKILL])
+  // React state only holds what the UI around the canvas needs
   const [gameState, setGameState] = useState<GameState>("start")
-  const [availableSkills, setAvailableSkills] =
-    useState<Array<(typeof SKILLS)[0]>>(SKILLS)
-  const [pacmanMouthOpen, setPacmanMouthOpen] = useState(true)
-  const [collectedFruitAnimation, setCollectedFruitAnimation] = useState<
-    Position | null
-  >(null)
-
-  const gameLoopRef = useRef<number | null>(null)
-  const lastUpdateRef = useRef<number>(0)
-  const nextDirectionRef = useRef<Direction | null>(null)
-  const gameStateRef = useRef<GameState>("start")
-  const pacmanPosRef = useRef<Position>({ x: 6, y: 11 })
-  const pacmanDirRef = useRef<Direction>("right")
-  const ghostsRef = useRef<
-    Array<{ pos: Position; dir: Direction; color: string }>
-  >([
-    { pos: { x: 6, y: 7 }, dir: "up", color: "bg-red-500" },
-    { pos: { x: 5, y: 7 }, dir: "left", color: "bg-pink-500" },
+  const [collectedSkills, setCollectedSkills] = useState<Skill[]>([
+    PYTHON_SKILL,
   ])
-  const fruitsRef = useRef<
-    Array<{ pos: Position; skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL }>
-  >([])
-  const availableSkillsRef = useRef<Array<(typeof SKILLS)[0]>>(SKILLS)
+  const [visible, setVisible] = useState(true)
 
-  // Start the game
-  const startGame = useCallback(() => {
-    setGameState("playing")
-    gameStateRef.current = "playing"
+  // Everything that changes every frame lives in refs
+  const gameRef = useRef<Game>(createGame())
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const probeBgRef = useRef<HTMLSpanElement>(null)
+  const probeWallRef = useRef<HTMLSpanElement>(null)
+  const probeTextRef = useRef<HTMLSpanElement>(null)
+  const colorsRef = useRef<Colors>({
+    background: "#000",
+    wall: "#3b82f6",
+    text: "#fff",
+  })
+
+  const readColors = useCallback(() => {
+    if (!probeBgRef.current || !probeWallRef.current || !probeTextRef.current) {
+      return
+    }
+    colorsRef.current = {
+      background: getComputedStyle(probeBgRef.current).backgroundColor,
+      wall: getComputedStyle(probeWallRef.current).backgroundColor,
+      text: getComputedStyle(probeTextRef.current).color,
+    }
   }, [])
 
-  // Change Pac-Man direction with queue system for better responsiveness
-  const changePacmanDirection = useCallback(
-    (direction: Direction) => {
-      if (gameStateRef.current === "playing") {
-        nextDirectionRef.current = direction
-        setPacmanDir(direction)
-        pacmanDirRef.current = direction
-      }
-    },
-    []
-  )
+  const draw = useCallback((now: number) => {
+    const canvas = canvasRef.current
+    const ctx = canvas?.getContext("2d")
+    if (!canvas || !ctx) return
 
-  // Initialize game
-  const initializeGame = useCallback(() => {
-    const initialPos = { x: 6, y: 11 }
-    const initialDir = "right"
-    const initialGhosts = [
-      { pos: { x: 6, y: 7 }, dir: "up" as Direction, color: "bg-red-500" },
-      { pos: { x: 5, y: 7 }, dir: "left" as Direction, color: "bg-pink-500" },
-    ]
+    const g = gameRef.current
+    const colors = colorsRef.current
+    const dpr = canvas.width / (MAZE_WIDTH * CELL)
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-    setPacmanPos(initialPos)
-    setPacmanDir(initialDir)
-    setGhosts(initialGhosts)
-    setCollectedSkills([PYTHON_SKILL])
-    setAvailableSkills(SKILLS)
-    setGameState("start")
-    setFruits([])
-    setCollectedFruitAnimation(null)
-    setPacmanMouthOpen(true)
+    ctx.fillStyle = colors.background
+    ctx.fillRect(0, 0, MAZE_WIDTH * CELL, MAZE_HEIGHT * CELL)
 
-    pacmanPosRef.current = initialPos
-    pacmanDirRef.current = initialDir
-    ghostsRef.current = initialGhosts
-    availableSkillsRef.current = SKILLS
-    gameStateRef.current = "start"
-    nextDirectionRef.current = null
-    fruitsRef.current = []
-  }, [])
-
-  // Generate random fruits on empty spaces
-  const generateFruits = useCallback(() => {
-    if (availableSkills.length === 0) return []
-
-    const emptySpaces: Position[] = []
+    // Walls
+    ctx.fillStyle = colors.wall
     for (let y = 0; y < MAZE_HEIGHT; y++) {
       for (let x = 0; x < MAZE_WIDTH; x++) {
-        if (MAZE[y][x] === 0) {
-          emptySpaces.push({ x, y })
+        if (MAZE[y][x] === 1) {
+          ctx.beginPath()
+          ctx.roundRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2, 4)
+          ctx.fill()
         }
       }
     }
 
-    const newFruits: Array<{ pos: Position; skill: (typeof SKILLS)[0] }> = []
-    const fruitsToGenerate = Math.min(5, availableSkills.length)
+    // Fruits
+    ctx.font = `${CELL * 0.7}px sans-serif`
+    ctx.textAlign = "center"
+    ctx.textBaseline = "middle"
+    g.fruits.forEach((fruit, i) => {
+      const scale = 1 + 0.08 * Math.sin(now / 200 + i)
+      ctx.save()
+      ctx.translate((fruit.x + 0.5) * CELL, (fruit.y + 0.5) * CELL)
+      ctx.scale(scale, scale)
+      ctx.fillText("🍎", 0, 0)
+      ctx.restore()
+    })
 
-    // Add fruits randomly
-    for (let i = 0; i < fruitsToGenerate; i++) {
-      if (emptySpaces.length > 0 && availableSkills.length > 0) {
-        const randomSpaceIndex = Math.floor(Math.random() * emptySpaces.length)
-        const randomSpace = emptySpaces.splice(randomSpaceIndex, 1)[0]
-        const randomSkillIndex = Math.floor(
-          Math.random() * availableSkills.length
-        )
-        const skill = availableSkills[randomSkillIndex]
+    // Ghosts
+    g.ghosts.forEach((ghost) => {
+      const pos = visualPos(ghost)
+      const cx = (pos.x + 0.5) * CELL
+      const cy = (pos.y + 0.5) * CELL
+      const r = CELL * 0.38
+      const wave = Math.sin(now / 120) * 1.5
 
-        newFruits.push({ pos: randomSpace, skill })
+      ctx.fillStyle = ghost.color
+      ctx.beginPath()
+      ctx.arc(cx, cy - 1, r, Math.PI, 0)
+      ctx.lineTo(cx + r, cy + r)
+      for (let i = 0; i < 3; i++) {
+        const w = (r * 2) / 3
+        const x0 = cx + r - i * w
+        ctx.quadraticCurveTo(x0 - w / 2, cy + r - 4 + (i % 2 ? -wave : wave), x0 - w, cy + r)
       }
-    }
+      ctx.closePath()
+      ctx.fill()
 
-    return newFruits
-  }, [availableSkills])
+      const v = VECTORS[ghost.dir]
+      ctx.fillStyle = "#fff"
+      for (const ex of [-r * 0.4, r * 0.4]) {
+        ctx.beginPath()
+        ctx.arc(cx + ex, cy - 3, 3.2, 0, Math.PI * 2)
+        ctx.fill()
+      }
+      ctx.fillStyle = "#1e3a8a"
+      for (const ex of [-r * 0.4, r * 0.4]) {
+        ctx.beginPath()
+        ctx.arc(cx + ex + v.x * 1.5, cy - 3 + v.y * 1.5, 1.5, 0, Math.PI * 2)
+        ctx.fill()
+      }
+    })
 
-  // Check if position is valid (not a wall)
-  const isValidPosition = useCallback((pos: Position) => {
-    if (pos.x < 0 || pos.x >= MAZE_WIDTH || pos.y < 0 || pos.y >= MAZE_HEIGHT) {
-      return false
+    // Pac-Man
+    const pm = g.pacman
+    const pos = visualPos(pm)
+    const mouth = pm.moving
+      ? Math.PI * (0.04 + 0.2 * (0.5 + 0.5 * Math.sin(now / 70)))
+      : Math.PI * 0.12
+    ctx.save()
+    ctx.translate((pos.x + 0.5) * CELL, (pos.y + 0.5) * CELL)
+    ctx.rotate(ANGLES[pm.dir])
+    ctx.fillStyle = "#facc15"
+    ctx.shadowColor = "rgba(250, 204, 21, 0.5)"
+    ctx.shadowBlur = 4
+    ctx.beginPath()
+    ctx.moveTo(0, 0)
+    ctx.arc(0, 0, CELL * 0.4, mouth, Math.PI * 2 - mouth)
+    ctx.closePath()
+    ctx.fill()
+    ctx.restore()
+
+    // Collected skill popups
+    g.popups = g.popups.filter((p) => now - p.born < POPUP_DURATION)
+    ctx.font = "bold 12px sans-serif"
+    ctx.lineWidth = 3
+    ctx.strokeStyle = colors.background
+    ctx.fillStyle = colors.text
+    for (const p of g.popups) {
+      const k = (now - p.born) / POPUP_DURATION
+      const x = Math.min(Math.max(p.x * CELL + CELL / 2, 30), MAZE_WIDTH * CELL - 30)
+      const y = p.y * CELL - k * CELL
+      ctx.globalAlpha = 1 - k
+      ctx.strokeText(p.text, x, y)
+      ctx.fillText(p.text, x, y)
     }
-    return MAZE[pos.y][pos.x] === 0
+    ctx.globalAlpha = 1
   }, [])
 
-  // Get next position based on direction
-  const getNextPosition = useCallback(
-    (pos: Position, dir: Direction): Position => {
-      const next = { ...pos }
-      switch (dir) {
-        case "up":
-          next.y -= 1
-          break
-        case "down":
-          next.y += 1
-          break
-        case "left":
-          next.x -= 1
-          break
-        case "right":
-          next.x += 1
-          break
+  const resetGame = useCallback(() => {
+    gameRef.current = createGame()
+    setCollectedSkills([PYTHON_SKILL])
+    setGameState("start")
+  }, [])
+
+  const startGame = useCallback(() => {
+    const g = gameRef.current
+    g.fruits = []
+    for (let i = 0; i < Math.min(MAX_FRUITS, g.remaining.length); i++) {
+      spawnFruit(g)
+    }
+    g.status = "playing"
+    setGameState("playing")
+  }, [])
+
+  const changePacmanDirection = useCallback((direction: Direction) => {
+    const g = gameRef.current
+    if (g.status === "playing") g.queued = direction
+  }, [])
+
+  // Advance the simulation by dt seconds
+  const update = useCallback(
+    (dt: number, now: number) => {
+      const g = gameRef.current
+      g.elapsed += dt
+
+      // Pac-Man
+      const pm = g.pacman
+      let budget = PACMAN_SPEED * dt
+      // Reversing mid-tile is instant: swap the tile we're heading to
+      if (pm.moving && g.queued === OPPOSITE[pm.dir]) {
+        const target = nextTile(pm.x, pm.y, pm.dir, true)
+        if (target) {
+          pm.x = target.x
+          pm.y = target.y
+          pm.dir = g.queued
+          pm.p = 1 - pm.p
+          g.queued = null
+        }
       }
-      return next
+      while (budget > 0) {
+        if (!pm.moving) {
+          const dir =
+            g.queued && nextTile(pm.x, pm.y, g.queued, true) ? g.queued : pm.dir
+          if (!nextTile(pm.x, pm.y, dir, true)) break
+          if (dir === g.queued) g.queued = null
+          pm.dir = dir
+          pm.moving = true
+          pm.p = 0
+        }
+        const need = 1 - pm.p
+        if (budget < need) {
+          pm.p += budget
+          break
+        }
+        budget -= need
+        const target = nextTile(pm.x, pm.y, pm.dir, true)
+        if (target) {
+          pm.x = target.x
+          pm.y = target.y
+        }
+        pm.p = 0
+        pm.moving = false
+
+        const eaten = g.fruits.findIndex((f) => f.x === pm.x && f.y === pm.y)
+        if (eaten !== -1) {
+          const { skill } = g.fruits[eaten]
+          g.fruits.splice(eaten, 1)
+          g.remaining = g.remaining.filter((s) => s.name !== skill.name)
+          g.popups.push({ x: pm.x, y: pm.y, text: skill.name, born: now })
+          setCollectedSkills((prev) =>
+            prev.some((s) => s.name === skill.name) ? prev : [...prev, skill]
+          )
+          if (g.fruits.length < MAX_FRUITS) spawnFruit(g)
+        }
+      }
+
+      // Ghosts (they wait a moment so the player can get oriented)
+      if (g.elapsed > GHOST_START_DELAY) {
+        const target = { x: pm.x, y: pm.y }
+        for (const ghost of g.ghosts) {
+          let gBudget = GHOST_SPEED * dt
+          while (gBudget > 0) {
+            if (!ghost.moving) {
+              const dir = pickGhostDir(ghost, target)
+              if (!dir) break
+              ghost.dir = dir
+              ghost.moving = true
+              ghost.p = 0
+            }
+            const need = 1 - ghost.p
+            if (gBudget < need) {
+              ghost.p += gBudget
+              break
+            }
+            gBudget -= need
+            const next = nextTile(ghost.x, ghost.y, ghost.dir, false)
+            if (next) {
+              ghost.x = next.x
+              ghost.y = next.y
+            }
+            ghost.p = 0
+            ghost.moving = false
+          }
+        }
+      }
+
+      // Collisions
+      const pv = visualPos(pm)
+      const caught = g.ghosts.some((ghost) => {
+        const gv = visualPos(ghost)
+        return Math.hypot(gv.x - pv.x, gv.y - pv.y) < HIT_DISTANCE
+      })
+      if (caught) {
+        g.status = "lost"
+        setGameState("lost")
+      } else if (g.remaining.length === 0 && g.fruits.length === 0) {
+        g.status = "won"
+        setGameState("won")
+      }
     },
     []
   )
 
-  // Move Pac-Man
-  const movePacman = useCallback(() => {
-    const currentPos = pacmanPosRef.current
-    let currentDir = pacmanDirRef.current
-
-    // Try to apply queued direction if valid
-    if (nextDirectionRef.current) {
-      const queuedNextPos = getNextPosition(currentPos, nextDirectionRef.current)
-      if (isValidPosition(queuedNextPos)) {
-        currentDir = nextDirectionRef.current
-        pacmanDirRef.current = currentDir
-        nextDirectionRef.current = null
-      }
-    }
-
-    const nextPos = getNextPosition(currentPos, currentDir)
-
-    // Handle teleportation on row 7 (tunnel)
-    let finalPos = nextPos
-    if (currentPos.y === 7) {
-      if (nextPos.x < 0) {
-        finalPos = { x: MAZE_WIDTH - 1, y: 7 }
-      } else if (nextPos.x >= MAZE_WIDTH) {
-        finalPos = { x: 0, y: 7 }
-      }
-    }
-
-    if (isValidPosition(finalPos)) {
-      pacmanPosRef.current = finalPos
-      setPacmanPos(finalPos)
-      setPacmanDir(currentDir)
-
-      // Check fruit collection
-      const collectedFruit = fruitsRef.current.find(
-        (fruit: { pos: Position; skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL }) =>
-          fruit.pos.x === finalPos.x && fruit.pos.y === finalPos.y
-      )
-
-      if (collectedFruit) {
-        setCollectedFruitAnimation(finalPos)
-        setTimeout(() => setCollectedFruitAnimation(null), 300)
-
-        fruitsRef.current = fruitsRef.current.filter(
-          (fruit: { pos: Position; skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL }) =>
-            !(fruit.pos.x === finalPos.x && fruit.pos.y === finalPos.y)
-        )
-
-        setFruits([...fruitsRef.current])
-
-        setCollectedSkills((prevSkills: Array<(typeof SKILLS)[0] | typeof PYTHON_SKILL>) => {
-          const isAlreadyCollected = prevSkills.some(
-            (skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL) =>
-              skill.name === collectedFruit.skill.name
-          )
-          if (!isAlreadyCollected) {
-            return [...prevSkills, collectedFruit.skill]
-          }
-          return prevSkills
-        })
-
-        availableSkillsRef.current = availableSkillsRef.current.filter(
-          (skill: (typeof SKILLS)[0]) => skill.name !== collectedFruit.skill.name
-        )
-        setAvailableSkills([...availableSkillsRef.current])
-      }
-    }
-  }, [getNextPosition, isValidPosition])
-
-  // Move ghosts with simple AI
-  const moveGhosts = useCallback(() => {
-    ghostsRef.current = ghostsRef.current.map((ghost: { pos: Position; dir: Direction; color: string }) => {
-      const directions: Direction[] = ["up", "down", "left", "right"]
-      const possibleMoves = directions.filter((dir) => {
-        const nextPos = getNextPosition(ghost.pos, dir)
-        return isValidPosition(nextPos)
-      })
-
-      if (possibleMoves.length === 0) return ghost
-
-      const toPacman = {
-        x: pacmanPosRef.current.x - ghost.pos.x,
-        y: pacmanPosRef.current.y - ghost.pos.y,
-      }
-
-      let preferredDir: Direction | null = null
-      if (Math.abs(toPacman.x) > Math.abs(toPacman.y)) {
-        preferredDir = toPacman.x > 0 ? "right" : "left"
-      } else {
-        preferredDir = toPacman.y > 0 ? "down" : "up"
-      }
-
-      const finalDir = possibleMoves.includes(preferredDir)
-        ? preferredDir
-        : possibleMoves[Math.floor(Math.random() * possibleMoves.length)]
-
-      return {
-        ...ghost,
-        pos: getNextPosition(ghost.pos, finalDir),
-        dir: finalDir,
-      }
-    })
-    setGhosts([...ghostsRef.current])
-  }, [getNextPosition, isValidPosition])
-
-  // Check collisions
-  const checkCollisions = useCallback(() => {
-    const ghostCollision = ghostsRef.current.some(
-      (ghost: { pos: Position; dir: Direction; color: string }) =>
-        ghost.pos.x === pacmanPosRef.current.x &&
-        ghost.pos.y === pacmanPosRef.current.y
-    )
-
-    if (ghostCollision) {
-      gameStateRef.current = "lost"
-      setGameState("lost")
-      return
-    }
-
-    if (
-      availableSkillsRef.current.length === 0 &&
-      fruitsRef.current.length === 0
-    ) {
-      gameStateRef.current = "won"
-      setGameState("won")
-    }
-  }, [])
-
   // Keyboard controls
   useEffect(() => {
+    const keyMap: Record<string, Direction> = {
+      ArrowUp: "up",
+      w: "up",
+      W: "up",
+      ArrowDown: "down",
+      s: "down",
+      S: "down",
+      ArrowLeft: "left",
+      a: "left",
+      A: "left",
+      ArrowRight: "right",
+      d: "right",
+      D: "right",
+    }
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (gameStateRef.current !== "playing") return
-
-      switch (e.key) {
-        case "ArrowUp":
-        case "w":
-        case "W":
-          e.preventDefault()
-          changePacmanDirection("up")
-          break
-        case "ArrowDown":
-        case "s":
-        case "S":
-          e.preventDefault()
-          changePacmanDirection("down")
-          break
-        case "ArrowLeft":
-        case "a":
-        case "A":
-          e.preventDefault()
-          changePacmanDirection("left")
-          break
-        case "ArrowRight":
-        case "d":
-        case "D":
-          e.preventDefault()
-          changePacmanDirection("right")
-          break
-      }
+      if (gameRef.current.status !== "playing") return
+      const dir = keyMap[e.key]
+      if (!dir) return
+      e.preventDefault()
+      changePacmanDirection(dir)
     }
 
     window.addEventListener("keydown", handleKeyPress)
     return () => window.removeEventListener("keydown", handleKeyPress)
   }, [changePacmanDirection])
 
-  // Pac-Man mouth animation
+  // Canvas sizing (crisp on high-DPI screens) and theme colors
   useEffect(() => {
-    if (gameStateRef.current === "playing") {
-      const mouthInterval = setInterval(() => {
-        setPacmanMouthOpen((prev: boolean) => !prev)
-      }, PACMAN_ANIMATION_SPEED)
-
-      return () => clearInterval(mouthInterval)
+    const canvas = canvasRef.current
+    if (canvas) {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = MAZE_WIDTH * CELL * dpr
+      canvas.height = MAZE_HEIGHT * CELL * dpr
     }
-  }, [gameState])
+    readColors()
+    draw(performance.now())
 
-  // Game loop with requestAnimationFrame for smooth performance
+    const observer = new MutationObserver(() => {
+      readColors()
+      draw(performance.now())
+    })
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "data-theme", "style"],
+    })
+    return () => observer.disconnect()
+  }, [readColors, draw])
+
+  // Only simulate while the board is on screen
   useEffect(() => {
-    if (gameState === "playing") {
-      lastUpdateRef.current = performance.now()
-
-      const gameLoop = (currentTime: number) => {
-        if (gameStateRef.current !== "playing") {
-          return
-        }
-
-        const deltaTime = currentTime - lastUpdateRef.current
-
-        if (deltaTime >= GAME_SPEED) {
-          movePacman()
-          moveGhosts()
-          checkCollisions()
-          lastUpdateRef.current = currentTime
-        }
-
-        gameLoopRef.current = requestAnimationFrame(gameLoop)
-      }
-
-      gameLoopRef.current = requestAnimationFrame(gameLoop)
-
-      return () => {
-        if (gameLoopRef.current !== null) {
-          cancelAnimationFrame(gameLoopRef.current)
-        }
-      }
-    }
-  }, [gameState, movePacman, moveGhosts, checkCollisions])
-
-  // Add a single fruit when one is collected
-  const addSingleFruit = useCallback(() => {
-    if (availableSkillsRef.current.length === 0) return
-
-    const emptySpaces: Position[] = []
-    for (let y = 0; y < MAZE_HEIGHT; y++) {
-      for (let x = 0; x < MAZE_WIDTH; x++) {
-        if (MAZE[y][x] === 0) {
-          const isOccupied = fruitsRef.current.some(
-            (fruit: { pos: Position; skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL }) =>
-              fruit.pos.x === x && fruit.pos.y === y
-          )
-          if (!isOccupied) {
-            emptySpaces.push({ x, y })
-          }
-        }
-      }
-    }
-
-    if (emptySpaces.length > 0) {
-      const randomSpaceIndex = Math.floor(Math.random() * emptySpaces.length)
-      const randomSpace = emptySpaces[randomSpaceIndex]
-      const randomSkillIndex = Math.floor(
-        Math.random() * availableSkillsRef.current.length
-      )
-      const skill = availableSkillsRef.current[randomSkillIndex]
-
-      fruitsRef.current = [...fruitsRef.current, { pos: randomSpace, skill }]
-      setFruits([...fruitsRef.current])
-    }
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) =>
+      setVisible(entry.isIntersecting)
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
-  // Initialize fruits when game starts
+  // Game loop: fixed logic speed independent of the refresh rate
   useEffect(() => {
-    if (
-      gameState === "playing" &&
-      fruitsRef.current.length === 0 &&
-      availableSkillsRef.current.length > 0
-    ) {
-      const newFruits = generateFruits()
-      fruitsRef.current = newFruits
-      setFruits(newFruits)
+    if (gameState !== "playing" || !visible) {
+      draw(performance.now())
+      return
     }
-  }, [gameState, generateFruits])
 
-  // Add single fruit when one is collected (maintain 5 fruits)
-  useEffect(() => {
-    if (
-      gameState === "playing" &&
-      fruitsRef.current.length < 5 &&
-      fruitsRef.current.length > 0 &&
-      availableSkillsRef.current.length > 0
-    ) {
-      addSingleFruit()
+    let raf = 0
+    let last = performance.now()
+
+    const frame = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.05)
+      last = now
+      update(dt, now)
+      draw(now)
+      if (gameRef.current.status === "playing") {
+        raf = requestAnimationFrame(frame)
+      }
     }
-  }, [gameState, fruits.length, addSingleFruit])
+    raf = requestAnimationFrame(frame)
 
-  // Start game on component mount
-  useEffect(() => {
-    initializeGame()
-  }, [initializeGame])
+    return () => cancelAnimationFrame(raf)
+  }, [gameState, visible, update, draw])
 
-  // Stable cell rendering to prevent flickering
-  const getCellContent = useCallback(
-    (x: number, y: number): React.ReactElement | null => {
-      // Pac-Man
-      if (pacmanPos.x === x && pacmanPos.y === y) {
-        const rotationClassesMap: Record<Direction, string> = {
-          right: "rotate-0",
-          down: "rotate-90",
-          left: "rotate-180",
-          up: "-rotate-90",
-        }
-        const rotationClasses = rotationClassesMap[pacmanDir] || "rotate-0"
-        const pacmanMouth = pacmanMouthOpen ? "◐" : "●"
-
-        return (
-          <div
-            key="pacman"
-            className={`text-yellow-400 text-2xl font-bold ${rotationClasses} transform inline-block will-change-transform drop-shadow-sm`}
-            style={{
-              transition: "transform 0.1s ease-out",
-              filter: "drop-shadow(0 0 2px rgba(250, 204, 21, 0.5))",
-            }}
-          >
-            {pacmanMouth}
-          </div>
-        )
-      }
-
-      // Ghosts
-      const ghost = ghosts.find(
-        (g: { pos: Position; dir: Direction; color: string }) =>
-          g.pos.x === x && g.pos.y === y
-      )
-      if (ghost) {
-        return (
-          <div
-            key={`ghost-${ghost.pos.x}-${ghost.pos.y}`}
-            className={`w-5 h-5 rounded-t-full ${ghost.color} will-change-transform shadow-sm`}
-            style={{
-              transition: "transform 0.15s ease-out",
-              animation: "ghost-float 2s ease-in-out infinite",
-            }}
-          ></div>
-        )
-      }
-
-      // Fruits
-      const fruit = fruits.find(
-        (f: { pos: Position; skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL }) =>
-          f.pos.x === x && f.pos.y === y
-      )
-      if (fruit) {
-        const isAnimating =
-          collectedFruitAnimation?.x === fruit.pos.x &&
-          collectedFruitAnimation?.y === fruit.pos.y
-        return (
-          <div
-            key={`fruit-${fruit.pos.x}-${fruit.pos.y}`}
-            className={`text-red-500 text-lg will-change-transform ${isAnimating ? "scale-150 opacity-0" : "scale-100 opacity-100"
-              }`}
-            style={{
-              transition: isAnimating
-                ? "transform 0.3s ease-out, opacity 0.3s ease-out"
-                : "none",
-              filter: isAnimating
-                ? "none"
-                : "drop-shadow(0 0 2px rgba(239, 68, 68, 0.3))",
-            }}
-          >
-            🍎
-          </div>
-        )
-      }
-
-      return null
-    },
-    [
-      pacmanPos,
-      pacmanDir,
-      pacmanMouthOpen,
-      ghosts,
-      fruits,
-      collectedFruitAnimation,
-    ]
-  )
-
-  const renderCell = useCallback(
-    (x: number, y: number) => {
-      const content = getCellContent(x, y)
-
-      if (content) {
-        return content
-      }
-
-      // Wall or empty space
-      if (MAZE[y][x] === 1) {
-        return (
-          <div
-            key={`wall-${x}-${y}`}
-            className="w-full h-full bg-primary"
-          ></div>
-        )
-      }
-
-      return null
-    },
-    [getCellContent]
-  )
+  const missingCount = SKILLS.length - (collectedSkills.length - 1)
 
   return (
     <div className="space-y-8">
@@ -616,30 +584,22 @@ export default function SkillsPacMan() {
 
       {/* Game board */}
       <div className="flex justify-center">
-        <div className="relative">
+        <div className="relative" ref={containerRef}>
           <div
-            className="grid gap-0.5 bg-card p-3 sm:p-2 border-2 border-border rounded-lg shadow-lg select-none"
-            style={{
-              gridTemplateColumns: `repeat(${MAZE_WIDTH}, 1fr)`,
-              gridTemplateRows: `repeat(${MAZE_HEIGHT}, 1fr)`,
-            }}
+            className="bg-card p-3 sm:p-2 border-2 border-border rounded-lg shadow-lg select-none"
             onContextMenu={(e) => e.preventDefault()}
           >
-            {Array(MAZE_HEIGHT * MAZE_WIDTH)
-              .fill(null)
-              .map((_, index) => {
-                const x = index % MAZE_WIDTH
-                const y = Math.floor(index / MAZE_WIDTH)
-                return (
-                  <div
-                    key={`cell-${x}-${y}`}
-                    className="w-7 h-7 sm:w-6 sm:h-6 flex items-center justify-center bg-background"
-                  >
-                    {renderCell(x, y)}
-                  </div>
-                )
-              })}
+            <canvas
+              ref={canvasRef}
+              className="block w-full max-w-[364px] sm:max-w-[338px] rounded-sm"
+              style={{ aspectRatio: `${MAZE_WIDTH} / ${MAZE_HEIGHT}` }}
+            />
           </div>
+
+          {/* Theme color probes read by the canvas renderer */}
+          <span ref={probeBgRef} className="hidden bg-background" />
+          <span ref={probeWallRef} className="hidden bg-primary" />
+          <span ref={probeTextRef} className="hidden text-foreground" />
 
           {/* Start Screen Overlay */}
           {gameState === "start" && (
@@ -690,14 +650,14 @@ export default function SkillsPacMan() {
                   <div className="space-y-3">
                     <h4 className="text-lg font-semibold">{t("collected")}</h4>
                     <div className="flex flex-wrap justify-center gap-2">
-                      {collectedSkills.map((skill: (typeof SKILLS)[0] | typeof PYTHON_SKILL, index: number) => (
-                        <Badge key={index} variant="secondary">
+                      {collectedSkills.map((skill) => (
+                        <Badge key={skill.name} variant="secondary">
                           {skill.name}
                         </Badge>
                       ))}
-                      {gameState === "lost" && availableSkills.length > 0 && (
+                      {gameState === "lost" && missingCount > 0 && (
                         <Badge variant="secondary">
-                          +{availableSkills.length} {t("missing")}
+                          +{missingCount} {t("missing")}
                         </Badge>
                       )}
                     </div>
@@ -706,7 +666,7 @@ export default function SkillsPacMan() {
 
                 {/* Action buttons */}
                 <div className="flex gap-3 justify-center pt-4">
-                  <Button onClick={initializeGame} variant="outline">
+                  <Button onClick={resetGame} variant="outline">
                     {t("playAgain")}
                   </Button>
                   <Link href="/contact">
@@ -723,63 +683,14 @@ export default function SkillsPacMan() {
       {gameState === "playing" && (
         <div className="flex justify-center md:hidden">
           <div className="grid grid-cols-3 gap-2 w-32">
-            {/* Top row */}
             <div></div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-12 w-12 p-0 touch-manipulation active:scale-95 transition-transform"
-              onClick={() => changePacmanDirection("up")}
-              onTouchStart={(e) => {
-                e.preventDefault()
-                changePacmanDirection("up")
-              }}
-            >
-              <ChevronUp className="h-6 w-6" />
-            </Button>
+            <DirButton dir="up" onPress={changePacmanDirection} icon={ChevronUp} />
             <div></div>
-
-            {/* Middle row */}
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-12 w-12 p-0 touch-manipulation active:scale-95 transition-transform"
-              onClick={() => changePacmanDirection("left")}
-              onTouchStart={(e) => {
-                e.preventDefault()
-                changePacmanDirection("left")
-              }}
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
+            <DirButton dir="left" onPress={changePacmanDirection} icon={ChevronLeft} />
             <div></div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-12 w-12 p-0 touch-manipulation active:scale-95 transition-transform"
-              onClick={() => changePacmanDirection("right")}
-              onTouchStart={(e) => {
-                e.preventDefault()
-                changePacmanDirection("right")
-              }}
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
-
-            {/* Bottom row */}
+            <DirButton dir="right" onPress={changePacmanDirection} icon={ChevronRight} />
             <div></div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-12 w-12 p-0 touch-manipulation active:scale-95 transition-transform"
-              onClick={() => changePacmanDirection("down")}
-              onTouchStart={(e) => {
-                e.preventDefault()
-                changePacmanDirection("down")
-              }}
-            >
-              <ChevronDown className="h-6 w-6" />
-            </Button>
+            <DirButton dir="down" onPress={changePacmanDirection} icon={ChevronDown} />
             <div></div>
           </div>
         </div>
