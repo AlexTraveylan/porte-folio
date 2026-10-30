@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/footer"
 import Header from "@/components/layout/header"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SITE_URL } from "@/lib/calc-rush"
 import { cn } from "@/lib/utils"
 import { I18nProviderClient } from "@/locales/client"
 import type { Metadata } from "next"
@@ -16,9 +17,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "AlexTravelan - Python Developer",
   description: "A french freelance Python developer, Bordeaux, France.",
-  other: {
-    "Cache-Control": "public, max-age=3600, must-revalidate",
-  },
+  metadataBase: new URL(SITE_URL),
 }
 
 export default function RootLayout({
