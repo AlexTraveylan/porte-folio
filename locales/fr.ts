@@ -131,10 +131,10 @@ export default {
   "calcRush.title": "Calc Rush",
   "calcRush.tagline": "Le calcul mental devient un jeu compétitif",
   "calcRush.description":
-    "Affrontez d'autres joueurs en temps réel dans des duels de calcul mental, du CP au lycée. Un système de classement et de grades inspiré de League of Legends et Rocket League pour progresser et grimper les rangs.",
+    "Affrontez d'autres joueurs en temps réel dans des duels de calcul mental, du CP à la 3ème. Un système de classement et de grades inspiré de League of Legends et Rocket League pour progresser et grimper les rangs.",
   "calcRush.badge": "Projet personnel",
-  "calcRush.cta.play": "Jouer maintenant",
-  "calcRush.cta.multiplayer": "Mode multijoueur",
+  "calcRush.cta.discover": "Découvrir Calc Rush",
+  "calcRush.image.alt": "Podium à la fin d'une partie de Calc Rush",
   "ecotrack.title": "EcoTrack",
   "ecotrack.tagline": "Analysez l'impact environnemental de votre site web",
   "ecotrack.description":
