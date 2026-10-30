@@ -17,7 +17,7 @@ function HeroSection() {
   })
 
   const currentDate = new Date()
-  const experienceYears = Math.floor(
+  const experienceYears = Math.ceil(
     (currentDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365)
   )
 
@@ -73,7 +73,7 @@ function HeroSection() {
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <span>
-                {experienceYears}+ {scopedT("years")}
+                {experienceYears} {scopedT("years")}
               </span>
             </div>
           </div>

@@ -11,6 +11,7 @@ export function cn(...inputs: ClassValue[]) {
  * - 0 to 5 years: linear evolution from 250€ to 500€ (monthly)
  * - 5 to 10 years: linear evolution from 500€ to 700€ (monthly)
  * - After 10 years: +5€ per month
+ * - +50€ added on top of the computed rate
  * - Rounded down to nearest 10
  */
 export function computeTjm(startDate: Date): number {
@@ -34,6 +35,8 @@ export function computeTjm(startDate: Date): number {
     const monthsAfter120 = diffInMonths - 120
     tjm = 700 + monthsAfter120 * 5
   }
+
+  tjm += 50
 
   // Round down to nearest 10
   return Math.floor(tjm / 10) * 10
