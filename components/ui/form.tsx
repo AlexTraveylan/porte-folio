@@ -126,7 +126,7 @@ const FormControl = React.forwardRef<
 })
 FormControl.displayName = "FormControl"
 
-type zodError = "name.min" | "email.email" | "message.min"
+type zodError = "name.min" | "email.email" | "message.min" | "topic.required"
 
 const FormMessageI18n = React.forwardRef<
   HTMLParagraphElement,
