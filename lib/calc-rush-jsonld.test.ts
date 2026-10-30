@@ -3,7 +3,7 @@ import { getCalcRushContent } from "./calc-rush-content"
 
 describe("buildCalcRushJsonLd", () => {
   const content = getCalcRushContent("fr")
-  const data = buildCalcRushJsonLd("fr", content) as Record<string, any>[]
+  const data = buildCalcRushJsonLd("fr", content) as Record<string, unknown>[]
   const byType = (type: string) => data.find((item) => item["@type"] === type)
 
   it("describes the app as a free educational application", () => {
@@ -16,7 +16,7 @@ describe("buildCalcRushJsonLd", () => {
   it("builds one Question per FAQ entry", () => {
     const faq = byType("FAQPage")
     expect(faq?.mainEntity).toHaveLength(content.faq.length)
-    expect(faq?.mainEntity[0]).toMatchObject({
+    expect((faq?.mainEntity as unknown[])[0]).toMatchObject({
       "@type": "Question",
       name: content.faq[0].question,
     })

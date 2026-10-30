@@ -2,7 +2,14 @@ import type { SiteLocale } from "./calc-rush"
 
 export type CalcRushContent = {
   seo: { title: string; description: string }
-  hero: { title: string; tagline: string; play: string; soon: string }
+  hero: {
+    title: string
+    tagline: string
+    play: string
+    soon: string
+    mascotAlt: string
+  }
+  sections: { features: string; audiences: string; faq: string }
   video: { caption: string }
   about: { title: string; paragraphs: string[] }
   features: { title: string; text: string }[]
@@ -26,6 +33,12 @@ const fr: CalcRushContent = {
     tagline: "L'appli de calcul mental du CP à la 3ème, pour s'entraîner en jouant",
     play: "Jouer gratuitement",
     soon: "Bientôt disponible sur l'App Store et Google Play",
+    mascotAlt: "Rushy, la mascotte de Calc Rush",
+  },
+  sections: {
+    features: "Ce qu'on y trouve",
+    audiences: "Pour qui ?",
+    faq: "Questions fréquentes",
   },
   video: {
     caption:
@@ -132,6 +145,12 @@ const en: CalcRushContent = {
     tagline: "The mental math app for kids from grade 1 to 9, practice by playing",
     play: "Play for free",
     soon: "Coming soon on the App Store and Google Play",
+    mascotAlt: "Rushy, the Calc Rush mascot",
+  },
+  sections: {
+    features: "What's inside",
+    audiences: "Who is it for?",
+    faq: "Frequently asked questions",
   },
   video: {
     caption:
